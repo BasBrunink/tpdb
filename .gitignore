@@ -236,6 +236,7 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
+*.env
 .env
 .env.development.local
 .env.test.local
@@ -301,3 +302,5 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,node,angular
+
+
