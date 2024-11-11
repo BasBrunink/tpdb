@@ -1,1 +1,4 @@
-export class CreateResortDto {}
+export class CreateResortDto {
+  name: string;
+  description: string;
+}

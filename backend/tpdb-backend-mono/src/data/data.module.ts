@@ -2,6 +2,6 @@ import { Module } from '@nestjs/common';
 import { ResortModule } from './resort/resort.module';
 
 @Module({
-  imports: [ResortModule]
+  imports: [ResortModule],
 })
 export class DataModule {}

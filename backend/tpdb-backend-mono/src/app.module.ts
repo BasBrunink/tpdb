@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from '@nestjs/config';
 import { DataModule } from './data/data.module';
+import { CommonModule } from './common/common.module';
 import * as Joi from '@hapi/joi';
 
 @Module({
@@ -15,13 +16,14 @@ import * as Joi from '@hapi/joi';
         POSTGRES_USER: Joi.string().required(),
         POSTGRES_PASSWORD: Joi.string().required(),
         POSTGRES_DB: Joi.string().required(),
-        PORT: Joi.number(),
+        APP_PORT: Joi.number(),
         JWT_SECRET: Joi.string().required(),
         JWT_EXPIRATION_TIME: Joi.string().required(),
       }),
     }),
     DatabaseModule,
     DataModule,
+    CommonModule,
   ],
   controllers: [AppController],
   providers: [AppService],
