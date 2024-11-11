@@ -1,6 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-
 @Entity()
 export class Resort {
   @PrimaryGeneratedColumn('identity', {
@@ -13,4 +12,7 @@ export class Resort {
 
   @Column()
   description: string;
+
+  @Column()
+  test: string;
 }
