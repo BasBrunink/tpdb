@@ -1,0 +1,24 @@
+classDiagram
+
+    class BaseModel {
+
+    }
+    class BaseModelWithLocation {
+
+    }
+
+    class Resort {
+
+    }
+
+    class Park {
+
+    }
+
+
+
+    BaseModel <|-- BaseModelWithLocation
+    BaseModelWithLocation <|-- Resort
+    BaseModelWithLocation <|-- Park
+    Resort -- Park
+    Resort -- Restaurant
