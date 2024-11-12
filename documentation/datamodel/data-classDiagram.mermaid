@@ -15,6 +15,11 @@ classDiagram
 
     }
 
+    class ParkType {
+        string name
+        string description
+    }
+
 
 
     BaseModel <|-- BaseModelWithLocation
@@ -22,3 +27,5 @@ classDiagram
     BaseModelWithLocation <|-- Park
     Resort -- Park
     Resort -- Restaurant
+    Park -- ParkType
+
