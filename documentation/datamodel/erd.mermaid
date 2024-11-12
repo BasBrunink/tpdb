@@ -1,0 +1,44 @@
+
+erDiagram
+
+Resort ||--o{ Park: has
+Resort ||--|| Location: "is on"
+
+Park ||--|| Location: "is on"
+Park ||--|| ParkType: "has type"
+
+
+ParkType {
+    varchar name
+    varchar description
+}
+
+Park {
+    timestamp createdAt
+    timestamp updatedAt
+    varchar(255) name
+    varchar(1024) description
+    Date openingDate
+    Date closingDate
+    uuid parkTypeId
+}
+
+
+Resort {
+
+    timestamp createdAt
+    timestamp updatedAt
+    varchar(255) name
+    varchar(1024) description
+    Date openingDate
+    Date closingDate
+
+}
+
+Location {
+    varchar address
+    varchar city
+    varchar country
+    varchar gpsLong
+    varchar gpsLat
+}
