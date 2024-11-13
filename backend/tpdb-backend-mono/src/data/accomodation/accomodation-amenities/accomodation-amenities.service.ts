@@ -16,7 +16,10 @@ export class AccomodationAmenitiesService {
     return `This action returns a #${id} accomodationAmenity`;
   }
 
-  update(id: number, updateAccomodationAmenityDto: UpdateAccomodationAmenityDto) {
+  update(
+    id: number,
+    updateAccomodationAmenityDto: UpdateAccomodationAmenityDto,
+  ) {
     return `This action updates a #${id} accomodationAmenity`;
   }
 

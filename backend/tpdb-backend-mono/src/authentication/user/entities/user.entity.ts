@@ -2,9 +2,8 @@ import { Column, Entity } from 'typeorm';
 import { BaseModel } from '../../../common/enitities/baseModel.entity';
 
 @Entity()
-export class User extends BaseModel{
-
-  @Column({unique: true})
+export class User extends BaseModel {
+  @Column({ unique: true })
   public email: string;
 
   @Column()
@@ -15,5 +14,4 @@ export class User extends BaseModel{
 
   @Column()
   public lastName: string;
-
 }

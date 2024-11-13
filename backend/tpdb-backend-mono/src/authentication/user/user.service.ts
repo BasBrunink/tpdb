@@ -7,12 +7,10 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class UserService {
-
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
-  ) {
-  }
+  ) {}
 
   async create(createUserDto: CreateUserDto) {
     const newUser = this.userRepository.create(createUserDto);
@@ -25,16 +23,25 @@ export class UserService {
   }
 
   findOneByID(id: string) {
-    return `This action returns a #${id} user`;
+    const user = this.userRepository.findOne({ where: { id } });
+    if (user) {
+      return user;
+    }
+    throw new HttpException(
+      'User with id does not exist',
+      HttpStatus.NOT_FOUND,
+    );
   }
 
   findOneByEmail(email: string) {
     const user = this.userRepository.findOne({ where: { email: email } });
-    if(user) {
+    if (user) {
       return user;
     }
-    throw new HttpException('User with email does not exist', HttpStatus.NOT_FOUND);
-
+    throw new HttpException(
+      'User with email does not exist',
+      HttpStatus.NOT_FOUND,
+    );
   }
 
   update(id: string, updateUserDto: UpdateUserDto) {
