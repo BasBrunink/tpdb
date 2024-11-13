@@ -5,6 +5,7 @@ import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from '@nestjs/config';
 import { DataModule } from './data/data.module';
 import { CommonModule } from './common/common.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 import * as Joi from '@hapi/joi';
 
 @Module({
@@ -24,6 +25,7 @@ import * as Joi from '@hapi/joi';
     DatabaseModule,
     DataModule,
     CommonModule,
+    AuthenticationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
