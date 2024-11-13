@@ -20,7 +20,6 @@ export class Resort extends BaseModelWithLocation {
   @Column({ nullable: true })
   closingDate: string;
 
-
   @OneToMany(() => Park, (park) => park.resort)
   parks: Park[];
 
