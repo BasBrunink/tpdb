@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, computed, OnInit, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { User } from '../../entities/user';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,6 +10,19 @@ import { Component } from '@angular/core';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
 
+  user = signal<User>(new User());
+
+  constructor(
+    private readonly http: HttpClient,
+    protected readonly authService: AuthenticationService
+  ) { }
+
+  ngOnInit(): void {
+        this.http.get<User>('http://localhost:3000/auth/profile').subscribe((response) => {
+          this.user.set(response);
+        });
+    }
 }
+

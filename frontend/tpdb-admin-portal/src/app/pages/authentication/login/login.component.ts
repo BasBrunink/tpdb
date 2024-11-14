@@ -7,6 +7,9 @@ import { MatButton } from '@angular/material/button';
 import { MatInput } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/authentication.service';
+import { LoginResponseDto } from '../../../entities/responses/loginResponse.dto';
+import { User } from '../../../entities/user';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -34,6 +37,8 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
+    private http: HttpClient,
+    private authService: AuthenticationService,
     private readonly _fb: FormBuilder,
     private readonly authservice: AuthenticationService
 
@@ -46,11 +51,15 @@ export class LoginComponent {
 
 
   login() {
+    this.http.post<LoginResponseDto>('http://localhost:3000/auth/login', { email: this.loginForm.controls['email'].value, password: this.loginForm.controls['password'].value }).subscribe((response: LoginResponseDto) => {
+      localStorage.setItem('token', response.accessToken);
+      const user: User = new User();
+      user.email = response.user.email;
+      user.username = response.user.username;
+      this.authService.currentUser.set(user);
 
-    this.authservice.login(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value).subscribe(user => {
-      console.log(user);
+      this.router.navigate(['/dashboard']);
     })
-    //works now but will be replaced with actual login logic
   }
 
   register() {

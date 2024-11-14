@@ -52,7 +52,12 @@ export class HeaderComponent {
     this.selectedLanguage = this.languageMap.get(language) as Language;  // Update selected language
   }
 
-  navToLogin(currentUser: string) {
+  navToLogin() {
     this.router.navigate(['/login']);
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.navToLogin()
   }
 }

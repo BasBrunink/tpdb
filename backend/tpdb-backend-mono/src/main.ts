@@ -7,16 +7,7 @@ import * as cookieParser from 'cookie-parser';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(cookieParser());
-  app.enableCors(
-    {
-      origin: [
-        'http://localhost:4200',
-      ],
-      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-      allowedHeaders: 'Content-Type, Accept, Authentication',
-    }
-
-  );
+  app.enableCors();
 
   const apiDocConfig = new DocumentBuilder()
     .setTitle('Cats example')

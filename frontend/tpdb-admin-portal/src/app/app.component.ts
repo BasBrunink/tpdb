@@ -4,11 +4,15 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HeaderComponent } from './common/header/header.component';
 import { MatDrawer, MatDrawerContainer } from '@angular/material/sidenav';
 import { SideMenuComponent } from './common/side-menu/side-menu.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { authInterceptor } from './utils/jwt.interceptor';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterModule, TranslateModule, HeaderComponent, MatDrawerContainer, MatDrawer, SideMenuComponent],
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
