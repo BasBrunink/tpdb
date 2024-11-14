@@ -1,54 +1,62 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import {  Injectable } from '@nestjs/common';
+import * as bcrypt from 'bcrypt';
+
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
+import { SignupDto } from './dto/Signup.dto';
+import { LoginDto } from './dto/login.dto';
+import { LoginResponseDto } from './dto/loginResponse.dto';
+
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
+    private userRepository: Repository<User>,
   ) {}
 
-  async create(createUserDto: CreateUserDto) {
-    const newUser = this.userRepository.create(createUserDto);
-    await this.userRepository.save(newUser);
-    return newUser;
+  findById(id: string): Promise<User> {
+    return this.userRepository.findOne({ where: { id } });
   }
 
-  findAll() {
-    return `This action returns all user`;
+  private async hashPassword(password: string, salt: string): Promise<string> {
+    return bcrypt.hash(password, salt);
   }
 
-  findOneByID(id: string) {
-    const user = this.userRepository.findOne({ where: { id } });
-    if (user) {
+  async create(signupDto: SignupDto): Promise<User> {
+    const { email, password, username } = signupDto;
+    const user = new User();
+
+    user.salt = await bcrypt.genSalt();
+    user.password = await this.hashPassword(password, user.salt);
+    user.email = email;
+    user.username = username;
+
+    try {
+      await this.userRepository.save(user);
       return user;
+    } catch (error) {
+      throw error;
     }
-    throw new HttpException(
-      'User with id does not exist',
-      HttpStatus.NOT_FOUND,
-    );
   }
 
-  findOneByEmail(email: string) {
-    const user = this.userRepository.findOne({ where: { email: email } });
-    if (user) {
-      return user;
+  async signIn(loginDto: LoginDto): Promise<LoginResponseDto> {
+    const { email, password } = loginDto;
+    const user = await this.userRepository.findOne({ where: { email } });
+
+    if (user && user.validatePassword(password)) {
+      const userResponse = new LoginResponseDto();
+
+      userResponse.username = user.username;
+      userResponse.email = user.email;
+      return userResponse;
+    } else {
+      return null;
     }
-    throw new HttpException(
-      'User with email does not exist',
-      HttpStatus.NOT_FOUND,
-    );
   }
 
-  update(id: string, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
-  }
-
-  remove(id: string) {
-    return `This action removes a #${id} user`;
+  async findByUserName(username: string) {
+    return await this.userRepository.findOne({ where: { username }});
   }
 }
