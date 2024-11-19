@@ -1,4 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateParkTypeDto } from './dto/create-park-type.dto';
 import { UpdateParkTypeDto } from './dto/update-park-type.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -7,36 +12,50 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class ParkTypeService {
-
   constructor(
     @InjectRepository(ParkType)
-    private readonly repo: Repository<ParkType>) {
-  }
+    private readonly repo: Repository<ParkType>,
+  ) {}
 
   create(createParkTypeDto: CreateParkTypeDto) {
-
-    const typeToSave = this.repo.create(createParkTypeDto);
-    typeToSave.createdAt = new Date();
-    typeToSave.updatedAt = new Date();
-    return this.repo.save(typeToSave);
-
+    try {
+      const typeToSave = this.repo.create(createParkTypeDto);
+      typeToSave.createdAt = new Date();
+      typeToSave.updatedAt = new Date();
+      return this.repo.save(typeToSave);
+    } catch (error) {
+      throw new HttpException(
+        `OOPS, ${error}`,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 
-  findAll() {
-    return this.repo.find();
+  async findAll() {
+    const res = await this.repo.find();
+    if (!res) {
+      throw new NotFoundException(
+        `The ParkType table is empty probably teh migration has not run`,
+      );
+    }
+    return res;
   }
 
-  findOne(id: string) {
-    return this.repo.findOne({ where: { id: id } });
+  async findOne(id: string) {
+    const res = await this.repo.findOne({ where: { id: id } });
+
+    if (!res) {
+      throw new NotFoundException(`Parktype with ID ${id} isnot found`);
+    }
+    return res;
   }
 
   update(id: string, updateParkTypeDto: UpdateParkTypeDto) {
-
-    const typeToUpdate = this.findOne(id).then((type) => {
+    this.findOne(id).then((type) => {
       type.updatedAt = new Date();
       type.name = updateParkTypeDto.name;
       type.description = updateParkTypeDto.description;
-      this.repo.update(id, type).then(r => {
+      this.repo.update(id, type).then((r) => {
         return r;
       });
     });
