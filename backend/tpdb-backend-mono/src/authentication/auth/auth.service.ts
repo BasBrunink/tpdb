@@ -21,9 +21,7 @@ export class AuthService {
     return await this.userService.findByUserName(username);
   }
   async validateUserById(userId: string) {
-    const x = await this.userService.findById(userId);
-    console.dir(x);
-    return x;
+    return this.userService.findById(userId);
   }
 
   async signUp(signupDto: SignupDto): Promise<User> {

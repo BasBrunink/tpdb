@@ -36,10 +36,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  invalidCredentialMsg: string = '';
-  username:string = '';
-  password:string = '';
-  retUrl:string | null='dashboard';
+  retUrl:string | null='home';
 
   constructor(
     private router: Router,

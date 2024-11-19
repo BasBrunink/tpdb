@@ -1,10 +1,9 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
-  ActivatedRoute,
+
   ActivatedRouteSnapshot,
   CanActivate,
-  GuardResult,
-  MaybeAsync,
+
   Router,
   RouterStateSnapshot, UrlTree,
 } from '@angular/router';
@@ -26,6 +25,7 @@ export class AuthGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean| UrlTree {
 
     if(!this.authService.isLoggedIn()) {
+      console.log('unautenticated')
       this.router.navigate(['login'], {queryParams: {retUrl: route.url}})
       return false;
     }

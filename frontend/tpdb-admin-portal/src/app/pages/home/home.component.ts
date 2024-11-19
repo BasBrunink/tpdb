@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
       this.authService.getProfile().subscribe((res: ProfileResponseDto) => {
         this.profile.set(res);
 
-        console.log(res)
       });
     }
 
