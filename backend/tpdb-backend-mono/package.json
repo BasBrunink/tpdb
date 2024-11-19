@@ -99,9 +99,9 @@
     "coveragePathIgnorePatterns": [
       "<rootDir>/.*\\.module\\.ts$",
       "<rootDir>/.*\\.enum\\.ts$",
-      "<rootDir>/.*\\.strategy\\.ts$",
       "<rootDir>/.*\\.config\\.ts$",
       "<rootDir>/.*\\.spec\\.ts$",
+      "<rootDir>/.*\\.dto\\.ts$",
       "<rootDir>/main.ts$"
     ],
     "testPathIgnorePatterns": [

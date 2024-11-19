@@ -4,7 +4,6 @@ import * as bcrypt from 'bcrypt';
 @Entity()
 @Unique(['email'])
 export class User {
-
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -20,9 +19,11 @@ export class User {
   @Column()
   salt: string;
 
-
   async validatePassword(password: string): Promise<boolean> {
-    const hash = await bcrypt.hash(password, this.salt);
-    return hash === this.password;
+    if (password) {
+      const hash = await bcrypt.hash(password, this.salt);
+      return hash === this.password;
+    }
+    return Promise.resolve(false);
   }
 }
