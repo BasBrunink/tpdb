@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatCard, MatCardActions, MatCardContent, MatCardTitle } from '@angular/material/card';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatButton } from '@angular/material/button';
 import { MatInput } from '@angular/material/input';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/authentication.service';
-import { LoginResponseDto } from '../../../entities/responses/loginResponse.dto';
+import { LoginResponseDto } from '../../../entities/dto/responses/loginResponse.dto';
 import { User } from '../../../entities/user';
 import { HttpClient } from '@angular/common/http';
+import { LoginRequestDto } from '../../../entities/dto/requests/loginRequest.dto';
 
 @Component({
   selector: 'app-login',
@@ -31,12 +32,18 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
+  invalidCredentialMsg: string = '';
+  username:string = '';
+  password:string = '';
+  retUrl:string | null='dashboard';
+
   constructor(
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private http: HttpClient,
     private authService: AuthenticationService,
     private readonly _fb: FormBuilder,
@@ -50,15 +57,25 @@ export class LoginComponent {
   }
 
 
-  login() {
-    this.http.post<LoginResponseDto>('http://localhost:3000/auth/login', { email: this.loginForm.controls['email'].value, password: this.loginForm.controls['password'].value }).subscribe((response: LoginResponseDto) => {
-      localStorage.setItem('token', response.accessToken);
-      const user: User = new User();
-      user.email = response.user.email;
-      user.username = response.user.username;
-      this.authService.currentUser.set(user);
+  ngOnInit() {
+    this.activatedRoute.queryParamMap.subscribe(params => {
+        this.retUrl = params.get('retUrl');
+      }
+    )
+  }
 
-      this.router.navigate(['/dashboard']);
+
+  login() {
+    const loginRequest: LoginRequestDto = {
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password
+    }
+    this.authService.login(loginRequest).subscribe(data  => {
+      if(this.retUrl != null) {
+        this.router.navigate([this.retUrl]);
+      } else {
+        this.router.navigate(['home']);
+      }
     })
   }
 

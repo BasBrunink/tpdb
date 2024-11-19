@@ -1,1 +1,7 @@
 <h1>{{'home.title' | translate }}</h1>
+
+<h2>Logged in as:</h2>
+<p>Username: {{profile()?.username}}</p>
+<p>Email: {{profile()?.email}}</p>
+<p>Salt: {{profile()?.salt}}</p>
+

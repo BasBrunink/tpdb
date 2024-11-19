@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
         this.http.get<User>('http://localhost:3000/auth/profile').subscribe((response) => {
           this.user.set(response);
+          this.authService.currentUser.set(this.user())
         });
     }
 }

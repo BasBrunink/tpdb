@@ -23,7 +23,6 @@ export class AuthController {
 @UseGuards(JwtAuthGuard)
   @Get('profile')
   async profile(@Req() reg: any): Promise<User> {
-    return reg.user
+    return reg.user;
   }
-
 }

@@ -6,6 +6,7 @@ import { MatIconButton } from '@angular/material/button';
 import { MatOption, MatSelect } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../../services/authentication.service';
 
 
 export interface Language {
@@ -41,6 +42,7 @@ export class HeaderComponent {
 
   constructor(
     private router: Router,
+    private authService: AuthenticationService,
     private translate: TranslateService) {
     this.currentLanguage = this.translate.currentLang || 'en';  // Fallback if no currentLang
     this.selectedLanguage = this.languageMap.get(this.currentLanguage) as Language;
@@ -57,7 +59,7 @@ export class HeaderComponent {
   }
 
   logout() {
-    localStorage.removeItem('token');
-    this.navToLogin()
+    this.authService.logout()
+    this.navToLogin();
   }
 }
