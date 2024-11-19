@@ -1,5 +1,26 @@
 {
+	"header": {
+		"title": "Theme park Database Admin portal"
+	},
 	"home": {
-		"title": "This is english"
+		"title": "Home"
+	},
+	"login": {
+		"buttons": {
+			"login": "Login",
+			"register": "Register"
+		},
+		"form": {
+			"email": "Email",
+			"password": "Password"
+		},
+		"title": "Login"
+	},
+	"profile": {
+		"description": "This is your profile, In the future we will create functionality to change some info yourself",
+		"email": "Email",
+		"id": "UserID",
+		"title": "Profile",
+		"username": "Username"
 	}
 }

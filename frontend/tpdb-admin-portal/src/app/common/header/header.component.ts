@@ -54,12 +54,12 @@ export class HeaderComponent {
     this.selectedLanguage = this.languageMap.get(language) as Language;  // Update selected language
   }
 
-  navToLogin() {
-    this.router.navigate(['/login']);
+  navToProfile() {
+    this.router.navigate(['/profile'])
   }
 
   logout() {
     this.authService.logout()
-    this.navToLogin();
+    this.router.navigate(['/login']);
   }
 }

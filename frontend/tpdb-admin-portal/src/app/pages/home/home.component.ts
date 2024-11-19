@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { AuthenticationService } from '../../services/authentication.service';
-import { ProfileResponseDto } from '../../entities/dto/responses/profileResponse.dto';
+import { ProfileResponseDto } from '../../models/dto/responses/profileResponse.dto';
 
 @Component({
   selector: 'app-home',
@@ -21,12 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(localStorage.getItem('currentUser')) {
-      this.authService.getProfile().subscribe((res: ProfileResponseDto) => {
-        this.profile.set(res);
 
-      });
-    }
 
 
 

@@ -1,6 +1,6 @@
 import { Component, computed, OnInit, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../../entities/user';
+import { User } from '../../models/user';
 import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
@@ -21,10 +21,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.authService.isLoggedIn()) {
-      this.http.get<User>('http://localhost:3000/auth/profile').subscribe((response) => {
-        this.user.set(response);
-        this.authService.currentUser.set(this.user())
-      });
+
     }
 
     }

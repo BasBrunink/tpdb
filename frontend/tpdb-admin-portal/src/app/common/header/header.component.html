@@ -4,7 +4,7 @@
   </button>
   <span>{{'header.title' | translate }}</span>
   <span class="spacer"></span>
-  <button  mat-icon-button class="header-icon"(click)="navToLogin()"><mat-icon>person</mat-icon></button>
+  <button  mat-icon-button class="header-icon"(click)="navToProfile()"><mat-icon>person</mat-icon></button>
   <mat-select [value]="currentLanguage"  (selectionChange)="useLanguage($event.value)">
     @for(lang of languageMap.keys(); track lang) {
       <mat-option  [value]="lang">

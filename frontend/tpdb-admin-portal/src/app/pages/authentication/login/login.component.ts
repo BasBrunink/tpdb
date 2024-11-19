@@ -7,10 +7,10 @@ import { MatButton } from '@angular/material/button';
 import { MatInput } from '@angular/material/input';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../../../services/authentication.service';
-import { LoginResponseDto } from '../../../entities/dto/responses/loginResponse.dto';
-import { User } from '../../../entities/user';
+import { LoginResponseDto } from '../../../models/dto/responses/loginResponse.dto';
+import { User } from '../../../models/user';
 import { HttpClient } from '@angular/common/http';
-import { LoginRequestDto } from '../../../entities/dto/requests/loginRequest.dto';
+import { LoginRequestDto } from '../../../models/dto/requests/loginRequest.dto';
 
 @Component({
   selector: 'app-login',

@@ -1,10 +1,10 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../entities/user';
-import { LoginResponseDto } from '../entities/dto/responses/loginResponse.dto';
-import { LoginRequestDto } from '../entities/dto/requests/loginRequest.dto';
+import { User } from '../models/user';
+import { LoginResponseDto } from '../models/dto/responses/loginResponse.dto';
+import { LoginRequestDto } from '../models/dto/requests/loginRequest.dto';
 import { Observable, tap } from 'rxjs';
-import { ProfileResponseDto } from '../entities/dto/responses/profileResponse.dto';
+import { ProfileResponseDto } from '../models/dto/responses/profileResponse.dto';
 
 @Injectable({
   providedIn: 'root',
