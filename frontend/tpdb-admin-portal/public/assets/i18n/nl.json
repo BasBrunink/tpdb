@@ -1,0 +1,26 @@
+{
+	"header": {
+		"title": "Theme park Database Admin portaal"
+	},
+	"home": {
+		"title": "Home"
+	},
+	"login": {
+		"buttons": {
+			"login": "Inloggen",
+			"register": "Registreren"
+		},
+		"form": {
+			"email": "E-mail",
+			"password": "Wachtwoord"
+		},
+		"title": "Inloggen"
+	},
+	"profile": {
+		"description": "Dit is je profiel. In de toekomst zullen we functionaliteit creëren om zelf wat informatie te wijzigen.",
+		"email": "E-mail",
+		"id": "GebruikersID",
+		"title": "Profiel",
+		"username": "Gebruikersnaam"
+	}
+}

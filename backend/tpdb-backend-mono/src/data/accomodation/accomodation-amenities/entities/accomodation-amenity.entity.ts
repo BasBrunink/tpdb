@@ -11,8 +11,4 @@ export class AccomodationAmenity extends BaseModel {
 
   @Column()
   icon: string;
-
-
-
 }
-

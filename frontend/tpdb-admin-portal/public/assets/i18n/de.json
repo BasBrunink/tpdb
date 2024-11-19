@@ -1,0 +1,26 @@
+{
+	"header": {
+		"title": "-Admin-Portal für Theme park Database"
+	},
+	"home": {
+		"title": "Startseite"
+	},
+	"login": {
+		"buttons": {
+			"login": "Anmelden",
+			"register": "Registrieren"
+		},
+		"form": {
+			"email": "E-Mail",
+			"password": "Passwort"
+		},
+		"title": "Anmelden"
+	},
+	"profile": {
+		"description": "Dies ist Ihr Profil. In Zukunft werden wir Funktionen erstellen, um einige Informationen selbst zu ändern.",
+		"email": "E-Mail",
+		"id": "Benutzer-ID",
+		"title": "Profil",
+		"username": "Benutzername"
+	}
+}

@@ -3,7 +3,6 @@ import { BaseModel } from '../../../../common/enitities/baseModel.entity';
 
 @Entity()
 export class ParkType extends BaseModel {
-
   @Column()
   name: string;
 

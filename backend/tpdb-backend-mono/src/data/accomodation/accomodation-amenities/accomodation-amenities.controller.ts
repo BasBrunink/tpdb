@@ -1,15 +1,27 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { AccomodationAmenitiesService } from './accomodation-amenities.service';
 import { CreateAccomodationAmenityDto } from './dto/create-accomodation-amenity.dto';
 import { UpdateAccomodationAmenityDto } from './dto/update-accomodation-amenity.dto';
 
 @Controller('accomodation-amenities')
 export class AccomodationAmenitiesController {
-  constructor(private readonly accomodationAmenitiesService: AccomodationAmenitiesService) {}
+  constructor(
+    private readonly accomodationAmenitiesService: AccomodationAmenitiesService,
+  ) {}
 
   @Post()
   create(@Body() createAccomodationAmenityDto: CreateAccomodationAmenityDto) {
-    return this.accomodationAmenitiesService.create(createAccomodationAmenityDto);
+    return this.accomodationAmenitiesService.create(
+      createAccomodationAmenityDto,
+    );
   }
 
   @Get()
@@ -23,8 +35,14 @@ export class AccomodationAmenitiesController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAccomodationAmenityDto: UpdateAccomodationAmenityDto) {
-    return this.accomodationAmenitiesService.update(+id, updateAccomodationAmenityDto);
+  update(
+    @Param('id') id: string,
+    @Body() updateAccomodationAmenityDto: UpdateAccomodationAmenityDto,
+  ) {
+    return this.accomodationAmenitiesService.update(
+      +id,
+      updateAccomodationAmenityDto,
+    );
   }
 
   @Delete(':id')
