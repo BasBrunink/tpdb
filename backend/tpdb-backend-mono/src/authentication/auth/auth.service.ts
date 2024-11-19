@@ -7,11 +7,8 @@ import { UserJwtResponse } from '../user/interfaces/user-jwt-response.interface'
 import { LoginDto } from '../user/dto/login.dto';
 import { JwtToken } from './jwtToken.interface';
 
-
-
 @Injectable()
 export class AuthService {
-
   constructor(
     private readonly userService: UserService,
     private readonly jwtService: JwtService,
@@ -20,6 +17,7 @@ export class AuthService {
   async validateUserByUsername(username: string) {
     return await this.userService.findByUserName(username);
   }
+
   async validateUserById(userId: string) {
     return this.userService.findById(userId);
   }
@@ -47,5 +45,4 @@ export class AuthService {
 
     return signInResponse;
   }
-
 }

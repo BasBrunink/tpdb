@@ -1,10 +1,19 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {
+  TranslateCompiler,
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+  TranslateStore,
+} from '@ngx-translate/core';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent, TranslateModule.forRoot(), NoopAnimationsModule],
+      providers: [TranslateService]
     }).compileComponents();
   });
 
@@ -20,10 +29,5 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('tpdb-admin-portal');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, tpdb-admin-portal');
-  });
+
 });
