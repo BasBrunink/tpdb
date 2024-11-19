@@ -14,11 +14,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async validateUserByUsername(username: string) {
-    return await this.userService.findByUserName(username);
-  }
-
-  async validateUserById(userId: string) {
+  async validateUserById(userId: string): Promise<User> {
     return this.userService.findById(userId);
   }
 
