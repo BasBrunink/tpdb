@@ -35,10 +35,8 @@ export class AuthService {
       userId: user.id,
       role: 'admin',
     };
-    const accessToken = await this.jwtService.sign(payload);
+    const accessToken = this.jwtService.sign(payload);
 
-    const signInResponse: UserJwtResponse = { user: userResult, accessToken };
-
-    return signInResponse;
+    return { user: userResult, accessToken } as UserJwtResponse;
   }
 }
