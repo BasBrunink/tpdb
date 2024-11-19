@@ -1,4 +1,4 @@
-import {  Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 
 import { InjectRepository } from '@nestjs/typeorm';
@@ -45,7 +45,7 @@ export class UserService {
     const { email, password } = loginDto;
     const user = await this.userRepository.findOne({ where: { email } });
 
-    if (user && user.validatePassword(password)) {
+    if (user && (await user.validatePassword(password))) {
       const userResponse = new LoginResponseDto();
 
       userResponse.username = user.username;
