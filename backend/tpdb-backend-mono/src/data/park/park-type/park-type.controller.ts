@@ -19,16 +19,16 @@ export class ParkTypeController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.parkTypeService.findOne(+id);
+    return this.parkTypeService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateParkTypeDto: UpdateParkTypeDto) {
-    return this.parkTypeService.update(+id, updateParkTypeDto);
+    return this.parkTypeService.update(id, updateParkTypeDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.parkTypeService.remove(+id);
+    return this.parkTypeService.remove(id);
   }
 }

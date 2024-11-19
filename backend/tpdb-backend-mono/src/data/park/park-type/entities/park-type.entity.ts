@@ -2,11 +2,11 @@ import { Column, Entity } from 'typeorm';
 import { BaseModel } from '../../../../common/enitities/baseModel.entity';
 
 @Entity()
-export class ParkType extends BaseModel{
+export class ParkType extends BaseModel {
 
   @Column()
   name: string;
 
-  @Column()
+  @Column({ nullable: true })
   description: string;
 }
