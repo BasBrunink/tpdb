@@ -55,6 +55,7 @@ describe('JwtStrategy', () => {
       expect(result).toEqual(mockUser);
     });
 
+    //TODO 1: Some issue with the error handling, It throws something else than expected
     xit('should throw an error if user is not found', async () => {
       const payload: JwtToken = {
         userId: '1',
@@ -67,6 +68,7 @@ describe('JwtStrategy', () => {
       expect(authService.validateUserById).toHaveBeenCalledWith(1);
     });
 
+    //TODO: 2: Some issue with the error handling, It throws something else than expected
     xit('should handle missing payload gracefully', async () => {
       await expect(strategy.validate(null)).rejects.toThrow('Unauthorized');
     });
