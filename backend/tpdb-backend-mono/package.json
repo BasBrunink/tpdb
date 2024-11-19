@@ -71,6 +71,7 @@
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.2.1",
     "jest": "29.7.0",
+    "jest-sonar": "^0.2.16",
     "prettier": "3.3.3",
     "source-map-support": "0.5.21",
     "supertest": "7.0.0",
@@ -81,6 +82,7 @@
     "typescript": "5.6.3"
   },
   "jest": {
+    "collectCoverage": true,
     "moduleFileExtensions": [
       "js",
       "json",
@@ -103,10 +105,22 @@
     "testPathIgnorePatterns": [
       "<rootDir>/.*\\.module\\.ts$",
       "<rootDir>/.*\\.enum\\.ts$",
-
       "<rootDir>main.ts$"
     ],
-    "coverageDirectory": "../coverage",
+    "coverageDirectory": "../../../coverage/backend",
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ],
+    "reporters": [
+      "default",
+      [
+        "jest-sonar",
+        {
+          "outputDirectory": "coverage/backend/sonar"
+        }
+      ]
+    ],
     "testEnvironment": "node"
   }
 }
