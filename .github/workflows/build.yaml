@@ -22,6 +22,9 @@ jobs:
         run: npm run test:cov
       - name: install frontend Deps
         working-directory: ./frontend/tpdb-admin-portal
+        run: npm install
+      - name: test frontend
+        working-directory: ./frontend/tpdb-admin-portal
         run: npm run test
       - name: SonarQube Cloud Scan
         uses: SonarSource/sonarcloud-github-action@master
