@@ -101,6 +101,7 @@
       "<rootDir>/.*\\.enum\\.ts$",
       "<rootDir>/.*\\.strategy\\.ts$",
       "<rootDir>/.*\\.config\\.ts$",
+      "<rootDir>/.*\\.spec\\.ts$",
       "<rootDir>/main.ts$"
     ],
     "testPathIgnorePatterns": [
