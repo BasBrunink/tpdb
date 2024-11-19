@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { SignupDto } from '../user/dto/Signup.dto';
 import { LoginDto } from '../user/dto/login.dto';
 import { UnauthorizedException } from '@nestjs/common';
+import { User } from '../user/entities/user.entity';
 
 describe('AuthController', () => {
   let authController: AuthController;
@@ -77,6 +78,25 @@ describe('AuthController', () => {
         UnauthorizedException,
       );
       expect(mockAuthService.login).toHaveBeenCalledWith(loginDto);
+    });
+  });
+  describe('profile', () => {
+    it('should return the user from the profile', async () => {
+      // Mock the request object to simulate an authenticated user
+      const mockUser: User = new User();
+      mockUser.id = '1';
+      mockUser.username = 'testuser';
+      mockUser.email = 'testuser@example.com';
+      mockUser.password = '';
+      mockUser.salt = '';
+
+      const mockRequest = {
+        user: mockUser,
+      } as unknown as Request; // Type-cast to Request to match the type used in the controller method
+
+      const result = await authController.profile(mockRequest as any); // Simulate calling the profile method
+
+      expect(result).toEqual(mockUser); // Ensure the returned user matches the mock user
     });
   });
 });
