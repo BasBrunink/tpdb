@@ -23,11 +23,8 @@ export class User {
 
     if (password) {
       const hash = await bcrypt.hash(password, this.salt);
-
-      const x =  hash === this.password;
-      console.log(this.password, hash);
+      const x = hash === this.password;
       return x;
-
     } else {
       return Promise.resolve(false);
     }
