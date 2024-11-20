@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationStart, Router, RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HeaderComponent } from './common/header/header.component';
@@ -16,7 +16,7 @@ import { authInterceptor } from './utils/jwt.interceptor';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'tpdb-admin-portal';
 
   showHeader: boolean = false;
@@ -28,7 +28,12 @@ export class AppComponent {
     translate.setDefaultLang('en');
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang?.match(/en|de|nl/) ? browserLang : 'en');
-    router.events.forEach((event) => {
+
+
+  }
+
+  ngOnInit(): void {
+   this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (event['url'] == '/login' || event['url'] == '/register') {
           this.showHeader = false;
@@ -36,8 +41,7 @@ export class AppComponent {
           this.showHeader = true;
         }
       }
-    }).then();
-
-  }
+    }).then()
+    }
 
 }
