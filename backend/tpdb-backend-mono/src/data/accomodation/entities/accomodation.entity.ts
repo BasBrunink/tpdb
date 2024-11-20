@@ -45,6 +45,6 @@ export class Accomodation extends BaseModelWithLocation {
   @JoinTable({ name: 'accomodation_has_amenities' })
   amenities: AccomodationAmenity[];
 
-  @ManyToOne(() => Resort, (resort) => resort.accomodations)
+  @ManyToOne(() => Resort, (resort) => resort.accommodations)
   resort: Resort;
 }

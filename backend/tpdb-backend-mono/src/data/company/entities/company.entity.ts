@@ -2,7 +2,7 @@ import { BaseModelWithLocation } from '../../../common/enitities/baseModelWithLo
 import { Column, Entity } from 'typeorm';
 
 @Entity()
-export class Attraction extends BaseModelWithLocation {
+export class Company extends BaseModelWithLocation {
   @Column()
   name: string;
 }

@@ -7,6 +7,14 @@ import { ParkType } from '../data/park/park-type/entities/park-type.entity';
 import { Accomodation } from '../data/accomodation/entities/accomodation.entity';
 import { AccomodationType } from '../data/accomodation/accomodation-type/entities/accomodation-type.entity';
 import { AccomodationAmenity } from '../data/accomodation/accomodation-amenities/entities/accomodation-amenity.entity';
+import { Company } from '../data/company/entities/company.entity';
+import { Attraction } from '../data/attraction/entities/attraction.entity';
+import { AttractionType } from '../data/attraction/attraction-type/entities/attraction-type.entity';
+import { ResortEvent } from '../data/resort-events/entities/resort-event.entity';
+import { ResortInternalTransportation } from '../data/resort-internal-transportation/entities/resort-internal-transportation.entity';
+import { Restaurant } from '../data/restaurant/entities/restaurant.entity';
+import { Ride } from '../data/ride/entities/ride.entity';
+import { TravelOption } from '../data/travel-option/entities/travel-option.entity';
 
 config();
 
@@ -20,12 +28,20 @@ export default new DataSource({
   password: configService.get('POSTGRES_PASSWORD'),
   database: configService.get('POSTGRES_DB'),
   entities: [
-    Resort,
-    Park,
-    ParkType,
     Accomodation,
     AccomodationType,
     AccomodationAmenity,
+    Attraction,
+    AttractionType,
+    Company,
+    Park,
+    ParkType,
+    Resort,
+    ResortEvent,
+    ResortInternalTransportation,
+    Restaurant,
+    Ride,
+    TravelOption,
   ],
   migrations: [
     './migrations/structure/*{.ts,js}',

@@ -1,9 +1,10 @@
-import { Column, Entity, OneToMany } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 import { BaseModelWithLocation } from '../../../common/enitities/baseModelWithLocation.entity';
 import { Park } from '../../park/entities/park.entity';
 import { Accomodation } from '../../accomodation/entities/accomodation.entity';
-import { ResortAttraction } from '../../resort-attraction/entities/resort-attraction.entity';
 import { Restaurant } from '../../restaurant/entities/restaurant.entity';
+import { ResortInternalTransportation } from '../../resort-internal-transportation/entities/resort-internal-transportation.entity';
+import { Company } from '../../company/entities/company.entity';
 
 @Entity()
 export class Resort extends BaseModelWithLocation {
@@ -15,7 +16,7 @@ export class Resort extends BaseModelWithLocation {
   name: string;
   @Column()
   description: string;
-  @Column()
+  @Column({ nullable: true })
   openingDate: string;
   @Column({ nullable: true })
   closingDate: string;
@@ -26,14 +27,34 @@ export class Resort extends BaseModelWithLocation {
   @Column({ nullable: true })
   dailyCapacity: number;
 
+  @Column({ nullable: true })
+  area: number;
+
+  @Column({ nullable: true })
+  annualVisitors: number; // TODO maybe we want some history on this as wel.
+
+  @Column({ nullable: true })
+  entryFee: number; //TODO: maybe we want some history on this.
+
+  @OneToOne(() => Company)
+  @JoinColumn({ name: 'operator' })
+  operator: Company;
+
+  @OneToOne(() => Company)
+  @JoinColumn({ name: 'owner' })
+  owner: Company;
+
   @OneToMany(() => Park, (park) => park.resort)
   parks: Park[];
 
-  @OneToMany(() => ResortAttraction, (attraction) => attraction.resort)
-  attractions: ResortAttraction[];
-
   @OneToMany(() => Restaurant, (restaurant) => restaurant.resort)
   restaurants: Restaurant[];
+
+  @OneToMany(
+    () => ResortInternalTransportation,
+    (transport) => transport.resort,
+  )
+  transportation: ResortInternalTransportation[];
   @OneToMany(() => Accomodation, (accomodation) => accomodation.resort)
-  accomodations: Accomodation[];
+  accommodations: Accomodation[];
 }

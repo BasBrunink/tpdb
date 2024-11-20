@@ -17,18 +17,32 @@ export class Parktypes1731412806609 implements MigrationInterface {
                ('2024-11-12 00:00:00', '2024-11-12 00:00:00', 'Animal park',
                 'Focuses on animal exhibits and conservation efforts. Examples include the San Diego Zoo and the Australia Zoo.'),
                ('2024-11-12 00:00:00', '2024-11-12 00:00:00', 'Aquarium',
-                'Displays marine life in tanks and exhibits. Examples include the Georgia Aquarium and the Monterey Bay Aquarium.');
+                'Displays marine life in tanks and exhibits. Examples include the Georgia Aquarium and the Monterey Bay Aquarium.'),
+            ('2024-11-20 00:00:00','2024-11-20 00:00:00', 'Entertainment District', 'A District where guest can seek entertainment outside of park hours. usually there are shops, theatres, restaurants, and bars/nightclubs');
     `);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(`
-        DELETE FROM "park_type" WHERE name = 'Theme park';
-        DELETE FROM "park_type" WHERE name = 'Amusement park';
-        DELETE FROM "park_type" WHERE name = 'Water park';
-        DELETE FROM "park_type" WHERE name = 'Family entertainment center';
-        DELETE FROM "park_type" WHERE name = 'Animal park';
-        DELETE FROM "park_type" WHERE name = 'Aquarium';
+        DELETE
+        FROM "park_type"
+        WHERE name = 'Theme park';
+        DELETE
+        FROM "park_type"
+        WHERE name = 'Amusement park';
+        DELETE
+        FROM "park_type"
+        WHERE name = 'Water park';
+        DELETE
+        FROM "park_type"
+        WHERE name = 'Family entertainment center';
+        DELETE
+        FROM "park_type"
+        WHERE name = 'Animal park';
+        DELETE
+        FROM "park_type"
+        WHERE name = 'Aquarium';
+DELETE FROM "park_type" WHERE name = 'Entertainment District'
     `);
   }
 }
