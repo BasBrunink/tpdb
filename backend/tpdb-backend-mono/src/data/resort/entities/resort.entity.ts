@@ -3,6 +3,7 @@ import { BaseModelWithLocation } from '../../../common/enitities/baseModelWithLo
 import { Park } from '../../park/entities/park.entity';
 import { Accomodation } from '../../accomodation/entities/accomodation.entity';
 import { ResortAttraction } from '../../resort-attraction/entities/resort-attraction.entity';
+import { Restaurant } from '../../restaurant/entities/restaurant.entity';
 
 @Entity()
 export class Resort extends BaseModelWithLocation {
@@ -31,6 +32,8 @@ export class Resort extends BaseModelWithLocation {
   @OneToMany(() => ResortAttraction, (attraction) => attraction.resort)
   attractions: ResortAttraction[];
 
+  @OneToMany(() => Restaurant, (restaurant) => restaurant.resort)
+  restaurants: Restaurant[];
   @OneToMany(() => Accomodation, (accomodation) => accomodation.resort)
   accomodations: Accomodation[];
 }
