@@ -1,1 +1,3 @@
-export class CreateAttractionDto {}
+export class CreateAttractionDto {
+  name: string;
+}
