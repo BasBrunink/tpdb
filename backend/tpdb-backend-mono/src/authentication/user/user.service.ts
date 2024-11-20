@@ -44,8 +44,10 @@ export class UserService {
   async signIn(loginDto: LoginDto): Promise<LoginResponseDto> {
     const { email, password } = loginDto;
     const user = await this.userRepository.findOne({ where: { email } });
+    console.log(user);
 
     if (user && (await user.validatePassword(password))) {
+      console.log('triggered');
       const userResponse = new LoginResponseDto();
 
       userResponse.username = user.username;

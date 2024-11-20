@@ -23,6 +23,7 @@ export class AuthService {
   }
 
   async login(loginDto: LoginDto): Promise<UserJwtResponse> {
+
     const userResult = await this.userService.signIn(loginDto);
 
     if (!userResult) {

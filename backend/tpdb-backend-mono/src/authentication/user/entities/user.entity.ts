@@ -20,10 +20,17 @@ export class User {
   salt: string;
 
   async validatePassword(password: string): Promise<boolean> {
+
     if (password) {
       const hash = await bcrypt.hash(password, this.salt);
-      return hash === this.password;
+
+      const x =  hash === this.password;
+      console.log(this.password, hash);
+      return x;
+
+    } else {
+      return Promise.resolve(false);
     }
-    return Promise.resolve(false);
+
   }
 }
