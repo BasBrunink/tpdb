@@ -23,16 +23,19 @@ Park {
     uuid parkTypeId
 }
 
-
+Park {
+    varchar name
+    varchar description
+    timestamp openingDate
+    timestamp closingDate
+}
 Resort {
-
     timestamp createdAt
     timestamp updatedAt
     varchar(255) name
     varchar(1024) description
     Date openingDate
     Date closingDate
-
 }
 
 Location {

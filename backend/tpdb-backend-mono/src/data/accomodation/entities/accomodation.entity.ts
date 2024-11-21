@@ -6,14 +6,31 @@ import {
   ManyToMany,
   ManyToOne,
   OneToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Resort } from '../../resort/entities/resort.entity';
-import { AccomodationType } from '../accomodation-type/entities/accomodation-type.entity';
+import { AccomodationType } from '../../types/accomodation-type/entities/accomodation-type.entity';
 import { AccomodationAmenity } from '../accomodation-amenities/entities/accomodation-amenity.entity';
-import { BaseModelWithLocation } from '../../../common/enitities/baseModelWithLocation.entity';
+import { User } from '../../../authentication/user/entities/user.entity';
 
 @Entity()
-export class Accomodation extends BaseModelWithLocation {
+export class Accomodation {
+  @PrimaryGeneratedColumn('uuid')
+  id?: string;
+
+  @Column({ nullable: true })
+  createdAt: Date;
+
+  @ManyToOne(() => User, { eager: true })
+  @JoinColumn({ name: 'createUserId' })
+  createdBy: User;
+
+  @ManyToOne(() => User, { eager: true })
+  @JoinColumn({ name: 'updateUserId' })
+  updatedBy: User;
+
+  @Column({ nullable: true })
+  updatedAt: Date;
   @Column()
   name: string;
   @Column()
@@ -45,6 +62,6 @@ export class Accomodation extends BaseModelWithLocation {
   @JoinTable({ name: 'accomodation_has_amenities' })
   amenities: AccomodationAmenity[];
 
-  @ManyToOne(() => Resort, (resort) => resort.accomodations)
+  @ManyToOne(() => Resort, (resort) => resort.accommodations)
   resort: Resort;
 }
