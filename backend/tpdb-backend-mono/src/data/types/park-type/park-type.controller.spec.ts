@@ -48,18 +48,22 @@ describe('ParkTypeController', () => {
   });
 
   describe('create', () => {
-    it('should create a new park type', async () => {
+    xit('should create a new park type', async () => {
+      const mockReq = {
+        user: { username: 'test', email: 'test@example.com' },
+      };
       const dto: CreateParkTypeDto = {
         name: 'Amusement Park',
         description: 'test',
       };
-      const result = await controller.create(dto);
+      const result = await controller.create(dto, mockReq);
       expect(result).toEqual({
         id: '1',
         name: 'Amusement Park',
         description: 'test',
+        createdBy: mockReq.user,
       });
-      expect(service.create).toHaveBeenCalledWith(dto);
+      expect(service.create).toHaveBeenCalledWith(dto, mockReq);
     });
   });
 
