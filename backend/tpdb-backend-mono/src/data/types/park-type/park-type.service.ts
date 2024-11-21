@@ -1,4 +1,10 @@
-import { ConflictException, HttpException, HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  HttpException,
+  HttpStatus,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateParkTypeDto } from './dto/create-park-type.dto';
 import { UpdateParkTypeDto } from './dto/update-park-type.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -6,23 +12,29 @@ import { ParkType } from './entities/park-type.entity';
 import { Repository } from 'typeorm';
 import { PostgresErrorCode } from '../../../database/postgresErrorCodes.enum';
 import { ParktypeResponse } from './dto/parktype-response.dto';
+import { User } from '../../../authentication/user/entities/user.entity';
 
 @Injectable()
 export class ParkTypeService {
   constructor(
     @InjectRepository(ParkType)
     private readonly repo: Repository<ParkType>,
-  ) {
-  }
+  ) {}
 
-  create(createParkTypeDto: CreateParkTypeDto) {
+  create(createParkTypeDto: CreateParkTypeDto, user: User) {
+    console.log(user);
     try {
-      const typeToSave = this.repo.create(createParkTypeDto);
-      typeToSave.createdAt = new Date();
-      typeToSave.updatedAt = new Date();
+      const parkType: ParkType = {
+        name: createParkTypeDto.name,
+        description: createParkTypeDto.description,
+        createdAt: new Date(),
+        createdBy: user,
+        updatedBy: user,
+        updatedAt: new Date(),
+      };
+      const typeToSave = this.repo.create(parkType);
       return this.repo.save(typeToSave);
     } catch (error) {
-
       if (error.code === PostgresErrorCode.UniqueValidation) {
         throw new ConflictException('ParkType already exists');
       }

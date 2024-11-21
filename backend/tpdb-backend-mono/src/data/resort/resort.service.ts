@@ -4,6 +4,7 @@ import { UpdateResortDto } from './dto/update-resort.dto';
 import { Resort } from './entities/resort.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { User } from '../../authentication/user/entities/user.entity';
 
 @Injectable()
 export class ResortService {
@@ -12,9 +13,16 @@ export class ResortService {
     private readonly resortRepo: Repository<Resort>,
   ) {}
 
-  create(createResortDto: CreateResortDto) {
-    const createdResort = this.resortRepo.create(createResortDto);
-    return this.resortRepo.save(createdResort);
+  create(createResortDto: CreateResortDto, user: User) {
+
+    console.dir(user);
+    const resortToSave = this._convertToResort(createResortDto);
+    console.dir(resortToSave);
+    resortToSave.createdBy = user;
+    resortToSave.updatedBy = user;
+    resortToSave.createdAt = new Date();
+    resortToSave.updatedAt = new Date();
+    return this.resortRepo.save(resortToSave);
   }
 
   findAll() {
@@ -31,5 +39,12 @@ export class ResortService {
 
   remove(id: string) {
     return `This action removes a #${id} resort`;
+  }
+
+  private _convertToResort(createResortDto: CreateResortDto): Resort {
+    const resort: Resort = new Resort();
+    resort.name = createResortDto.name;
+    resort.description = createResortDto.description;
+    return resort;
   }
 }

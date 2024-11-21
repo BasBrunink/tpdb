@@ -5,6 +5,7 @@ import { Accomodation } from '../../accomodation/entities/accomodation.entity';
 import { Restaurant } from '../../restaurant/entities/restaurant.entity';
 import { ResortInternalTransportation } from '../../resort-internal-transportation/entities/resort-internal-transportation.entity';
 import { Company } from '../../company/entities/company.entity';
+import { ResortType } from '../../types/resort-type/entities/resort-type.entity';
 
 @Entity()
 export class Resort extends BaseModelWithLocation {
@@ -29,6 +30,10 @@ export class Resort extends BaseModelWithLocation {
 
   @Column({ nullable: true })
   area: number;
+
+  @OneToOne(() => ResortType)
+  @JoinColumn()
+  resortType: ResortType;
 
   @Column({ nullable: true })
   annualVisitors: number; // TODO maybe we want some history on this as wel.

@@ -1,7 +1,7 @@
 import { BaseModelWithLocation } from '../../../common/enitities/baseModelWithLocation.entity';
 import { Resort } from '../../resort/entities/resort.entity';
 import { Column, Entity, JoinColumn, ManyToOne, OneToOne } from 'typeorm';
-import { ParkType } from '../park-type/entities/park-type.entity';
+import { ParkType } from '../../types/park-type/entities/park-type.entity';
 
 @Entity()
 export class Park extends BaseModelWithLocation {

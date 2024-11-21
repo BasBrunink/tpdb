@@ -3,7 +3,7 @@ import { AttractionService } from './attraction.service';
 import { AttractionController } from './attraction.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Attraction } from './entities/attraction.entity';
-import { AttractionTypeModule } from './attraction-type/attraction-type.module';
+import { AttractionTypeModule } from '../types/attraction-type/attraction-type.module';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Attraction]), AttractionTypeModule],

@@ -1,5 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, Unique } from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { Exclude } from 'class-transformer';
 
 @Entity()
 @Unique(['email'])
@@ -14,6 +15,7 @@ export class User {
   email: string;
 
   @Column()
+  @Exclude()
   password: string;
 
   @Column()
@@ -23,6 +25,7 @@ export class User {
 
     if (password) {
       const hash = await bcrypt.hash(password, this.salt);
+      console.log(hash);
       const x = hash === this.password;
       return x;
     } else {
