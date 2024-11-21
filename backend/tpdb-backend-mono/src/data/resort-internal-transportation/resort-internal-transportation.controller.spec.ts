@@ -11,7 +11,9 @@ describe('ResortInternalTransportationController', () => {
       providers: [ResortInternalTransportationService],
     }).compile();
 
-    controller = module.get<ResortInternalTransportationController>(ResortInternalTransportationController);
+    controller = module.get<ResortInternalTransportationController>(
+      ResortInternalTransportationController,
+    );
   });
 
   it('should be defined', () => {

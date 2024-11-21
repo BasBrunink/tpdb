@@ -6,6 +6,9 @@ import { User } from '../user/entities/user.entity';
 import { UserJwtResponse } from '../user/interfaces/user-jwt-response.interface';
 import { LoginDto } from '../user/dto/login.dto';
 import { JwtToken } from './jwtToken.interface';
+import { UserResponse } from '../user/dto/user-response.dto';
+
+
 
 @Injectable()
 export class AuthService {
@@ -23,8 +26,8 @@ export class AuthService {
   }
 
   async login(loginDto: LoginDto): Promise<UserJwtResponse> {
-
     const userResult = await this.userService.signIn(loginDto);
+    console.log(userResult);
 
     if (!userResult) {
       throw new UnauthorizedException('Invalid Credentials!');

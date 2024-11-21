@@ -54,7 +54,11 @@ describe('ParkTypeController', () => {
         description: 'test',
       };
       const result = await controller.create(dto);
-      expect(result).toEqual({ id: '1', name: 'Amusement Park', description: 'test' });
+      expect(result).toEqual({
+        id: '1',
+        name: 'Amusement Park',
+        description: 'test',
+      });
       expect(service.create).toHaveBeenCalledWith(dto);
     });
   });

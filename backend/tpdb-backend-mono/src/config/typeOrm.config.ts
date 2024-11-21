@@ -5,7 +5,7 @@ import { Resort } from '../data/resort/entities/resort.entity';
 import { Park } from '../data/park/entities/park.entity';
 import { ParkType } from '../data/types/park-type/entities/park-type.entity';
 import { Accomodation } from '../data/accomodation/entities/accomodation.entity';
-import { AccomodationType } from '../data/accomodation/accomodation-type/entities/accomodation-type.entity';
+import { AccomodationType } from '../data/types/accomodation-type/entities/accomodation-type.entity';
 import { AccomodationAmenity } from '../data/accomodation/accomodation-amenities/entities/accomodation-amenity.entity';
 import { Company } from '../data/company/entities/company.entity';
 import { Attraction } from '../data/attraction/entities/attraction.entity';
@@ -44,7 +44,7 @@ export default new DataSource({
     TravelOption,
   ],
   migrations: [
-    './migrations/structure/*{.ts,js}',
+    // './migrations/structure/*{.ts,js}',
     './migrations/dummy/*{.ts,js}',
     './migrations/seed/*{.ts,js}',
   ],

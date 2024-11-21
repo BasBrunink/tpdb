@@ -1,18 +1,39 @@
-import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
-import { BaseModelWithLocation } from '../../../common/enitities/baseModelWithLocation.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+
 import { Park } from '../../park/entities/park.entity';
 import { Accomodation } from '../../accomodation/entities/accomodation.entity';
 import { Restaurant } from '../../restaurant/entities/restaurant.entity';
 import { ResortInternalTransportation } from '../../resort-internal-transportation/entities/resort-internal-transportation.entity';
 import { Company } from '../../company/entities/company.entity';
 import { ResortType } from '../../types/resort-type/entities/resort-type.entity';
+import { User } from '../../../authentication/user/entities/user.entity';
 
 @Entity()
-export class Resort extends BaseModelWithLocation {
-  constructor() {
-    super();
-  }
+export class Resort {
+  @PrimaryGeneratedColumn('uuid')
+  id?: string;
 
+  @Column({ nullable: true })
+  createdAt: Date;
+
+  @ManyToOne(() => User, { eager: true })
+  @JoinColumn({ name: 'createUserId' })
+  createdBy: User;
+
+  @ManyToOne(() => User, { eager: true })
+  @JoinColumn({ name: 'updateUserId' })
+  updatedBy: User;
+
+  @Column({ nullable: true })
+  updatedAt: Date;
   @Column()
   name: string;
   @Column()

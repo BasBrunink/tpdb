@@ -57,7 +57,10 @@ describe('ParkTypeService', () => {
     });
 
     xit('should throw ConflictException if ParkType already exists', async () => {
-      const dto: CreateParkTypeDto = { name: 'Duplicate Park', description: 'test' };
+      const dto: CreateParkTypeDto = {
+        name: 'Duplicate Park',
+        description: 'test',
+      };
 
       // Mock repo.create to return a valid ParkType object
       repo.create.mockReturnValue({
@@ -69,10 +72,14 @@ describe('ParkTypeService', () => {
       });
 
       // Mock repo.save to reject with the unique constraint error (Postgres error code 23505)
-      repo.save.mockRejectedValueOnce({ code: PostgresErrorCode.UniqueValidation });
+      repo.save.mockRejectedValueOnce({
+        code: PostgresErrorCode.UniqueValidation,
+      });
 
       // Now test that the ConflictException is thrown
-      await expect(service.create(dto)).rejects.toThrowError(new ConflictException('ParkType already exists'));
+      await expect(service.create(dto)).rejects.toThrowError(
+        new ConflictException('ParkType already exists'),
+      );
     });
   });
 

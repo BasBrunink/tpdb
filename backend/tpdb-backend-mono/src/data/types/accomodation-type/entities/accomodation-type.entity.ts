@@ -5,11 +5,11 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Resort } from '../../resort/entities/resort.entity';
-import { User } from '../../../authentication/user/entities/user.entity';
+
+import { User } from '../../../../authentication/user/entities/user.entity';
 
 @Entity()
-export class Restaurant {
+export class AccomodationType {
   @PrimaryGeneratedColumn('uuid')
   id?: string;
 
@@ -29,6 +29,6 @@ export class Restaurant {
   @Column()
   name: string;
 
-  @ManyToOne(() => Resort, (resort) => resort.restaurants)
-  resort: Resort;
+  @Column()
+  description: string;
 }

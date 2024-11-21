@@ -11,8 +11,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { ParkType } from './entities/park-type.entity';
 import { Repository } from 'typeorm';
 import { PostgresErrorCode } from '../../../database/postgresErrorCodes.enum';
-import { ParktypeResponse } from './dto/parktype-response.dto';
 import { User } from '../../../authentication/user/entities/user.entity';
+import { ParktypeResponse } from './dto/parktype-response.dto';
 
 @Injectable()
 export class ParkTypeService {

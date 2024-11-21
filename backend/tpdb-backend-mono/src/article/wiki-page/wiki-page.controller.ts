@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { WikiPageService } from './wiki-page.service';
 import { CreateWikiPageDto } from './dto/create-wiki-page.dto';
 import { UpdateWikiPageDto } from './dto/update-wiki-page.dto';
@@ -23,7 +31,10 @@ export class WikiPageController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateWikiPageDto: UpdateWikiPageDto) {
+  update(
+    @Param('id') id: string,
+    @Body() updateWikiPageDto: UpdateWikiPageDto,
+  ) {
     return this.wikiPageService.update(+id, updateWikiPageDto);
   }
 

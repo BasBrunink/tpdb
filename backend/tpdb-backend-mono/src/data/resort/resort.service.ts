@@ -14,7 +14,6 @@ export class ResortService {
   ) {}
 
   create(createResortDto: CreateResortDto, user: User) {
-
     console.dir(user);
     const resortToSave = this._convertToResort(createResortDto);
     console.dir(resortToSave);

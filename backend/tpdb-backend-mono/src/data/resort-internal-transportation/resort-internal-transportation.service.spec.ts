@@ -9,7 +9,9 @@ describe('ResortInternalTransportationService', () => {
       providers: [ResortInternalTransportationService],
     }).compile();
 
-    service = module.get<ResortInternalTransportationService>(ResortInternalTransportationService);
+    service = module.get<ResortInternalTransportationService>(
+      ResortInternalTransportationService,
+    );
   });
 
   it('should be defined', () => {

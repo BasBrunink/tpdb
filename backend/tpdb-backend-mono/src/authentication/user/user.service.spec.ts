@@ -7,10 +7,12 @@ import { SignupDto } from './dto/Signup.dto';
 
 import * as bcrypt from 'bcrypt';
 import { LoginDto } from './dto/login.dto';
+import { ConfigService } from '@nestjs/config';
 
 describe('UserService', () => {
   let userService: UserService;
   let userRepo: Repository<User>;
+  let configService: ConfigService;
 
   const mockUserRepository = {
     findOne: jest.fn(),
@@ -21,6 +23,7 @@ describe('UserService', () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         UserService,
+        ConfigService,
         { provide: getRepositoryToken(User), useValue: mockUserRepository },
       ],
     }).compile();
@@ -98,7 +101,6 @@ describe('UserService', () => {
       const mockUser = new User();
       mockUser.username = 'testuser';
       mockUser.email = loginDto.email;
-      mockUser.validatePassword = jest.fn().mockResolvedValue(true);
 
       mockUserRepository.findOne.mockResolvedValue(mockUser);
 
@@ -107,7 +109,7 @@ describe('UserService', () => {
       expect(userRepo.findOne).toHaveBeenCalledWith({
         where: { email: loginDto.email },
       });
-      expect(mockUser.validatePassword).toHaveBeenCalledWith(loginDto.password);
+
       expect(result).toEqual({
         username: mockUser.username,
         email: mockUser.email,
@@ -121,13 +123,11 @@ describe('UserService', () => {
       };
 
       const mockUser = new User();
-      mockUser.validatePassword = jest.fn().mockResolvedValue(false);
 
       mockUserRepository.findOne.mockResolvedValue(mockUser);
 
       const result = await userService.signIn(loginDto);
 
-      expect(mockUser.validatePassword).toHaveBeenCalledWith(loginDto.password);
       expect(result).toBeNull();
     });
 

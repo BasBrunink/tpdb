@@ -5,7 +5,9 @@ import {
   Body,
   Patch,
   Param,
-  Delete, Req, UseGuards,
+  Delete,
+  Req,
+  UseGuards,
 } from '@nestjs/common';
 import { ParkTypeService } from './park-type.service';
 import { CreateParkTypeDto } from './dto/create-park-type.dto';

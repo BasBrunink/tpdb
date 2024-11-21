@@ -4,7 +4,9 @@ import { UpdateResortInternalTransportationDto } from './dto/update-resort-inter
 
 @Injectable()
 export class ResortInternalTransportationService {
-  create(createResortInternalTransportationDto: CreateResortInternalTransportationDto) {
+  create(
+    createResortInternalTransportationDto: CreateResortInternalTransportationDto,
+  ) {
     return 'This action adds a new resortInternalTransportation';
   }
 
@@ -16,7 +18,10 @@ export class ResortInternalTransportationService {
     return `This action returns a #${id} resortInternalTransportation`;
   }
 
-  update(id: number, updateResortInternalTransportationDto: UpdateResortInternalTransportationDto) {
+  update(
+    id: number,
+    updateResortInternalTransportationDto: UpdateResortInternalTransportationDto,
+  ) {
     return `This action updates a #${id} resortInternalTransportation`;
   }
 

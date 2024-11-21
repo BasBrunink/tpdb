@@ -1,15 +1,30 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ResortInternalTransportationService } from './resort-internal-transportation.service';
 import { CreateResortInternalTransportationDto } from './dto/create-resort-internal-transportation.dto';
 import { UpdateResortInternalTransportationDto } from './dto/update-resort-internal-transportation.dto';
 
 @Controller('resort-internal-transportation')
 export class ResortInternalTransportationController {
-  constructor(private readonly resortInternalTransportationService: ResortInternalTransportationService) {}
+  constructor(
+    private readonly resortInternalTransportationService: ResortInternalTransportationService,
+  ) {}
 
   @Post()
-  create(@Body() createResortInternalTransportationDto: CreateResortInternalTransportationDto) {
-    return this.resortInternalTransportationService.create(createResortInternalTransportationDto);
+  create(
+    @Body()
+    createResortInternalTransportationDto: CreateResortInternalTransportationDto,
+  ) {
+    return this.resortInternalTransportationService.create(
+      createResortInternalTransportationDto,
+    );
   }
 
   @Get()
@@ -23,8 +38,15 @@ export class ResortInternalTransportationController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateResortInternalTransportationDto: UpdateResortInternalTransportationDto) {
-    return this.resortInternalTransportationService.update(+id, updateResortInternalTransportationDto);
+  update(
+    @Param('id') id: string,
+    @Body()
+    updateResortInternalTransportationDto: UpdateResortInternalTransportationDto,
+  ) {
+    return this.resortInternalTransportationService.update(
+      +id,
+      updateResortInternalTransportationDto,
+    );
   }
 
   @Delete(':id')
