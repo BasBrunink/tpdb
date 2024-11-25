@@ -1,14 +1,24 @@
 
 erDiagram
 
-Resort ||--o{ Park: has
+Resort ||--o{ Park: "is part of"
 Resort ||--|| Location: "is on"
+Resort ||--|| ResortType : "has type"
 
 Park ||--|| Location: "is on"
 Park ||--|| ParkType: "has type"
 
 
 ParkType {
+    uuid id
+    timestamp createdAt
+    User createdBy
+    User updatedBy
+    timestamp updatedAt
+    varchar type
+    text description
+}
+ResortType {
     uuid id
     timestamp createdAt
     User createdBy
