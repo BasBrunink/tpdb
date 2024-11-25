@@ -9,8 +9,13 @@ Park ||--|| ParkType: "has type"
 
 
 ParkType {
-    varchar name
-    varchar description
+    uuid id
+    timestamp createdAt
+    User createdBy
+    User updatedBy
+    timestamp updatedAt
+    varchar type
+    text description
 }
 
 Park {

@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 import { User } from '../../../../authentication/user/entities/user.entity';
 
@@ -13,7 +7,7 @@ export class ParkType {
   @PrimaryGeneratedColumn('uuid')
   id?: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'timestamp' })
   createdAt: Date;
 
   @ManyToOne(() => User, { eager: true })
@@ -24,11 +18,11 @@ export class ParkType {
   @JoinColumn({ name: 'updateUserId' })
   updatedBy: User;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'timestamp' })
   updatedAt: Date;
   @Column({ unique: true })
   type: string;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, type: 'text' })
   description: string;
 }
