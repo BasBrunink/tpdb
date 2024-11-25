@@ -22,7 +22,7 @@ export class ParkTypeService {
   ) {}
 
   create(createParkTypeDto: CreateParkTypeDto, user: User) {
-    console.log(user);
+
     try {
       const parkType: ParkType = {
         type: createParkTypeDto.type,

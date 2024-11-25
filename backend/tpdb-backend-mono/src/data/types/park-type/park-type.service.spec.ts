@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { ParkType } from './entities/park-type.entity';
 import { User } from '../../../authentication/user/entities/user.entity';
-import { NotFoundException, ConflictException } from '@nestjs/common';
+import { ConflictException, NotFoundException } from '@nestjs/common';
 import { PostgresErrorCode } from '../../../database/postgresErrorCodes.enum';
 
 const mockRepo = {
@@ -44,7 +44,7 @@ describe('ParkTypeService', () => {
 
   describe('create', () => {
     it('should create a new ParkType', async () => {
-      const createDto = { name: 'Theme Park', description: 'A fun park' };
+      const createDto = { type: 'Theme Park', description: 'A fun park' };
       const savedParkType = { ...createDto, id: '123', createdAt: new Date() };
       mockRepo.create.mockReturnValue(savedParkType);
       mockRepo.save.mockResolvedValue(savedParkType);
@@ -62,8 +62,10 @@ describe('ParkTypeService', () => {
     });
 
     xit('should throw a ConflictException if ParkType already exists', async () => {
-      mockRepo.save.mockRejectedValue({ code: PostgresErrorCode.UniqueValidation }); // Simulate unique constraint violation
-      const createDto = { name: 'Theme Park', description: 'A fun park' };
+      mockRepo.save.mockRejectedValue({
+        code: PostgresErrorCode.UniqueValidation,
+      }); // Simulate unique constraint violation
+      const createDto = { type: 'Theme Park', description: 'A fun park' };
 
       await expect(service.create(createDto, mockUser)).rejects.toThrow(
         ConflictException,
@@ -108,7 +110,7 @@ describe('ParkTypeService', () => {
 
   describe('update', () => {
     it('should update a ParkType', async () => {
-      const updateDto = { name: 'Updated Park' };
+      const updateDto = { type: 'Updated Park' };
       const existingParkType = {
         id: '123',
         name: 'Theme Park',
@@ -133,7 +135,7 @@ describe('ParkTypeService', () => {
 
     it('should throw NotFoundException if ParkType is not found', async () => {
       mockRepo.findOneBy.mockResolvedValue(null);
-      const updateDto = { name: 'Updated Park' };
+      const updateDto = { type: 'Updated Park' };
 
       await expect(service.update('123', updateDto)).rejects.toThrow(
         NotFoundException,

@@ -14,8 +14,8 @@ describe('ParkTypeController', () => {
       ...dto,
     })),
     findAll: jest.fn(() => [
-      { id: '1', name: 'Amusement Park' },
-      { id: '2', name: 'Water Park' },
+      { id: '1', type: 'Amusement Park' },
+      { id: '2', type: 'Water Park' },
     ]),
     findOne: jest.fn((id: string) => ({
       id,
@@ -53,7 +53,7 @@ describe('ParkTypeController', () => {
         user: { username: 'test', email: 'test@example.com' },
       };
       const dto: CreateParkTypeDto = {
-        name: 'Amusement Park',
+        type: 'Amusement Park',
         description: 'test',
       };
       const result = await controller.create(dto, mockReq);
@@ -71,8 +71,8 @@ describe('ParkTypeController', () => {
     it('should return all park types', async () => {
       const result = await controller.findAll();
       expect(result).toEqual([
-        { id: '1', name: 'Amusement Park' },
-        { id: '2', name: 'Water Park' },
+        { id: '1', type: 'Amusement Park' },
+        { id: '2', type: 'Water Park' },
       ]);
       expect(service.findAll).toHaveBeenCalled();
     });
@@ -88,9 +88,9 @@ describe('ParkTypeController', () => {
 
   describe('update', () => {
     it('should update a park type', async () => {
-      const dto: UpdateParkTypeDto = { name: 'Updated Park' };
+      const dto: UpdateParkTypeDto = { type: 'Updated Park' };
       const result = await controller.update('1', dto);
-      expect(result).toEqual({ id: '1', name: 'Updated Park' });
+      expect(result).toEqual({ id: '1', type: 'Updated Park' });
       expect(service.update).toHaveBeenCalledWith('1', dto);
     });
   });

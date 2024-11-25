@@ -48,9 +48,8 @@ export class UserService {
   async signIn(loginDto: LoginDto): Promise<LoginResponseDto> {
     const { email, password } = loginDto;
     const user = await this.userRepository.findOne({ where: { email } });
-    console.log(user);
+
     this._hashPassword(password, this.configService.get('SALT')).then((x) => {
-      console.log(x);
     });
 
     if (user && (await this._validatePassword(password, user.password))) {
