@@ -1,16 +1,31 @@
 
 erDiagram
 
-Resort ||--o{ Park: has
+Resort ||--o{ Park: "is part of"
 Resort ||--|| Location: "is on"
+Resort ||--|| ResortType : "has type"
 
 Park ||--|| Location: "is on"
 Park ||--|| ParkType: "has type"
 
 
 ParkType {
-    varchar name
-    varchar description
+    uuid id
+    timestamp createdAt
+    User createdBy
+    User updatedBy
+    timestamp updatedAt
+    varchar type
+    text description
+}
+ResortType {
+    uuid id
+    timestamp createdAt
+    User createdBy
+    User updatedBy
+    timestamp updatedAt
+    varchar type
+    text description
 }
 
 Park {
@@ -23,16 +38,19 @@ Park {
     uuid parkTypeId
 }
 
-
+Park {
+    varchar name
+    varchar description
+    timestamp openingDate
+    timestamp closingDate
+}
 Resort {
-
     timestamp createdAt
     timestamp updatedAt
     varchar(255) name
     varchar(1024) description
     Date openingDate
     Date closingDate
-
 }
 
 Location {

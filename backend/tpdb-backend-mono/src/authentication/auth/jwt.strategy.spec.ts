@@ -46,7 +46,6 @@ describe('JwtStrategy', () => {
       mockUser.username = 'testuser';
       mockUser.email = 'test@example.com';
       mockUser.password = 'password123';
-      mockUser.salt = '';
 
       authService.validateUserById.mockResolvedValue(mockUser);
 

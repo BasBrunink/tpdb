@@ -7,11 +7,11 @@ import {
   Param,
   Delete,
   UseGuards,
+  Req,
 } from '@nestjs/common';
 import { ResortService } from './resort.service';
 import { CreateResortDto } from './dto/create-resort.dto';
 import { UpdateResortDto } from './dto/update-resort.dto';
-import { AuthGuard } from '@nestjs/passport';
 import { JwtAuthGuard } from '../../authentication/auth/jwt.guard';
 
 @Controller('resort')
@@ -20,8 +20,8 @@ export class ResortController {
 
   @UseGuards(JwtAuthGuard)
   @Post()
-  create(@Body() createResortDto: CreateResortDto) {
-    return this.resortService.create(createResortDto);
+  create(@Body() createResortDto: CreateResortDto, @Req() req: any) {
+    return this.resortService.create(createResortDto, req.user);
   }
 
   @Get()
