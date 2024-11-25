@@ -20,6 +20,7 @@ export class ParkTypeController {
   constructor(private readonly parkTypeService: ParkTypeService) {}
 
   @UseGuards(JwtAuthGuard)
+  @UseInterceptors(ClassSerializerInterceptor)
   @Post()
   create(@Body() createParkTypeDto: CreateParkTypeDto, @Req() req: any): Promise<ParkType> {
     return this.parkTypeService.create(createParkTypeDto, req.user);
@@ -30,12 +31,14 @@ export class ParkTypeController {
   findAll() {
     return this.parkTypeService.findAll();
   }
-
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.parkTypeService.findOne(id);
   }
 
+  @UseGuards(JwtAuthGuard)
+  @UseInterceptors(ClassSerializerInterceptor)
   @Patch(':id')
   update(
     @Param('id') id: string,
@@ -43,7 +46,8 @@ export class ParkTypeController {
   ) {
     return this.parkTypeService.update(id, updateParkTypeDto);
   }
-
+  @UseGuards(JwtAuthGuard)
+  @UseInterceptors(ClassSerializerInterceptor)
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.parkTypeService.remove(id);

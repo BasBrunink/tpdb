@@ -1,4 +1,4 @@
 export class ParktypeResponse {
-  name: string;
+  type: string;
   description: string;
 }

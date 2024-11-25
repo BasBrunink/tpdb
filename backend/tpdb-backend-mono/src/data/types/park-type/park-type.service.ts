@@ -25,7 +25,7 @@ export class ParkTypeService {
     console.log(user);
     try {
       const parkType: ParkType = {
-        name: createParkTypeDto.name,
+        type: createParkTypeDto.type,
         description: createParkTypeDto.description,
         createdAt: new Date(),
         createdBy: user,

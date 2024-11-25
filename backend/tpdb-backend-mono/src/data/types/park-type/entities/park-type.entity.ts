@@ -27,7 +27,7 @@ export class ParkType {
   @Column({ nullable: true })
   updatedAt: Date;
   @Column({ unique: true })
-  name: string;
+  type: string;
 
   @Column({ nullable: true })
   description: string;

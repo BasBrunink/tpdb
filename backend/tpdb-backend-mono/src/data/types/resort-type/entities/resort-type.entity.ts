@@ -27,6 +27,8 @@ export class ResortType {
   @Column({ nullable: true })
   updatedAt: Date;
 
+  @Column()
   type: string;
+  @Column()
   description: string;
 }

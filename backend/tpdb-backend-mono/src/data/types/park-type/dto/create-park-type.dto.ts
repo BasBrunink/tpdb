@@ -3,7 +3,7 @@ import { IsNotEmpty, IsString } from 'class-validator';
 export class CreateParkTypeDto {
   @IsString()
   @IsNotEmpty()
-  name: string;
+  type: string;
 
   @IsString()
   description: string;
