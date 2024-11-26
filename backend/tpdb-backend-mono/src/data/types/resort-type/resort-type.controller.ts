@@ -45,8 +45,9 @@ export class ResortTypeController {
   update(
     @Param('id') id: string,
     @Body() updateResortTypeDto: UpdateResortTypeDto,
+    @Req() req: any
   ) {
-    return this.resortTypeService.update(id, updateResortTypeDto);
+    return this.resortTypeService.update(id, updateResortTypeDto, req.user);
   }
 
   @UseGuards(JwtAuthGuard)

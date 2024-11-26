@@ -43,8 +43,9 @@ export class ParkTypeController {
   update(
     @Param('id') id: string,
     @Body() updateParkTypeDto: UpdateParkTypeDto,
+    @Req() req: any
   ) {
-    return this.parkTypeService.update(id, updateParkTypeDto);
+    return this.parkTypeService.update(id, updateParkTypeDto, req.user);
   }
   @UseGuards(JwtAuthGuard)
   @UseInterceptors(ClassSerializerInterceptor)

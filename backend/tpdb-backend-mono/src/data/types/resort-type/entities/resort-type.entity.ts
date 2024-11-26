@@ -29,6 +29,6 @@ export class ResortType {
 
   @Column()
   type: string;
-  @Column()
+  @Column({nullable: true, type:'text'})
   description: string;
 }

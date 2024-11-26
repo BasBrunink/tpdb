@@ -21,7 +21,7 @@ export class ParkTypeService {
     private readonly repo: Repository<ParkType>,
   ) {}
 
-  create(createParkTypeDto: CreateParkTypeDto, user: User) {
+  create(createParkTypeDto: CreateParkTypeDto, user: User): Promise<ParkType> {
 
     try {
       const parkType: ParkType = {
@@ -67,13 +67,16 @@ export class ParkTypeService {
   async update(
     id: string,
     updateParkTypeDto: UpdateParkTypeDto,
+    user: User
   ): Promise<ParkType> {
     const parkType = await this.repo.findOneBy({ id });
     if (!parkType) {
       throw new NotFoundException(`ParkType with ID ${id} not found`);
     }
     Object.assign(parkType, updateParkTypeDto);
+
     parkType.updatedAt = new Date();
+    parkType.updatedBy = user
     try {
       return await this.repo.save(parkType);
     } catch (error) {
