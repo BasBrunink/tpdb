@@ -27,7 +27,7 @@ export class AccommodationType {
   @Column({ nullable: true })
   updatedAt: Date;
   @Column()
-  name: string;
+  type: string;
 
   @Column()
   description: string;

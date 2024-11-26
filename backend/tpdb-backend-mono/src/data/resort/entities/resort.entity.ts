@@ -57,12 +57,6 @@ export class Resort {
   @JoinColumn()
   resortType: ResortType;
 
-  @Column({ nullable: true })
-  annualVisitors: number; // TODO maybe we want some history on this as wel.
-
-  @Column({ nullable: true })
-  entryFee: number; //TODO: maybe we want some history on this.
-
   @OneToOne(() => Company)
   @JoinColumn({ name: 'operator' })
   operator: Company;

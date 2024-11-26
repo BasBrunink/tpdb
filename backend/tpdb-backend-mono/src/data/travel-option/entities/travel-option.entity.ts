@@ -28,4 +28,8 @@ export class TravelOption {
   updatedAt: Date;
   @Column()
   name: string;
+
+  @Column()
+  description: string;
+
 }
