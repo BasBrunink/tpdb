@@ -19,7 +19,7 @@ import { Accommodation } from '../../accommodation/entities/accommodation.entity
 
 @Entity()
 export class Resort {
-  @PrimaryGeneratedColumn('uuid')ccc
+  @PrimaryGeneratedColumn('uuid')
   id?: string;
 
   @Column({ nullable: true })
@@ -40,9 +40,9 @@ export class Resort {
   @Column()
   description: string;
   @Column({ nullable: true })
-  openingDate: string;
+  openingDate: Date;
   @Column({ nullable: true })
-  closingDate: string;
+  closingDate: Date;
 
   @Column({ nullable: true })
   seasonality: string;

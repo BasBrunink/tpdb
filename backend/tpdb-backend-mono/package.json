@@ -105,6 +105,7 @@
       "<rootDir>/.*\\.config\\.ts$",
       "<rootDir>/.*\\.spec\\.ts$",
       "<rootDir>/.*\\.dto\\.ts$",
+      "<rootDir>/.*\\.entity\\.ts$",
       "<rootDir>/main.ts$"
     ],
     "testPathIgnorePatterns": [

@@ -5,17 +5,24 @@ import { Resort } from './entities/resort.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../../authentication/user/entities/user.entity';
+import { ResortTypeService } from '../types/resort-type/resort-type.service';
+import { CompanyService } from '../company/company.service';
 
 @Injectable()
 export class ResortService {
   constructor(
     @InjectRepository(Resort)
     private readonly resortRepo: Repository<Resort>,
+    private readonly typeService: ResortTypeService,
+    private readonly companyService: CompanyService,
+
   ) {}
 
-  create(createResortDto: CreateResortDto, user: User) {
+  async create(createResortDto: CreateResortDto, user: User) {
+
+    const resort = this._convertToResort(createResortDto);
     console.dir(user);
-    const resortToSave = this._convertToResort(createResortDto);
+    const resortToSave = await this._convertToResort(createResortDto);
     console.dir(resortToSave);
     resortToSave.createdBy = user;
     resortToSave.updatedBy = user;
@@ -40,10 +47,18 @@ export class ResortService {
     return `This action removes a #${id} resort`;
   }
 
-  private _convertToResort(createResortDto: CreateResortDto): Resort {
+  private async _convertToResort(dto: CreateResortDto | UpdateResortDto): Promise<Resort> {
     const resort: Resort = new Resort();
-    resort.name = createResortDto.name;
-    resort.description = createResortDto.description;
+    resort.name = dto.name;
+    resort.description = dto.description;
+    resort.openingDate = new Date(dto.openingDate);
+    resort.closingDate = new Date(dto.closingDate);
+    resort.area = dto.area;
+    resort.seasonality = dto.seasonality;
+    resort.resortType = await this.typeService.findOne(dto.resortTypeId)
+    resort.owner = await this.companyService.findOne(dto.ownerId)
+    resort.operator = await this.companyService.findOne(dto.operatorId)
+
     return resort;
   }
 }

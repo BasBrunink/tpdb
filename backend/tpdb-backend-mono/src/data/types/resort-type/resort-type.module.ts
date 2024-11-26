@@ -8,5 +8,6 @@ import { ResortType } from './entities/resort-type.entity';
   imports: [TypeOrmModule.forFeature([ResortType])],
   controllers: [ResortTypeController],
   providers: [ResortTypeService],
+  exports: [ResortTypeService]
 })
 export class ResortTypeModule {}
