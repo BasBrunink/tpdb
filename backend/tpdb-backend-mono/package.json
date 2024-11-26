@@ -10,6 +10,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
+    "start:dev:migate": "npm run typeorm:run-migrations && nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -39,10 +40,12 @@
     "@nestjs/swagger": "8.0.5",
     "@nestjs/typeorm": "10.0.2",
     "bcrypt": "5.1.1",
+    "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "cookie-parser": "^1.4.7",
     "dotenv": "16.4.5",
     "luxon": "3.5.0",
+    "nestjs-typeorm-paginate": "4.0.4",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
@@ -102,12 +105,12 @@
       "<rootDir>/.*\\.config\\.ts$",
       "<rootDir>/.*\\.spec\\.ts$",
       "<rootDir>/.*\\.dto\\.ts$",
+      "<rootDir>/.*\\.entity\\.ts$",
       "<rootDir>/main.ts$"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/.*\\.module\\.ts$",
       "<rootDir>/.*\\.enum\\.ts$",
-
       "<rootDir>main.ts$"
     ],
     "coverageDirectory": "../../../coverage/backend",

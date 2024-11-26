@@ -41,7 +41,6 @@ describe('UserController', () => {
       mockUser.username = 'testuser';
       mockUser.email = 'test@example.com';
       mockUser.password = 'password123';
-      mockUser.salt = '';
 
       mockUserService.create.mockResolvedValue(mockUser);
 

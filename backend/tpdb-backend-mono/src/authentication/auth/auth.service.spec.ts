@@ -90,7 +90,7 @@ describe('AuthService', () => {
       mockUser.username = 'test';
       mockUser.password = 'test';
       mockUser.email = 'test@example.com';
-      mockUser.salt = '2323';
+
       mockUserService.create.mockResolvedValue(mockUser);
       const result = await authService.signUp(signup);
       expect(result).toHaveProperty('username');
@@ -104,7 +104,6 @@ describe('AuthService', () => {
       mockUser.username = 'test';
       mockUser.password = 'test';
       mockUser.email = 'test@example.com';
-      mockUser.salt = '2323';
       mockUserService.findById.mockResolvedValue(mockUser);
       const result = await authService.validateUserById('1');
       expect(result).toHaveProperty('username');

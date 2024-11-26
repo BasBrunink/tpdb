@@ -1,10 +1,33 @@
-import { BaseModelWithLocation } from '../../../common/enitities/baseModelWithLocation.entity';
 import { Resort } from '../../resort/entities/resort.entity';
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne } from 'typeorm';
-import { ParkType } from '../park-type/entities/park-type.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { ParkType } from '../../types/park-type/entities/park-type.entity';
+import { User } from '../../../authentication/user/entities/user.entity';
 
 @Entity()
-export class Park extends BaseModelWithLocation {
+export class Park {
+  @PrimaryGeneratedColumn('uuid')
+  id?: string;
+
+  @Column({ nullable: true })
+  createdAt: Date;
+
+  @ManyToOne(() => User, { eager: true })
+  @JoinColumn({ name: 'createUser' })
+  createdBy: User;
+
+  @ManyToOne(() => User, { eager: true })
+  @JoinColumn({ name: 'updateUser' })
+  updatedBy: User;
+
+  @Column({ nullable: true })
+  updatedAt: Date;
   @Column()
   name: string;
 

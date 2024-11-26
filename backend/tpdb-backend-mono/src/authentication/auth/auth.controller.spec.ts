@@ -88,8 +88,6 @@ describe('AuthController', () => {
       mockUser.username = 'testuser';
       mockUser.email = 'testuser@example.com';
       mockUser.password = '';
-      mockUser.salt = '';
-
       const mockRequest = {
         user: mockUser,
       } as unknown as Request; // Type-cast to Request to match the type used in the controller method
