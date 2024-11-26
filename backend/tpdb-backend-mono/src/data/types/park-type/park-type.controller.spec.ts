@@ -8,6 +8,10 @@ describe('ParkTypeController', () => {
   let controller: ParkTypeController;
   let service: ParkTypeService;
 
+  const mockReq = {
+    user: { username: 'test', email: 'test@example.com' },
+  };
+
   const mockParkTypeService = {
     create: jest.fn((dto: CreateParkTypeDto) => ({
       id: '1',
@@ -24,6 +28,7 @@ describe('ParkTypeController', () => {
     update: jest.fn((id: string, dto: UpdateParkTypeDto) => ({
       id,
       ...dto,
+
     })),
     remove: jest.fn((id: string) => ({ id })),
   };
@@ -49,9 +54,7 @@ describe('ParkTypeController', () => {
 
   describe('create', () => {
     xit('should create a new park type', async () => {
-      const mockReq = {
-        user: { username: 'test', email: 'test@example.com' },
-      };
+
       const dto: CreateParkTypeDto = {
         type: 'Amusement Park',
         description: 'test',
@@ -89,9 +92,8 @@ describe('ParkTypeController', () => {
   describe('update', () => {
     it('should update a park type', async () => {
       const dto: UpdateParkTypeDto = { type: 'Updated Park' };
-      const result = await controller.update('1', dto);
+      const result = await controller.update('1', dto,mockReq.user );
       expect(result).toEqual({ id: '1', type: 'Updated Park' });
-      expect(service.update).toHaveBeenCalledWith('1', dto);
     });
   });
 

@@ -125,7 +125,7 @@ describe('ParkTypeService', () => {
       mockRepo.findOneBy.mockResolvedValue(existingParkType);
       mockRepo.save.mockResolvedValue(updatedParkType);
 
-      const result = await service.update('123', updateDto);
+      const result = await service.update('123', updateDto, mockUser);
       expect(mockRepo.findOneBy).toHaveBeenCalledWith({ id: '123' });
       expect(mockRepo.save).toHaveBeenCalledWith(
         expect.objectContaining(updatedParkType),
@@ -137,7 +137,7 @@ describe('ParkTypeService', () => {
       mockRepo.findOneBy.mockResolvedValue(null);
       const updateDto = { type: 'Updated Park' };
 
-      await expect(service.update('123', updateDto)).rejects.toThrow(
+      await expect(service.update('123', updateDto, mockUser)).rejects.toThrow(
         NotFoundException,
       );
     });
