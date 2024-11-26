@@ -35,8 +35,8 @@ export class ResortController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateResortDto: UpdateResortDto) {
-    return this.resortService.update(id, updateResortDto);
+  update(@Param('id') id: string, @Body() updateResortDto: UpdateResortDto, @Req() req: any) {
+    return this.resortService.update(id, updateResortDto, req.user);
   }
 
   @Delete(':id')

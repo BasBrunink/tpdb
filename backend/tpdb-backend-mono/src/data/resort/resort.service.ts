@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { ConflictException, HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { CreateResortDto } from './dto/create-resort.dto';
 import { UpdateResortDto } from './dto/update-resort.dto';
 import { Resort } from './entities/resort.entity';
@@ -7,6 +7,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../../authentication/user/entities/user.entity';
 import { ResortTypeService } from '../types/resort-type/resort-type.service';
 import { CompanyService } from '../company/company.service';
+import { PostgresErrorCode } from '../../database/postgresErrorCodes.enum';
 
 @Injectable()
 export class ResortService {
@@ -20,15 +21,19 @@ export class ResortService {
 
   async create(createResortDto: CreateResortDto, user: User) {
 
-    const resort = this._convertToResort(createResortDto);
-    console.dir(user);
-    const resortToSave = await this._convertToResort(createResortDto);
-    console.dir(resortToSave);
+    const resortToSave = await this._convertToResort(createResortDto)
     resortToSave.createdBy = user;
     resortToSave.updatedBy = user;
     resortToSave.createdAt = new Date();
     resortToSave.updatedAt = new Date();
-    return this.resortRepo.save(resortToSave);
+    try {
+      return this.resortRepo.save(resortToSave);
+    } catch (error) {
+      if(error.code === PostgresErrorCode.UniqueValidation) {
+        throw new ConflictException('Resort already exists');
+      }
+      throw new HttpException(`Resort create oops: ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 
   findAll() {
@@ -39,7 +44,7 @@ export class ResortService {
     return this.resortRepo.findOne({ where: { id: id } });
   }
 
-  update(id: string, updateResortDto: UpdateResortDto) {
+  update(id: string, updateResortDto: UpdateResortDto, user: User) {
     return `This action updates a #${id} resort, with ${updateResortDto}`;
   }
 
