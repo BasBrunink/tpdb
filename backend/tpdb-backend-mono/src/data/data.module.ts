@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ResortModule } from './resort/resort.module';
 import { ParkModule } from './park/park.module';
-import { AccomodationModule } from './accomodation/accomodation.module';
+import { AccommodationModule } from './accommodation/accommodation.module';
 import { AttractionModule } from './attraction/attraction.module';
 import { RideModule } from './ride/ride.module';
 import { RestaurantModule } from './restaurant/restaurant.module';
@@ -14,7 +14,7 @@ import { ResortEventsModule } from './resort-events/resort-events.module';
   imports: [
     ResortModule,
     ParkModule,
-    AccomodationModule,
+    AccommodationModule,
     AttractionModule,
     RideModule,
     RestaurantModule,

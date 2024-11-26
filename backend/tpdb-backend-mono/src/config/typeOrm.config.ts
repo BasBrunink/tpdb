@@ -4,9 +4,9 @@ import { config } from 'dotenv';
 import { Resort } from '../data/resort/entities/resort.entity';
 import { Park } from '../data/park/entities/park.entity';
 import { ParkType } from '../data/types/park-type/entities/park-type.entity';
-import { Accomodation } from '../data/accomodation/entities/accomodation.entity';
-import { AccomodationType } from '../data/types/accomodation-type/entities/accomodation-type.entity';
-import { AccomodationAmenity } from '../data/accomodation/accomodation-amenities/entities/accomodation-amenity.entity';
+import { Accommodation } from '../data/accommodation/entities/accommodation.entity';
+import { AccommodationType } from '../data/types/accommodation-type/entities/accommodation-type.entity';
+import { AccommodationAmenity } from '../data/accommodation/accommodation-amenities/entities/accommodation-amenity.entity';
 import { Company } from '../data/company/entities/company.entity';
 import { Attraction } from '../data/attraction/entities/attraction.entity';
 import { AttractionType } from '../data/types/attraction-type/entities/attraction-type.entity';
@@ -28,9 +28,9 @@ export default new DataSource({
   password: configService.get('POSTGRES_PASSWORD'),
   database: configService.get('POSTGRES_DB'),
   entities: [
-    Accomodation,
-    AccomodationType,
-    AccomodationAmenity,
+    Accommodation,
+    AccommodationType,
+    AccommodationAmenity,
     Attraction,
     AttractionType,
     Company,

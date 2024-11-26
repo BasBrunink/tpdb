@@ -1,17 +1,21 @@
-import { Resort } from '../../resort/entities/resort.entity';
 import {
   Column,
   Entity,
   JoinColumn,
+  JoinTable,
+  ManyToMany,
   ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { ParkType } from '../../types/park-type/entities/park-type.entity';
+import { Resort } from '../../resort/entities/resort.entity';
+import { AccommodationType   } from '../../types/accommodation-type/entities/accommodation-type.entity';
+
 import { User } from '../../../authentication/user/entities/user.entity';
+import { AccommodationAmenity } from '../accommodation-amenities/entities/accommodation-amenity.entity';
 
 @Entity()
-export class Park {
+export class Accommodation {
   @PrimaryGeneratedColumn('uuid')
   id?: string;
 
@@ -30,7 +34,6 @@ export class Park {
   updatedAt: Date;
   @Column()
   name: string;
-
   @Column()
   description: string;
 
@@ -40,10 +43,26 @@ export class Park {
   @Column({ nullable: true })
   closingDate: Date;
 
-  @OneToOne(() => ParkType)
+  @OneToOne(() => AccommodationType)
   @JoinColumn()
-  parkType: ParkType;
+  accomodationType: AccommodationType;
 
-  @ManyToOne(() => Resort, (resort) => resort.parks)
+  @Column()
+  rating: number;
+
+  @Column()
+  priceRange: number;
+
+  @Column()
+  rooms: number;
+
+  @Column()
+  ContantInfo: string;
+
+  @ManyToMany(() => AccommodationAmenity)
+  @JoinTable({ name: 'accomodation_has_amenities' })
+  amenities: AccommodationAmenity[];
+
+  @ManyToOne(() => Resort, (resort) => resort.accommodations)
   resort: Resort;
 }

@@ -9,27 +9,28 @@ import {
 } from 'typeorm';
 
 import { Park } from '../../park/entities/park.entity';
-import { Accomodation } from '../../accomodation/entities/accomodation.entity';
+
 import { Restaurant } from '../../restaurant/entities/restaurant.entity';
 import { ResortInternalTransportation } from '../../resort-internal-transportation/entities/resort-internal-transportation.entity';
 import { Company } from '../../company/entities/company.entity';
 import { ResortType } from '../../types/resort-type/entities/resort-type.entity';
 import { User } from '../../../authentication/user/entities/user.entity';
+import { Accommodation } from '../../accommodation/entities/accommodation.entity';
 
 @Entity()
 export class Resort {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn('uuid')ccc
   id?: string;
 
   @Column({ nullable: true })
   createdAt: Date;
 
   @ManyToOne(() => User, { eager: true })
-  @JoinColumn({ name: 'createUserId' })
+  @JoinColumn({ name: 'createUser' })
   createdBy: User;
 
   @ManyToOne(() => User, { eager: true })
-  @JoinColumn({ name: 'updateUserId' })
+  @JoinColumn({ name: 'updateUser' })
   updatedBy: User;
 
   @Column({ nullable: true })
@@ -81,6 +82,6 @@ export class Resort {
     (transport) => transport.resort,
   )
   transportation: ResortInternalTransportation[];
-  @OneToMany(() => Accomodation, (accomodation) => accomodation.resort)
-  accommodations: Accomodation[];
+  @OneToMany(() => Accommodation, (accommodation) => accommodation.resort)
+  accommodations: Accommodation[];
 }

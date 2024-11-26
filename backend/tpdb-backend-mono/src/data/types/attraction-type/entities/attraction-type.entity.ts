@@ -16,11 +16,11 @@ export class AttractionType {
   createdAt: Date;
 
   @ManyToOne(() => User, { eager: true })
-  @JoinColumn({ name: 'createUserId' })
+  @JoinColumn({ name: 'createUser' })
   createdBy: User;
 
   @ManyToOne(() => User, { eager: true })
-  @JoinColumn({ name: 'updateUserId' })
+  @JoinColumn({ name: 'updateUser' })
   updatedBy: User;
 
   @Column({ nullable: true })
