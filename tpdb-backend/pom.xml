@@ -1,0 +1,14 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.tpdb</groupId>
+    <artifactId>backend</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>tpdb-domain</module>
+        <module>tpdb-application</module>
+        <module>tpdb-infrastructure</module>
+        <module>tpdb-interface-rest</module>
+        <module>tpdb-boot</module>
+    </modules>
+</project>
