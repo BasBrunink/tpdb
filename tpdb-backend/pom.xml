@@ -12,6 +12,11 @@
         <module>tpdb-boot</module>
     </modules>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.5</version> <!-- ✅ or higher -->
+    </parent>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
