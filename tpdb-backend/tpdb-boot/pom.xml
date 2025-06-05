@@ -26,7 +26,6 @@
         <dependency>
             <groupId>com.tpdb</groupId>
             <artifactId>tpdb-application</artifactId>
-
             <version>${project.version}</version>
         </dependency>
         <dependency>
@@ -38,7 +37,6 @@
         <dependency>
             <groupId>com.tpdb</groupId>
             <artifactId>tpdb-interface-rest</artifactId>
-
             <version>${project.version}</version>
         </dependency>
 
@@ -52,13 +50,22 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <version>3.5.0</version>
         </dependency>
-
-        <!-- H2 for testing (swap later with PostgreSQL) -->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>2.3.232</version>
-            <scope>runtime</scope>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-database-postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.5.0</version>
         </dependency>
     </dependencies>
 

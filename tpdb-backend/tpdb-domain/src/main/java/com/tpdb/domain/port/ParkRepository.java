@@ -7,8 +7,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface ParkRepository {
-
-    void save(Park park);
+    Park save(Park park);
     Optional<Park> findById(UUID id);
     List<Park> findAll();
 }

@@ -1,12 +1,8 @@
 package com.tpdb.infrastructure.repository.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.tpdb.infrastructure.repository.entity.types.ParkTypeEntity;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.UUID;
 
@@ -16,10 +12,14 @@ import java.util.UUID;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class ParkEntity {
     @Id
     private UUID id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "park_type_id")
+    private ParkTypeEntity parkType;
     private String name;
     private String location;
 
