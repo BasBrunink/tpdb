@@ -2,9 +2,7 @@ package com.tpdb.interfaceadapter.mapper.types;
 
 import com.tpdb.domain.model.types.ParkType;
 import com.tpdb.interfaceadapter.dto.parktype.ParkTypeResponse;
-import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
