@@ -9,7 +9,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AccomodationType {
+public class CompanyType {
     private UUID id;
     private String type;
     private String description;

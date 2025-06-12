@@ -11,7 +11,7 @@ public class ParkMapper {
         return ParkResponse.builder()
                 .id(park.getId())
                 .name(park.getName())
-                .location(park.getLocation())
+//                .location(park.getLocation())
                 .build();
     }
 

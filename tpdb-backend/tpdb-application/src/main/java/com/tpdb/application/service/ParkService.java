@@ -23,7 +23,7 @@ public class ParkService implements ParkUseCase {
         Park park = new Park();
         park.setId(UUID.randomUUID());
         park.setName(name);
-        park.setLocation(location);
+//        park.setLocation(location);
         parkType.ifPresent(park::setParkType);
 
         return parkRepository.save(park);

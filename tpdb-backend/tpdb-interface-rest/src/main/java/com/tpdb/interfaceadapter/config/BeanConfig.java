@@ -10,8 +10,8 @@ import com.tpdb.infrastructure.repository.adapter.types.ParkTypeRepositoryAdapte
 import com.tpdb.infrastructure.repository.jpa.JpaParkRepository;
 import com.tpdb.domain.port.ParkRepository;
 import com.tpdb.infrastructure.repository.jpa.types.JpaParkTypeRepository;
-import com.tpdb.infrastructure.repository.mapper.ParkInfraStructureMapper;
-import com.tpdb.infrastructure.repository.mapper.types.ParkTypeInfraStrucureMapper;
+import com.tpdb.infrastructure.repository.mapper.ParkEntityMapper;
+import com.tpdb.infrastructure.repository.mapper.types.ParkTypeEntityMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -20,12 +20,12 @@ public class BeanConfig {
 
 
     @Bean
-    public ParkRepository parkRepository(JpaParkRepository parkRepo, ParkInfraStructureMapper parkInfraStructureMapper, ParkTypeInfraStrucureMapper parkTypeInfraStrucureMapper) {
-        return new ParkRepositoryAdapter(parkRepo, parkInfraStructureMapper, parkTypeInfraStrucureMapper);
+    public ParkRepository parkRepository(JpaParkRepository parkRepo, ParkEntityMapper parkEntityMapper, ParkTypeEntityMapper parkTypeEntityMapper) {
+        return new ParkRepositoryAdapter(parkRepo, parkEntityMapper, parkTypeEntityMapper);
     }
 
     @Bean
-    public ParkTypeRepository parkTypeRepository(JpaParkTypeRepository jpaRepo, ParkTypeInfraStrucureMapper parkTypeInfraStrucureMapper){return new ParkTypeRepositoryAdapter(jpaRepo, parkTypeInfraStrucureMapper);
+    public ParkTypeRepository parkTypeRepository(JpaParkTypeRepository jpaRepo, ParkTypeEntityMapper parkTypeEntityMapper){return new ParkTypeRepositoryAdapter(jpaRepo, parkTypeEntityMapper);
     }
 
     @Bean

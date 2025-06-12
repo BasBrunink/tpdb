@@ -7,13 +7,13 @@ import com.tpdb.infrastructure.repository.entity.types.ParkTypeEntity;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ParkInfraStructureMapper {
+public class ParkEntityMapper {
 
     public Park toDomain(ParkEntity e) {
         return Park.builder()
                 .id(e.getId())
                 .name(e.getName())
-                .location(e.getLocation())
+//                .location(e.getLocation())
                 .parkType(ParkType.builder()
                         .id(e.getParkType().getId())
                         .type(e.getParkType().getType())
@@ -26,7 +26,7 @@ public class ParkInfraStructureMapper {
         return ParkEntity.builder()
                 .name(domain.getName())
                 .id(domain.getId())
-                .location(domain.getLocation())
+//                .location(domain.getLocation())
                 .parkType(typeEntity)
                 .build();
     }
