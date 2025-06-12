@@ -12,7 +12,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-public class ResortTypeAdapter implements ResortTypeRepository {
+public class ResortTypeRepositoryAdapter implements ResortTypeRepository {
 
     private final JpaResortTypeRepository resortTypeRepository;
     private final ResortTypeEntityMapper resortTypeMapper;

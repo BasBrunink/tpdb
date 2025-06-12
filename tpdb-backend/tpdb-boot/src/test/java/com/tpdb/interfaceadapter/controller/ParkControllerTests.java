@@ -55,7 +55,9 @@ class ParkControllerTests {
 
         Mockito.when(parkUseCase.create(request.name(), null, request.location()))
                 .thenReturn(Park.builder()
-                        .name("test").location("test").build());
+                        .name("test")
+//                        .location("test")
+                        .build());
         Mockito.when(parkMapper.toResponse(any(Park.class))).thenReturn(response);
 
         mockMvc.perform(post("/parks")

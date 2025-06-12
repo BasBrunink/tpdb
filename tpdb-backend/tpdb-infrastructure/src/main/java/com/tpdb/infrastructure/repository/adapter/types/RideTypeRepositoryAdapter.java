@@ -12,7 +12,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-public class RideTypeAdapter  implements RideTypeRepository {
+public class RideTypeRepositoryAdapter implements RideTypeRepository {
 
     private final JpaRideTypeRepository rideTypeRepository;
     private final RideTypeEntityMapper rideTypeMapper;

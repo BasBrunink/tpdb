@@ -13,7 +13,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-public class ShopTypeAdapter implements ShopTypeRepository {
+public class ShopTypeRepositoryAdapter implements ShopTypeRepository {
 
     private final JpaShopTypeRepository shopTypeRepository;
     private final ShopTypeEntityMapper shopTypeMapper;

@@ -12,7 +12,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-public class StatusTypeAdapter implements StatusTypeRepository {
+public class StatusTypeRepositoryAdapter implements StatusTypeRepository {
 
     private final JpaStatusTypeRepository statusTypeRepository;
     private final StatusTypeEntityMapper statusTypeMapper;

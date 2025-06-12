@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 
 @RequiredArgsConstructor
-public class RestaurantTypeAdapter implements RestaurantTypeRepository {
+public class RestaurantTypeRepositoryAdapter implements RestaurantTypeRepository {
 
     private final JpaRestaurantTypeRepository restaurantTypeRepository;
     private final RestaurantTypeEntityMapper restaurantTypeMapper;

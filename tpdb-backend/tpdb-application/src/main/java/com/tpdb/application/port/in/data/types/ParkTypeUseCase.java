@@ -1,4 +1,4 @@
-package com.tpdb.application.port.in.data.types.parktype;
+package com.tpdb.application.port.in.data.types;
 
 import com.tpdb.domain.model.types.ParkType;
 

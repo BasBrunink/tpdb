@@ -12,7 +12,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-public class AccommodationTypeAdapter implements AccommodationTypeRepository {
+public class AccommodationTypeRepositoryAdapter implements AccommodationTypeRepository {
 
     private final JpaAccommodationTypeRepository accommodationTypeRepository;
     private final AccommodationTypeEntityMapper accommodationTypeMapper;

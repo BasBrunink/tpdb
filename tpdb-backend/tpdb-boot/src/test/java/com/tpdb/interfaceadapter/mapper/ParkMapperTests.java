@@ -17,7 +17,7 @@ public class ParkMapperTests {
         Park park = Park.builder()
                 .name("test")
                 .parkType(ParkType.builder().type("test").build())
-                .location("test")
+//                .location("test")
                 .build();
         ParkResponse response = parkMapper.toResponse(park);
         assertThat(response.name()).isEqualTo(park.getName());

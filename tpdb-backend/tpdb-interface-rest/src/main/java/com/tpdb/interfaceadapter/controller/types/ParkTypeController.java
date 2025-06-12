@@ -1,6 +1,6 @@
 package com.tpdb.interfaceadapter.controller.types;
 
-import com.tpdb.application.port.in.data.types.parktype.ParkTypeUseCase;
+import com.tpdb.application.port.in.data.types.ParkTypeUseCase;
 import com.tpdb.interfaceadapter.dto.parktype.ParkTypeResponse;
 import com.tpdb.interfaceadapter.mapper.types.ParkTypeMapper;
 import lombok.RequiredArgsConstructor;

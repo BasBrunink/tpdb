@@ -1,8 +1,7 @@
 package com.tpdb.interfaceadapter.controller.types;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tpdb.TestWebApp;
-import com.tpdb.application.port.in.data.types.parktype.ParkTypeUseCase;
+import com.tpdb.application.port.in.data.types.ParkTypeUseCase;
 import com.tpdb.domain.model.types.ParkType;
 import com.tpdb.interfaceadapter.dto.parktype.ParkTypeResponse;
 import com.tpdb.interfaceadapter.mapper.types.ParkTypeMapper;

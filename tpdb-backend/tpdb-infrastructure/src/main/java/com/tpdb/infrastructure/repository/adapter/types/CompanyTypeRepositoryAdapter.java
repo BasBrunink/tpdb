@@ -12,7 +12,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-public class CompanyTypeAdapter implements CompanyTypeRepository {
+public class CompanyTypeRepositoryAdapter implements CompanyTypeRepository {
 
     private final JpaCompanyTypeRepository companyTypeRepository;
     private final CompanyTypeEntityMapper companyTypeMapper;
