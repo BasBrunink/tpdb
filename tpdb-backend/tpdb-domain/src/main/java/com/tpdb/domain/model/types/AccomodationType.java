@@ -1,9 +1,7 @@
 package com.tpdb.domain.model.types;
 
-import com.tpdb.domain.model.Park;
 import lombok.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @Getter
