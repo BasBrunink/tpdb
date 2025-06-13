@@ -3,24 +3,23 @@ package com.tpdb.infrastructure.repository.mapper.types;
 import com.tpdb.domain.model.types.ParkType;
 import com.tpdb.infrastructure.repository.entity.ParkEntity;
 import com.tpdb.infrastructure.repository.entity.types.ParkTypeEntity;
-import com.tpdb.infrastructure.repository.mapper.ParkInfraStructureMapper;
+import com.tpdb.infrastructure.repository.mapper.ParkEntityMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.domain.EntityScanPackages;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class ParkTypeInfraStrucureMapper {
+public class ParkTypeEntityMapper {
 
-    public final ParkInfraStructureMapper parkInfraStructureMapper;
+    public final ParkEntityMapper parkEntityMapper;
 
     public ParkType toDomain(ParkTypeEntity e) {
         return ParkType.builder()
                 .id(e.getId())
                 .type(e.getType())
-                .parks(e.getParks().stream().map(parkInfraStructureMapper::toDomain).toList())
+                .parks(e.getParks().stream().map(parkEntityMapper::toDomain).toList())
                 .description(e.getDescription())
                 .build();
     }
@@ -36,7 +35,7 @@ public class ParkTypeInfraStrucureMapper {
                         ParkEntity pe = new ParkEntity();
                         pe.setId(p.getId());
                         pe.setName(p.getName());
-                        pe.setLocation(p.getLocation());
+//                        pe.setLocation(p.getLocation());
                         pe.setParkType(entity);
                         return pe;
                     })

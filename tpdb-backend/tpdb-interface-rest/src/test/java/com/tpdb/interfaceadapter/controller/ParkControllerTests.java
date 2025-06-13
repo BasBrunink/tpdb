@@ -2,7 +2,7 @@ package com.tpdb.interfaceadapter.controller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tpdb.TestWebApp;
+import com.tpdb.TestInterfaceRestApp;
 import com.tpdb.application.port.in.data.ParkUseCase;
 import com.tpdb.domain.model.Park;
 import com.tpdb.interfaceadapter.dto.park.CreateParkRequest;
@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(ParkController.class)
-@ContextConfiguration(classes = TestWebApp.class)
+@ContextConfiguration(classes = TestInterfaceRestApp.class)
 class ParkControllerTests {
 
     @Autowired
@@ -55,7 +55,9 @@ class ParkControllerTests {
 
         Mockito.when(parkUseCase.create(request.name(), null, request.location()))
                 .thenReturn(Park.builder()
-                        .name("test").location("test").build());
+                        .name("test")
+//                        .location("test")
+                        .build());
         Mockito.when(parkMapper.toResponse(any(Park.class))).thenReturn(response);
 
         mockMvc.perform(post("/parks")

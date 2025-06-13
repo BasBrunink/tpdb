@@ -1,20 +1,17 @@
 package com.tpdb.domain.model;
 
-
 import com.tpdb.domain.model.common.Location;
-import com.tpdb.domain.model.types.ParkType;
+import com.tpdb.domain.model.types.CompanyType;
 import lombok.*;
-
-import java.util.UUID;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
-public class Park {
-    private UUID id;
+public class Company {
     private String name;
-    private ParkType parkType;
+    private String description;
     private Location location;
+    private CompanyType companyType;
 }
