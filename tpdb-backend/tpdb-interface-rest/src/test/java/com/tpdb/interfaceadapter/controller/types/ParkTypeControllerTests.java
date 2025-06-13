@@ -1,6 +1,6 @@
 package com.tpdb.interfaceadapter.controller.types;
 
-import com.tpdb.TestWebApp;
+import com.tpdb.TestInterfaceRestApp;
 import com.tpdb.application.port.in.data.types.ParkTypeUseCase;
 import com.tpdb.domain.model.types.ParkType;
 import com.tpdb.interfaceadapter.dto.parktype.ParkTypeResponse;
@@ -13,19 +13,18 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 import static org.mockito.ArgumentMatchers.eq;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @WebMvcTest(ParkTypeController.class)
-@ContextConfiguration(classes = TestWebApp.class)
+@ContextConfiguration(classes = TestInterfaceRestApp.class)
 public class ParkTypeControllerTests {
 
     @Autowired

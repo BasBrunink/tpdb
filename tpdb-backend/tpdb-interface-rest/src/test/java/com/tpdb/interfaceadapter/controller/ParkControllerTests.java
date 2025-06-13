@@ -2,7 +2,7 @@ package com.tpdb.interfaceadapter.controller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tpdb.TestWebApp;
+import com.tpdb.TestInterfaceRestApp;
 import com.tpdb.application.port.in.data.ParkUseCase;
 import com.tpdb.domain.model.Park;
 import com.tpdb.interfaceadapter.dto.park.CreateParkRequest;
@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(ParkController.class)
-@ContextConfiguration(classes = TestWebApp.class)
+@ContextConfiguration(classes = TestInterfaceRestApp.class)
 class ParkControllerTests {
 
     @Autowired
