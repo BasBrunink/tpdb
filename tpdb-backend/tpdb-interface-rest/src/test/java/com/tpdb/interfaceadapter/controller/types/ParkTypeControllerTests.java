@@ -3,12 +3,13 @@ package com.tpdb.interfaceadapter.controller.types;
 import com.tpdb.TestInterfaceRestApp;
 import com.tpdb.application.port.in.data.types.ParkTypeUseCase;
 import com.tpdb.domain.model.types.ParkType;
-import com.tpdb.interfaceadapter.dto.parktype.ParkTypeResponse;
+import com.tpdb.interfaceadapter.dto.types.parktype.ParkTypeResponse;
 import com.tpdb.interfaceadapter.mapper.types.ParkTypeMapper;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -22,7 +23,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
+@SpringBootTest
 @WebMvcTest(ParkTypeController.class)
 @ContextConfiguration(classes = TestInterfaceRestApp.class)
 public class ParkTypeControllerTests {

@@ -1,8 +1,10 @@
 package com.tpdb.interfaceadapter.config;
 
 import com.tpdb.application.port.in.data.ParkUseCase;
+import com.tpdb.application.port.in.data.types.AccommodationTypeUseCase;
 import com.tpdb.application.port.in.data.types.ParkTypeUseCase;
 import com.tpdb.application.service.ParkService;
+import com.tpdb.application.service.types.AccommodationTypeService;
 import com.tpdb.application.service.types.ParkTypeService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,4 +20,7 @@ public class UseCaseConfig {
     @Bean
     public ParkTypeUseCase parkTypeUseCase(ParkTypeService parkTypeService){return parkTypeService;}
 
+
+    @Bean
+    AccommodationTypeUseCase accommodationTypeUseCase(AccommodationTypeService accommodationTypeService) { return accommodationTypeService;}
 }

@@ -1,10 +1,11 @@
-package com.tpdb.interfaceadapter.dto.parktype;
+package com.tpdb.interfaceadapter.dto.types.companytype;
 
 import lombok.Builder;
 
 import java.util.UUID;
+
 @Builder
-public record ParkTypeResponse(
+public record CompanyTypeResponse(
         UUID id,
         String type,
         String description
