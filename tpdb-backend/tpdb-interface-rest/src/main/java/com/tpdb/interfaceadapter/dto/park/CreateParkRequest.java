@@ -7,7 +7,8 @@ import java.util.UUID;
 @Builder
 public record CreateParkRequest(
         String name,
-        String location,
+        String description,
+        UUID locationId,
         UUID parkTypeId
 ) {
 }

@@ -2,8 +2,10 @@ package com.tpdb.application.service;
 
 import com.tpdb.application.port.in.data.ParkUseCase;
 import com.tpdb.domain.model.Park;
+import com.tpdb.domain.model.common.Location;
 import com.tpdb.domain.model.types.ParkType;
 import com.tpdb.domain.port.ParkRepository;
+import com.tpdb.domain.port.common.LocationRepository;
 import com.tpdb.domain.port.types.ParkTypeRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -16,14 +18,16 @@ public class ParkService implements ParkUseCase {
 
     private final ParkRepository parkRepository;
     private final ParkTypeRepository parkTypeRepository;
+    private final LocationRepository locationRepository;
 
     @Override
-    public Park create(String name, UUID parkTypeId, String location) {
+    public Park create(String name, UUID parkTypeId, UUID locationId) {
         Optional<ParkType> parkType = parkTypeRepository.findById(parkTypeId);
+        Optional<Location> location = locationRepository.findById(locationId);
         Park park = new Park();
         park.setId(UUID.randomUUID());
         park.setName(name);
-//        park.setLocation(location);
+        location.ifPresent(park::setLocation);
         parkType.ifPresent(park::setParkType);
 
         return parkRepository.save(park);

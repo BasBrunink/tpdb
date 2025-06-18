@@ -31,12 +31,16 @@
         <dependency>
             <groupId>com.tpdb</groupId>
             <artifactId>tpdb-infrastructure</artifactId>
-
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.tpdb</groupId>
             <artifactId>tpdb-interface-rest</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.tpdb</groupId>
+            <artifactId>tpdb-parser</artifactId>
             <version>${project.version}</version>
         </dependency>
 

@@ -5,6 +5,7 @@ import com.tpdb.infrastructure.repository.jpa.JpaParkRepository;
 import com.tpdb.domain.model.Park;
 import com.tpdb.domain.port.ParkRepository;
 import com.tpdb.infrastructure.repository.mapper.ParkEntityMapper;
+import com.tpdb.infrastructure.repository.mapper.common.LocationEntityMapper;
 import com.tpdb.infrastructure.repository.mapper.types.ParkTypeEntityMapper;
 import lombok.RequiredArgsConstructor;
 
@@ -18,6 +19,7 @@ public class ParkRepositoryAdapter implements ParkRepository {
     private final JpaParkRepository parkRepository;
     private final ParkEntityMapper parkEntityMapper;
     private final ParkTypeEntityMapper parkTypeEntityMapper;
+    private final LocationEntityMapper locationEntityMapper;
 
     @Override
     public Park save(Park park) {
@@ -25,7 +27,7 @@ public class ParkRepositoryAdapter implements ParkRepository {
                 ParkEntity.builder()
                         .id(park.getId())
                         .name(park.getName())
-//                        .location(park.getLocation())
+                        .location(locationEntityMapper.toEntity(park.getLocation()))
                         .parkType(parkTypeEntityMapper.toEntity(park.getParkType()))
                         .build()));
     }
