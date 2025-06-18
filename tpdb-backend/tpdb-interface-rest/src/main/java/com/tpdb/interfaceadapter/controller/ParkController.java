@@ -21,7 +21,7 @@ public class ParkController {
     @PostMapping()
     public ResponseEntity<ParkResponse> createPark(@RequestBody CreateParkRequest request) {
         ParkResponse response =  parkMapper.toResponse(parkUseCase.create(request.name(), request.parkTypeId()
-                ,request.location()));
+                ,request.locationId()));
         return ResponseEntity.ok().body(response);
     }
 

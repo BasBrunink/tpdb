@@ -4,8 +4,9 @@ import com.tpdb.infrastructure.repository.entity.ParkEntity;
 import com.tpdb.infrastructure.repository.jpa.JpaParkRepository;
 import com.tpdb.domain.model.Park;
 import com.tpdb.domain.port.ParkRepository;
-import com.tpdb.infrastructure.repository.mapper.ParkInfraStructureMapper;
-import com.tpdb.infrastructure.repository.mapper.types.ParkTypeInfraStrucureMapper;
+import com.tpdb.infrastructure.repository.mapper.ParkEntityMapper;
+import com.tpdb.infrastructure.repository.mapper.common.LocationEntityMapper;
+import com.tpdb.infrastructure.repository.mapper.types.ParkTypeEntityMapper;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -16,29 +17,30 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ParkRepositoryAdapter implements ParkRepository {
     private final JpaParkRepository parkRepository;
-    private final ParkInfraStructureMapper parkInfraStructureMapper;
-    private final ParkTypeInfraStrucureMapper parkTypeInfraStrucureMapper;
+    private final ParkEntityMapper parkEntityMapper;
+    private final ParkTypeEntityMapper parkTypeEntityMapper;
+    private final LocationEntityMapper locationEntityMapper;
 
     @Override
     public Park save(Park park) {
-        return parkInfraStructureMapper.toDomain(parkRepository.save(
+        return parkEntityMapper.toDomain(parkRepository.save(
                 ParkEntity.builder()
                         .id(park.getId())
                         .name(park.getName())
-                        .location(park.getLocation())
-                        .parkType(parkTypeInfraStrucureMapper.toEntity(park.getParkType()))
+                        .location(locationEntityMapper.toEntity(park.getLocation()))
+                        .parkType(parkTypeEntityMapper.toEntity(park.getParkType()))
                         .build()));
     }
 
     @Override
     public Optional<Park> findById(UUID id) {
-        return parkRepository.findById(id).map(parkInfraStructureMapper::toDomain);
+        return parkRepository.findById(id).map(parkEntityMapper::toDomain);
 
     }
 
     @Override
     public List<Park> findAll() {
-        return parkRepository.findAll().stream().map(parkInfraStructureMapper::toDomain)
+        return parkRepository.findAll().stream().map(parkEntityMapper::toDomain)
                 .collect(Collectors.toList());
     }
 

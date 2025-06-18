@@ -1,0 +1,6 @@
+scraper:
+  coastercloud:
+    base-url: "https://coaster.cloud"
+    parks-url: "/en/parks"
+    attractions-url: "/en/attractions"
+    parklinks-url: "https://coaster.cloud/sitemap/parks.en.xml"

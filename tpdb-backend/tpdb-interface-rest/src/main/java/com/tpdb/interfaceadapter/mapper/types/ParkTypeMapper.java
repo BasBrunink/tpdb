@@ -1,7 +1,7 @@
 package com.tpdb.interfaceadapter.mapper.types;
 
 import com.tpdb.domain.model.types.ParkType;
-import com.tpdb.interfaceadapter.dto.parktype.ParkTypeResponse;
+import com.tpdb.interfaceadapter.dto.types.parktype.ParkTypeResponse;
 import org.springframework.stereotype.Component;
 
 @Component

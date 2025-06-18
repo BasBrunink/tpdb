@@ -1,7 +1,7 @@
 package com.tpdb.interfaceadapter.controller.types;
 
-import com.tpdb.application.port.in.data.types.parktype.ParkTypeUseCase;
-import com.tpdb.interfaceadapter.dto.parktype.ParkTypeResponse;
+import com.tpdb.application.port.in.data.types.ParkTypeUseCase;
+import com.tpdb.interfaceadapter.dto.types.parktype.ParkTypeResponse;
 import com.tpdb.interfaceadapter.mapper.types.ParkTypeMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,8 @@ public class ParkTypeController {
     private final ParkTypeMapper parkTypeMapper;
 
     @GetMapping("/by-id/{id}")
-    public ResponseEntity<ParkTypeResponse> getParkTypeById(@PathVariable(name = "id") UUID id) {
+    public ResponseEntity<ParkTypeResponse> getParkTypeById(
+            @PathVariable(name = "id") UUID id) {
         return parkTypeUseCase.findById(id)
                 .map(parkTypeMapper::toResponse)
                 .map(ResponseEntity::ok)
@@ -27,7 +28,8 @@ public class ParkTypeController {
     }
 
     @GetMapping("/by-type/{type}")
-    public ResponseEntity<ParkTypeResponse> getParkTypeByType(@PathVariable(name = "type") String type) {
+    public ResponseEntity<ParkTypeResponse> getParkTypeByType(
+            @PathVariable(name = "type") String type) {
         return parkTypeUseCase.findByType(type)
                 .map(parkTypeMapper::toResponse)
                 .map(ResponseEntity::ok)

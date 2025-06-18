@@ -6,6 +6,6 @@ import java.util.List;
 import java.util.UUID;
 
 public interface ParkUseCase {
-    Park create(String name, UUID parkTypeId, String location);
+    Park create(String name, UUID parkTypeId, UUID locationId);
     List<Park> list();
 }

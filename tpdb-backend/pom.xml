@@ -10,6 +10,7 @@
         <module>tpdb-infrastructure</module>
         <module>tpdb-interface-rest</module>
         <module>tpdb-boot</module>
+        <module>tpdb-parser</module>
     </modules>
     <properties>
         <sonar.organization>basbrunink-1</sonar.organization>
