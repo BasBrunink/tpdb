@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/backend/tpdb-rest-backend/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/tpdb-domain/pom.xml" />
       </list>
     </option>
   </component>

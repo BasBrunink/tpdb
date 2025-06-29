@@ -1,4 +1,4 @@
-package com.tpdb.tpdbrestbackend;
+package com.tpdb.domain.tpdbrestbackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -18,7 +18,7 @@
         <license/>
     </licenses>
     <developers>
-        <developer/>
+        <developer>Bas Brunink</developer>
     </developers>
     <scm>
         <connection/>
@@ -75,6 +75,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tpdb</groupId>
+            <artifactId>tpdb-domain</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
