@@ -12,24 +12,11 @@ import {Park} from './model/park.model';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App implements OnInit{
-  parks: Park[] = [];
-
-
-
-
-  private parkService = inject(ParkService);
-
+export class App{
 
 
   protected title = 'tpdb-adminPortal';
 
-  ngOnInit() {
-    this.parkService.getAllParks().subscribe({
-      next: (parks) => this.parks = parks,
-      error: err => console.error(err)
-    })
-  }
 
 
 }

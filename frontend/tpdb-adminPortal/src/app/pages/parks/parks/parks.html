@@ -1,0 +1,13 @@
+@if (parks) {
+  @for (d of parks; track $index) {
+    <h1>{{d.name}}</h1>
+    <p>{{d.description}}</p>
+    <hr>
+    <p>{{d.address}}</p>
+    <p>Opened: {{ d.opening.toFormat('dd-MM-yyyy') }}</p>
+    <p>closed: {{ d.closing.toFormat('dd-MM-yyyy') }}</p>
+
+  }
+
+
+}
