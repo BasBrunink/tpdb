@@ -1,4 +1,4 @@
-package com.tpdb.domain.tpdbrestbackend.persistence.interfaces;
+package com.tpdb.domain.tpdbrestbackend.persistence.mapper;
 
 public interface EntityMapper<D, E> {
 
