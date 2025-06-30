@@ -1,0 +1,56 @@
+{
+	"header": {
+		"menu": {
+			"attraction": "Attractie",
+			"attractionmenu": {
+				"add": "Toevoegen",
+				"list": "Lijst",
+				"main": "Hoofdpagina"
+			},
+			"dashboard": "Dashboard",
+			"hotel": "Hotel",
+			"hotelmenu": {
+				"add": "Toevoegen",
+				"list": "Lijst",
+				"main": "Hoofdpagina"
+			},
+			"park": "Park",
+			"parkmenu": {
+				"add": "Toevoegen",
+				"list": "Lijst",
+				"main": "Hoofdpagina"
+			},
+			"resort": "Resort",
+			"resortmenu": {
+				"add": "Toevoegen",
+				"list": "Lijst",
+				"main": "Hoofdpagina"
+			},
+			"restaurant": "Restaurant",
+			"restaurantmenu": {
+				"add": "Toevoegen",
+				"list": "Lijst",
+				"main": "Hoofdpagina"
+			},
+			"ride": "Rit",
+			"ridemenu": {
+				"add": "Toevoegen",
+				"list": "Lijst",
+				"main": "Hoofdpagina"
+			},
+			"rollercoaster": "Achtbaan",
+			"rollercoastermenu": {
+				"add": "Toevoegen",
+				"list": "Lijst",
+				"main": "Hoofdpagina"
+			},
+			"show": "Toon",
+			"showmenu": {
+				"add": "Toevoegen",
+				"list": "Lijst",
+				"main": "Hoofdpagina"
+			}
+		},
+		"title": "TPDB Beheerportaal"
+	}
+}

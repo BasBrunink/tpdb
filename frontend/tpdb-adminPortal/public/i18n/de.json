@@ -1,0 +1,56 @@
+{
+	"header": {
+		"menu": {
+			"attraction": "Attraktion",
+			"attractionmenu": {
+				"add": "Hinzufügen",
+				"list": "Liste",
+				"main": "Hauptseite"
+			},
+			"dashboard": "Dashboard",
+			"hotel": "Hotel",
+			"hotelmenu": {
+				"add": "Hinzufügen",
+				"list": "Liste",
+				"main": "Hauptseite"
+			},
+			"park": "Park",
+			"parkmenu": {
+				"add": "Hinzufügen",
+				"list": "Liste",
+				"main": "Hauptseite"
+			},
+			"resort": "Resort",
+			"resortmenu": {
+				"add": "Hinzufügen",
+				"list": "Liste",
+				"main": "Hauptseite"
+			},
+			"restaurant": "Restaurant",
+			"restaurantmenu": {
+				"add": "Hinzufügen",
+				"list": "Liste",
+				"main": "Hauptseite"
+			},
+			"ride": "Fährt",
+			"ridemenu": {
+				"add": "Hinzufügen",
+				"list": "Liste",
+				"main": "Hauptseite"
+			},
+			"rollercoaster": "Achterbahn",
+			"rollercoastermenu": {
+				"add": "Hinzufügen",
+				"list": "Liste",
+				"main": "Hauptseite"
+			},
+			"show": "Anzeigen",
+			"showmenu": {
+				"add": "Hinzufügen",
+				"list": "Liste",
+				"main": "Hauptseite"
+			}
+		},
+		"title": "TPDB Admin-Portal"
+	}
+}

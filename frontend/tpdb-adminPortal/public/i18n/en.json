@@ -1,0 +1,56 @@
+{
+	"header": {
+		"menu": {
+			"attraction": "Attraction",
+			"attractionmenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			},
+			"dashboard": "Dashboard",
+			"hotel": "Hotel",
+			"hotelmenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			},
+			"park": "Park",
+			"parkmenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			},
+			"resort": "Resort",
+			"resortmenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			},
+			"restaurant": "Restaurant",
+			"restaurantmenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			},
+			"ride": "Ride",
+			"ridemenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			},
+			"rollercoaster": "Rollercoaster",
+			"rollercoastermenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			},
+			"show": "Show",
+			"showmenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			}
+		},
+		"title": "TPDB Admin portal"
+	}
+}

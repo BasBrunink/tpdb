@@ -1,0 +1,56 @@
+{
+	"header": {
+		"menu": {
+			"attraction": "Attraction",
+			"attractionmenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			},
+			"dashboard": "Tableau de bord",
+			"hotel": "Hôtel",
+			"hotelmenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			},
+			"park": "Parc",
+			"parkmenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			},
+			"resort": "Station",
+			"resortmenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			},
+			"restaurant": "Restaurant",
+			"restaurantmenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			},
+			"ride": "Manège",
+			"ridemenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			},
+			"rollercoaster": "Montagne russe",
+			"rollercoastermenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			},
+			"show": "Afficher",
+			"showmenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			}
+		},
+		"title": "Portail administrateur TPDB"
+	}
+}
