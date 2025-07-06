@@ -1,7 +1,7 @@
 package com.tpdb.domain.tpdbrestbackend.services.implementation;
 
-import com.tpdb.domain.Park;
-import com.tpdb.domain.tpdbrestbackend.persistence.repositories.ParkRepository;
+import com.tpdb.domain.data.Park;
+import com.tpdb.domain.tpdbrestbackend.persistence.repositories.data.ParkRepository;
 import com.tpdb.domain.tpdbrestbackend.services.usercases.ParkUseCase;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;

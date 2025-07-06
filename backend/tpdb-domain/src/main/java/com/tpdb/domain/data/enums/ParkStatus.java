@@ -1,4 +1,4 @@
-package com.tpdb.domain.enums;
+package com.tpdb.domain.data.enums;
 
 public enum ParkStatus {
     DEFUNCT,

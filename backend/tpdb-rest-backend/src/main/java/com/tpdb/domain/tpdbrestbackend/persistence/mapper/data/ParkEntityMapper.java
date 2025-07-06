@@ -1,7 +1,8 @@
-package com.tpdb.domain.tpdbrestbackend.persistence.mapper;
+package com.tpdb.domain.tpdbrestbackend.persistence.mapper.data;
 
-import com.tpdb.domain.Park;
-import com.tpdb.domain.tpdbrestbackend.persistence.entities.ParkEntity;
+import com.tpdb.domain.data.Park;
+import com.tpdb.domain.tpdbrestbackend.persistence.entities.data.ParkEntity;
+import com.tpdb.domain.tpdbrestbackend.persistence.mapper.EntityMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

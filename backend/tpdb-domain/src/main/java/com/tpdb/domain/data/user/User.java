@@ -1,4 +1,4 @@
-package com.tpdb.domain.user;
+package com.tpdb.domain.data.user;
 
 
 import java.time.LocalDateTime;

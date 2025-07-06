@@ -1,8 +1,8 @@
-package com.tpdb.domain.tpdbrestbackend.persistence.entities;
+package com.tpdb.domain.tpdbrestbackend.persistence.entities.data;
 
 
-import com.tpdb.domain.enums.ParkStatus;
-import com.tpdb.domain.enums.types.ParkType;
+import com.tpdb.domain.data.enums.ParkStatus;
+import com.tpdb.domain.data.enums.types.ParkType;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,6 +1,6 @@
-package com.tpdb.domain.tpdbrestbackend.persistence.jpa;
+package com.tpdb.domain.tpdbrestbackend.persistence.jpa.data;
 
-import com.tpdb.domain.tpdbrestbackend.persistence.entities.ParkEntity;
+import com.tpdb.domain.tpdbrestbackend.persistence.entities.data.ParkEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

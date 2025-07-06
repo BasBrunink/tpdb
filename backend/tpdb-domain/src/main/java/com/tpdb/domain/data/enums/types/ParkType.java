@@ -1,4 +1,4 @@
-package com.tpdb.domain.enums.types;
+package com.tpdb.domain.data.enums.types;
 
 public enum ParkType {
     AMUSEMENTPARK,

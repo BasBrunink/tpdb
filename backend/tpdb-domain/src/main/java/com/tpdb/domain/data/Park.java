@@ -1,8 +1,8 @@
-package com.tpdb.domain;
+package com.tpdb.domain.data;
 
-import com.tpdb.domain.enums.ParkStatus;
-import com.tpdb.domain.enums.types.ParkType;
-import com.tpdb.domain.user.User;
+import com.tpdb.domain.data.enums.ParkStatus;
+import com.tpdb.domain.data.enums.types.ParkType;
+import com.tpdb.domain.data.user.User;
 import lombok.*;
 
 

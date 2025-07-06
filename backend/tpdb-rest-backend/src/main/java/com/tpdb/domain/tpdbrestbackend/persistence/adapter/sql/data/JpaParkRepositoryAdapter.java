@@ -1,10 +1,9 @@
-package com.tpdb.domain.tpdbrestbackend.persistence.adapter.sql;
+package com.tpdb.domain.tpdbrestbackend.persistence.adapter.sql.data;
 
-import com.tpdb.domain.Park;
-import com.tpdb.domain.tpdbrestbackend.persistence.jpa.JpaParkRepository;
-import com.tpdb.domain.tpdbrestbackend.persistence.mapper.ParkEntityMapper;
-import com.tpdb.domain.tpdbrestbackend.persistence.repositories.ParkRepository;
-import lombok.NoArgsConstructor;
+import com.tpdb.domain.data.Park;
+import com.tpdb.domain.tpdbrestbackend.persistence.jpa.data.JpaParkRepository;
+import com.tpdb.domain.tpdbrestbackend.persistence.mapper.data.ParkEntityMapper;
+import com.tpdb.domain.tpdbrestbackend.persistence.repositories.data.ParkRepository;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;

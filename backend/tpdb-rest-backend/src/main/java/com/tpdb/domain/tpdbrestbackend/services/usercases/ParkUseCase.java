@@ -1,6 +1,6 @@
 package com.tpdb.domain.tpdbrestbackend.services.usercases;
 
-import com.tpdb.domain.Park;
+import com.tpdb.domain.data.Park;
 
 import java.util.List;
 import java.util.Optional;
