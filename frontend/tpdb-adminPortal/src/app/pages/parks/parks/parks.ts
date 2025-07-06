@@ -49,7 +49,7 @@ export class Parks implements OnInit{
   }
 
   getClosingDateDisplay(park: Park): string {
-    return park.closing ? park.closing.toFormat('dd-MM-yyyy') : 'Still Operating'; //TODO: i18n
+    return park.closing ? park.closing.toFormat('dd-MM-yyyy') : ''; //TODO: i18n
   }
 
 

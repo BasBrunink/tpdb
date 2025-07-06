@@ -40,10 +40,27 @@
 
           <!--TODO: opmaak voor details -->
           <div class="element-detail">
-            <h2>Description: </h2>
-            <p>
-              {{ element.description }}
-            </p>
+            <div class="detail-content">
+              <div class="detail-left">
+                <p><strong>Name: </strong>{{ element.name }}</p>
+                <p><strong>park type: </strong>{{ element.parkType }}</p>
+                <p><strong>Opening date: </strong>{{ getOpeningDateDisplay(element) }}</p>
+                <p><strong>Closing date: </strong>{{ getClosingDateDisplay(element) }}</p>
+                <p><strong>Status: </strong>{{ element.status }}</p>
+                <p><strong>address:</strong>{{ element.address}}</p>
+                <p><strong>area:</strong>{{ element.areaSize}} m<sup>2</sup></p>
+              </div>
+              <div class="detail-right">
+                <img class="hero-image" [src]="'https://banner2.cleanpng.com/20180712/ei/kisspng-eurosat-amusement-park-roller-coaster-euro-mir-s1000rr-5b470796a08d30.5290096515313816546576.jpg'">
+
+                <p class="description">
+                  <strong>Description: </strong><br>
+                </p>
+                <p [innerHTML]="element.description">
+
+                </p>
+              </div>
+            </div>
           </div>
         }
       </td>
