@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 
-export type ParkType = 'THEME_PARK' | 'WATER_PARK' | 'SHOPPING_DISTRICT'; // update with your enum values
-export type ParkStatus = 'OPEN' | 'CLOSED' | 'SEASONAL'; // update with your enum values
+export type ParkType = 'AMUSEMENTPARK' | 'THEMEPARK' |'ANIMALPARK' | 'WATERPARK';
+export type ParkStatus = 'DEFUNCT' | 'OPERATING' | 'OUT_OF_OPERATION' | 'UNDER_CONSTRUCTION';
 
 export class Park {
   constructor(
@@ -12,10 +12,10 @@ export class Park {
     public description: string,
     public parkType: ParkType,
     public opening: DateTime,
-    public closing: DateTime,
     public status: ParkStatus,
     public address: string,
-    public areaSize: number
+    public areaSize: number,
+    public closing?: DateTime | null,
   ) {}
 
   static fromJson(json: any): Park
@@ -28,10 +28,10 @@ export class Park {
       json.description,
       json.parkType,
       DateTime.fromISO(json.opening),
-      DateTime.fromISO(json.closing),
       json.status,
       json.address,
-      json.areaSize
+      json.areaSize,
+      DateTime.fromISO(json.closing),
     );
   }}
 
