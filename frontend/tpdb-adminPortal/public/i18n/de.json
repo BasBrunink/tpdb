@@ -52,5 +52,17 @@
 			}
 		},
 		"title": "TPDB Admin-Portal"
+	},
+	"parks": {
+		"mainpage": {
+			"table": {
+				"headers": {
+					"name": "",
+					"parkStatus": "",
+					"parkType": ""
+				}
+			},
+			"title": ""
+		}
 	}
 }
