@@ -1,4 +1,18 @@
 {
+	"enum": {
+		"parkstatus": {
+			"DEFUNCT": "Eingestellt",
+			"OPERATING": "Betrieb",
+			"OUT_OF_OPERATION": "Außer Betrieb",
+			"UNDER_CONSTRUCTION": "In Bearbeitung"
+		},
+		"parktype": {
+			"AMUSEMENTPARK": "Vergnügungspark",
+			"ANIMALPARK": "Tierpark",
+			"THEMEPARK": "Freizeitpark",
+			"WATERPARK": "Wasserpark"
+		}
+	},
 	"header": {
 		"menu": {
 			"attraction": "Attraktion",
@@ -56,13 +70,23 @@
 	"parks": {
 		"mainpage": {
 			"table": {
+				"details": {
+					"address": "Adresse",
+					"area": "Fläche",
+					"closing": "Schlussdatum",
+					"description": "Beschreibung",
+					"name": "Name",
+					"opening": "Eröffnungsdatum",
+					"parkType": "Park Type",
+					"status": "Status"
+				},
 				"headers": {
-					"name": "",
-					"parkStatus": "",
-					"parkType": ""
+					"name": "Name",
+					"parkStatus": "Status",
+					"parkType": "Park Type"
 				}
 			},
-			"title": ""
+			"title": "Parks"
 		}
 	}
 }

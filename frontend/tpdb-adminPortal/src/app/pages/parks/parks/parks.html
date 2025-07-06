@@ -1,4 +1,6 @@
-<h1>{{ 'parks.mainpage.title' | translate }}</h1>
+<div class="title">
+  <h1>{{ 'parks.mainpage.title' | translate }}</h1>
+</div>
 
 <div class="container">
 
@@ -14,13 +16,13 @@
     <!-- parkType Column -->
     <ng-container matColumnDef="parkType">
       <th mat-header-cell *matHeaderCellDef>{{'parks.mainpage.table.headers.parkType' | translate}}</th>
-      <td mat-cell *matCellDef="let element"> {{ element.parkType }}</td>
+      <td mat-cell *matCellDef="let element"> {{ determineTranslationKeyForParkType(element.parkType) | translate }}</td>
     </ng-container>
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="status">
       <th mat-header-cell *matHeaderCellDef>{{'parks.mainpage.table.headers.parkStatus' | translate}}</th>
-      <td mat-cell *matCellDef="let element"> {{ element.status }}</td>
+      <td mat-cell *matCellDef="let element"> {{ determineTranslationKeyForParkStatus(element.status) | translate }}</td>
     </ng-container>
 
     <!-- Data Row -->
@@ -42,13 +44,13 @@
           <div class="element-detail">
             <div class="detail-content">
               <div class="detail-left">
-                <p><strong>Name: </strong>{{ element.name }}</p>
-                <p><strong>park type: </strong>{{ element.parkType }}</p>
-                <p><strong>Opening date: </strong>{{ getOpeningDateDisplay(element) }}</p>
-                <p><strong>Closing date: </strong>{{ getClosingDateDisplay(element) }}</p>
-                <p><strong>Status: </strong>{{ element.status }}</p>
-                <p><strong>address:</strong>{{ element.address}}</p>
-                <p><strong>area:</strong>{{ element.areaSize}} m<sup>2</sup></p>
+                <p><strong>{{'parks.mainpage.table.details.name' | translate}} : </strong>{{ element.name }}</p>
+                <p><strong>{{'parks.mainpage.table.details.parktype' | translate}} : </strong>{{ determineTranslationKeyForParkType(element.parkType) | translate }}</p>
+                <p><strong>{{'parks.mainpage.table.details.opening' | translate}} : </strong>{{ getOpeningDateDisplay(element) }}</p>
+                <p><strong>{{'parks.mainpage.table.details.closing' | translate}} : </strong>{{ getClosingDateDisplay(element) }}</p>
+                <p><strong>{{'parks.mainpage.table.details.status' | translate}} : </strong>{{ determineTranslationKeyForParkStatus(element.status) |translate  }}</p>
+                <p><strong>{{'parks.mainpage.table.details.address' | translate}} : </strong>{{ element.address}}</p>
+                <p><strong>{{'parks.mainpage.table.details.area' | translate}} : </strong>{{ element.areaSize}} m<sup>2</sup></p>
               </div>
               <div class="detail-right">
                 <img class="hero-image" [src]="'https://banner2.cleanpng.com/20180712/ei/kisspng-eurosat-amusement-park-roller-coaster-euro-mir-s1000rr-5b470796a08d30.5290096515313816546576.jpg'">
@@ -65,6 +67,8 @@
         }
       </td>
     </ng-container>
-
   </table>
+
+  <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+  </mat-paginator>
 </div>

@@ -1,10 +1,11 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {Park} from '../../../model/park.model';
+import {Park, ParkStatus, ParkType} from '../../../model/park.model';
 import {MockParkService} from '../../../services/mockServices/mock-park-service';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {TranslatePipe} from '@ngx-translate/core';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-parks',
@@ -13,6 +14,7 @@ import {TranslatePipe} from '@ngx-translate/core';
     MatButtonModule,
     MatIconModule,
     TranslatePipe,
+    MatPaginatorModule,
   ],
   templateUrl: './parks.html',
   styleUrl: './parks.scss'
@@ -52,6 +54,14 @@ export class Parks implements OnInit{
 
   getClosingDateDisplay(park: Park): string {
     return park.closing ? park.closing.toFormat('dd-MM-yyyy') : ''; //TODO: i18n
+  }
+
+  determineTranslationKeyForParkType(input: ParkType): string {
+    return 'enum.parktype.' + input
+  }
+
+  determineTranslationKeyForParkStatus(input: ParkStatus): string {
+    return 'enum.parkstatus.' + input
   }
 
 

@@ -1,4 +1,18 @@
 {
+	"enum": {
+		"parkstatus": {
+			"DEFUNCT": "Defunct",
+			"OPERATING": "Operationeel",
+			"OUT_OF_OPERATION": "Buiten operatie",
+			"UNDER_CONSTRUCTION": "In aanbouw"
+		},
+		"parktype": {
+			"AMUSEMENTPARK": "Amusement park",
+			"ANIMALPARK": "Animal park",
+			"THEMEPARK": "Theme park",
+			"WATERPARK": "Water park"
+		}
+	},
 	"header": {
 		"menu": {
 			"attraction": "Attractie",
@@ -56,13 +70,23 @@
 	"parks": {
 		"mainpage": {
 			"table": {
+				"details": {
+					"address": "Adres",
+					"area": "Oppervlakte",
+					"closing": "Sluitings datum",
+					"description": "Omschrijving",
+					"name": "Naam",
+					"opening": "Openings datum",
+					"parkType": "Park type",
+					"status": "Status"
+				},
 				"headers": {
-					"name": "",
-					"parkStatus": "",
-					"parkType": ""
+					"name": "Naam",
+					"parkStatus": "Status",
+					"parkType": "Park Type"
 				}
 			},
-			"title": ""
+			"title": "Parks"
 		}
 	}
 }

@@ -1,4 +1,18 @@
 {
+	"enum": {
+		"parkstatus": {
+			"DEFUNCT": "Désuet",
+			"OPERATING": "En fonctionnement",
+			"OUT_OF_OPERATION": "Hors service",
+			"UNDER_CONSTRUCTION": "En construction"
+		},
+		"parktype": {
+			"AMUSEMENTPARK": "Parc d'attractions",
+			"ANIMALPARK": "Parc animalier",
+			"THEMEPARK": "Parc à thème",
+			"WATERPARK": "Parc aquatique"
+		}
+	},
 	"header": {
 		"menu": {
 			"attraction": "Attraction",
@@ -56,13 +70,23 @@
 	"parks": {
 		"mainpage": {
 			"table": {
+				"details": {
+					"address": "Adresse",
+					"area": "Taille de la zone",
+					"closing": "Date de clôture",
+					"description": "Description",
+					"name": "Nom",
+					"opening": "Date d'ouverture",
+					"parkType": "Type de parc",
+					"status": "Statut"
+				},
 				"headers": {
-					"name": "",
-					"parkStatus": "",
-					"parkType": ""
+					"name": "Nom",
+					"parkStatus": "Statut",
+					"parkType": "Type de parc"
 				}
 			},
-			"title": ""
+			"title": "Parcs"
 		}
 	}
 }
