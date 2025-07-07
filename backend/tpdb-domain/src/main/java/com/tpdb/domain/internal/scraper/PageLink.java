@@ -19,7 +19,6 @@ public class PageLink {
     private LocalDateTime lastParse;
     private String link;
     private ScrapeSource source;
-    private String url;
     private LinkType type;
     private String sourceID;
 }

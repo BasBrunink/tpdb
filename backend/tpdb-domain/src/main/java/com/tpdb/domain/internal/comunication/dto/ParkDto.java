@@ -3,6 +3,7 @@ package com.tpdb.domain.internal.comunication.dto;
 import com.tpdb.domain.data.enums.ParkStatus;
 import com.tpdb.domain.data.enums.types.ParkType;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 public record ParkDto(
@@ -14,5 +15,5 @@ public record ParkDto(
          ParkStatus status,
          String address,
         double areaSize
-) {
+) implements Serializable {
 }

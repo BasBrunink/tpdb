@@ -24,7 +24,6 @@ public class PageLinkConsumer {
                 .lastParse(request.lastParse())
                 .link(request.link())
                 .source(request.source())
-                .url(request.url())
                 .type(request.type())
                 .sourceID(request.sourceID())
                 .build();

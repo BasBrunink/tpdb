@@ -42,7 +42,6 @@ public class PageLinkService implements PageLinkUseCase {
                     existingPark.setLastParse(updatedPageLink.getLastParse());
                     existingPark.setLink(updatedPageLink.getLink());
                     existingPark.setSource(updatedPageLink.getSource());
-                    existingPark.setUrl(updatedPageLink.getUrl());
                     existingPark.setType(updatedPageLink.getType());
                     existingPark.setSourceID(updatedPageLink.getSourceID());
                     return pagelinkRepository.save(existingPark);

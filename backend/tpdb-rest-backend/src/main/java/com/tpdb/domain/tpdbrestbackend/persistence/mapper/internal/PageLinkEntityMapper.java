@@ -16,7 +16,7 @@ public class PageLinkEntityMapper implements EntityMapper<PageLink, PageLinkEnti
                 .lastParse(d.getLastParse())
                 .link(d.getLink())
                 .source(d.getSource())
-                .url(d.getUrl())
+
                 .type(d.getType())
                 .sourceID(d.getSourceID())
                 .build();
@@ -31,7 +31,6 @@ public class PageLinkEntityMapper implements EntityMapper<PageLink, PageLinkEnti
                 .lastParse(d.getLastParse())
                 .link(d.getLink())
                 .source(d.getSource())
-                .url(d.getUrl())
                 .type(d.getType())
                 .sourceID(d.getSourceID())
                 .build();
