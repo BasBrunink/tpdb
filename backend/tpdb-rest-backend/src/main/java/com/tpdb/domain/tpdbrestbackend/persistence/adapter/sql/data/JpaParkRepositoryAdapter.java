@@ -26,11 +26,13 @@ public class JpaParkRepositoryAdapter implements ParkRepository {
 
     @Override
     public Optional<Park> findyById(UUID id) {
+
         return parkRepository.findById(id).map(parkEntityMapper::toDomain);
     }
 
     @Override
     public List<Park> findAll() {
+
         return parkRepository.findAll().stream().map(parkEntityMapper::toDomain).toList();
     }
 

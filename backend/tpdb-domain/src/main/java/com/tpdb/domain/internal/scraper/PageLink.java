@@ -4,7 +4,6 @@ import com.tpdb.domain.internal.scraper.enums.LinkType;
 import com.tpdb.domain.internal.scraper.enums.ScrapeSource;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -15,8 +14,8 @@ import java.util.UUID;
 @AllArgsConstructor
 public class PageLink {
     private UUID id;
-    private LocalDate createdAt;
-    private LocalDate updatedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     private LocalDateTime lastParse;
     private String link;
     private ScrapeSource source;

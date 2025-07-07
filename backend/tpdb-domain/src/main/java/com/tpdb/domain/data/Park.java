@@ -18,8 +18,8 @@ import java.util.UUID;
 public class Park {
 
     private UUID id;
-    private LocalDateTime created;
-    private LocalDateTime updated;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     private User updatedBy; //TODO: when we have spring security
     private User createdBy;
 

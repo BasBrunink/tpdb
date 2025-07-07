@@ -16,8 +16,8 @@ public class ParkMapper implements DtoMapper<Park, ParkRequest, ParkResponse> {
     public ParkResponse toResponse(Park d) {
         return ParkResponse.builder()
                 .id(d.getId())
-                .created(d.getCreated())
-                .updated(d.getUpdated())
+                .created(d.getCreatedAt())
+                .updated(d.getUpdatedAt())
                 .name(d.getName())
                 .description(d.getDescription())
                 .parkType(d.getParkType())

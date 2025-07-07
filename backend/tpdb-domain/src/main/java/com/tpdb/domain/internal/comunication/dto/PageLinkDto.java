@@ -1,6 +1,16 @@
 package com.tpdb.domain.internal.comunication.dto;
 
-public record PageLinkDto(
+import com.tpdb.domain.internal.scraper.enums.LinkType;
+import com.tpdb.domain.internal.scraper.enums.ScrapeSource;
 
+import java.time.LocalDateTime;
+
+public record PageLinkDto(
+         LocalDateTime lastParse,
+         String link,
+         ScrapeSource source,
+         String url,
+         LinkType type,
+         String sourceID
 ) {
 }

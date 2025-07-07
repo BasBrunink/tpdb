@@ -5,12 +5,11 @@ import com.tpdb.domain.internal.scraper.enums.ScrapeSource;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "pageLink")
+@Table(name = "page_link")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -20,8 +19,8 @@ public class PageLinkEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private LocalDate createdAt;
-    private LocalDate updatedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     private LocalDateTime lastParse;
     private String link;
     @Enumerated(EnumType.STRING)

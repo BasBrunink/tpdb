@@ -18,12 +18,11 @@ import java.util.UUID;
 public class ParkService implements ParkUseCase {
     private final ParkRepository parkRepository;
 
-
     @Transactional
     @Override
     public Park create(Park request) {
-        request.setCreated(LocalDateTime.now());
-        request.setUpdated(LocalDateTime.now());
+        request.setCreatedAt(LocalDateTime.now());
+        request.setUpdatedAt(LocalDateTime.now());
         return parkRepository.save(request);
     }
 
@@ -51,6 +50,7 @@ public class ParkService implements ParkUseCase {
                     existingPark.setStatus(updatedPark.getStatus());
                     existingPark.setAddress(updatedPark.getAddress());
                     existingPark.setAreaSize(updatedPark.getAreaSize());
+                    existingPark.setUpdatedAt(LocalDateTime.now());
                     return parkRepository.save(existingPark);
                 })
                 .orElseThrow(() -> new EntityNotFoundException("Park not found with id: " + updatedPark.getId()));

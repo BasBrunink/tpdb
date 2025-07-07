@@ -3,8 +3,10 @@ package com.tpdb.domain.tpdbrestbackend.persistence.mapper.internal;
 import com.tpdb.domain.internal.scraper.PageLink;
 import com.tpdb.domain.tpdbrestbackend.persistence.entities.internal.PageLinkEntity;
 import com.tpdb.domain.tpdbrestbackend.persistence.mapper.EntityMapper;
+import org.springframework.stereotype.Component;
 
-public class PageLinkMapper implements EntityMapper<PageLink, PageLinkEntity> {
+@Component
+public class PageLinkEntityMapper implements EntityMapper<PageLink, PageLinkEntity> {
     @Override
     public PageLinkEntity toEntity(PageLink d) {
         return PageLinkEntity.builder()

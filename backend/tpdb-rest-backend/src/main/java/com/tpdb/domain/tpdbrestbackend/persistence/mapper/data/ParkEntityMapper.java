@@ -13,8 +13,8 @@ public class ParkEntityMapper implements EntityMapper<Park, ParkEntity> {
     public ParkEntity toEntity(Park d) {
         return ParkEntity.builder()
                 .id(d.getId())
-                .created(d.getCreated())
-                .updated(d.getUpdated())
+                .created(d.getCreatedAt())
+                .updated(d.getUpdatedAt())
                 .name(d.getName())
                 .description(d.getDescription())
                 .parkType(d.getParkType())
@@ -30,8 +30,8 @@ public class ParkEntityMapper implements EntityMapper<Park, ParkEntity> {
     public Park toDomain(ParkEntity e) {
         return Park.builder()
                 .id(e.getId())
-                .created(e.getCreated())
-                .updated(e.getUpdated())
+                .createdAt(e.getCreated())
+                .updatedAt(e.getUpdated())
                 .name(e.getName())
                 .description(e.getDescription())
                 .parkType(e.getParkType())
