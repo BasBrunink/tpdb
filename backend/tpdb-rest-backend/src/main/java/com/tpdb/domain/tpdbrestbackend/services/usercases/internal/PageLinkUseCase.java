@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface PageLinkUseCase {
 
-    PageLink create(PageLink request);
+    void create(PageLink request);
 
     //TODO: ParkLinks are now identified by the url / link and we need this to be ID.
     Optional<PageLink> findById(UUID id);
