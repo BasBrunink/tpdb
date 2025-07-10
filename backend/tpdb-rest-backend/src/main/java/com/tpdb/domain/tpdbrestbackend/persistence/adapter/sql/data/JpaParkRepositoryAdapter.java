@@ -1,6 +1,7 @@
 package com.tpdb.domain.tpdbrestbackend.persistence.adapter.sql.data;
 
 import com.tpdb.domain.data.Park;
+import com.tpdb.domain.internal.scraper.enums.ScrapeSource;
 import com.tpdb.domain.tpdbrestbackend.persistence.jpa.data.JpaParkRepository;
 import com.tpdb.domain.tpdbrestbackend.persistence.mapper.data.ParkEntityMapper;
 import com.tpdb.domain.tpdbrestbackend.persistence.repositories.data.ParkRepository;
@@ -28,6 +29,11 @@ public class JpaParkRepositoryAdapter implements ParkRepository {
     public Optional<Park> findyById(UUID id) {
 
         return parkRepository.findById(id).map(parkEntityMapper::toDomain);
+    }
+
+    @Override
+    public Optional<Park> findBySourceAndSourceId(ScrapeSource source, String sourceId) {
+        return parkRepository.findBySourceAndSourceId(source, sourceId).map(parkEntityMapper::toDomain);
     }
 
     @Override

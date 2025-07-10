@@ -4,5 +4,6 @@ public enum ParkStatus {
     DEFUNCT,
     OPERATING,
     OUT_OF_OPERATION,
-    UNDER_CONSTRUCTION
+    UNDER_CONSTRUCTION,
+    UNKNOWN
 }

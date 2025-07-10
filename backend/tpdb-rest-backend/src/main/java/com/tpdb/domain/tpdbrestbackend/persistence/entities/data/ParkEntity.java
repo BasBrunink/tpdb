@@ -3,6 +3,7 @@ package com.tpdb.domain.tpdbrestbackend.persistence.entities.data;
 
 import com.tpdb.domain.data.enums.ParkStatus;
 import com.tpdb.domain.data.enums.types.ParkType;
+import com.tpdb.domain.internal.scraper.enums.ScrapeSource;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,7 +12,10 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "park")
+@Table(
+        name = "park",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"source", "source_id"})
+)
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -39,4 +43,10 @@ public class ParkEntity {
     private ParkStatus status;
     private String address;
     private double areaSize;
+
+    @Enumerated(EnumType.STRING)
+    private ScrapeSource source;
+
+    @Column(name="source_id")
+    private String sourceId;
 }

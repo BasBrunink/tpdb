@@ -4,7 +4,6 @@ import com.tpdb.domain.internal.comunication.dto.ParkDto;
 import com.tpdb.tpdbscraper.config.RabbitConfig;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,5 +18,8 @@ public class ParkPublisher {
                 RabbitConfig.PARK_ROUTING_KEY,
                 park
         );
+
     }
+
+
 }

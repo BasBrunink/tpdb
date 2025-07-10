@@ -23,6 +23,8 @@ public class ParkEntityMapper implements EntityMapper<Park, ParkEntity> {
                 .status(d.getStatus())
                 .address(d.getAddress())
                 .areaSize(d.getAreaSize())
+                .source(d.getSource())
+                .sourceId(d.getSourceId())
                 .build();
     }
 
@@ -40,6 +42,8 @@ public class ParkEntityMapper implements EntityMapper<Park, ParkEntity> {
                 .status(e.getStatus())
                 .address(e.getAddress())
                 .areaSize(e.getAreaSize())
+                .source(e.getSource())
+                .sourceId(e.getSourceId())
                 .build();
     }
 }

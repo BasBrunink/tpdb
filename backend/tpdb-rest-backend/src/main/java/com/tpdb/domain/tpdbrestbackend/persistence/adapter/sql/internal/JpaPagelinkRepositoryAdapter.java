@@ -1,11 +1,14 @@
 package com.tpdb.domain.tpdbrestbackend.persistence.adapter.sql.internal;
 
 import com.tpdb.domain.internal.scraper.PageLink;
+import com.tpdb.domain.internal.scraper.enums.LinkType;
 import com.tpdb.domain.tpdbrestbackend.persistence.jpa.internal.JpaPageLinkRepository;
 import com.tpdb.domain.tpdbrestbackend.persistence.mapper.internal.PageLinkEntityMapper;
 import com.tpdb.domain.tpdbrestbackend.persistence.repositories.internal.PagelinkRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -29,6 +32,10 @@ public class JpaPagelinkRepositoryAdapter implements PagelinkRepository {
     public Optional<PageLink> findyById(UUID id) {
         return pageLinkRepository.findById(id).map(pageLinkEntityMapper::toDomain);
     }
+    @Override
+    public Optional<PageLink> findByLink(String link) {
+        return pageLinkRepository.findByLink(link).map(pageLinkEntityMapper::toDomain);
+    }
 
     @Override
     public List<PageLink> findAll() {
@@ -45,4 +52,12 @@ public class JpaPagelinkRepositoryAdapter implements PagelinkRepository {
     public boolean existsById(UUID id) {
         return pageLinkRepository.existsById(id);
     }
+
+    @Override
+    public List<PageLink> findTopNByTypeAndParseDue(LinkType type, LocalDateTime cutoff, int batchSize) {
+        return pageLinkRepository.findNextBatch(type, cutoff, PageRequest.of(0,batchSize)).stream().map(pageLinkEntityMapper::toDomain).toList();
+
+    }
+
+
 }

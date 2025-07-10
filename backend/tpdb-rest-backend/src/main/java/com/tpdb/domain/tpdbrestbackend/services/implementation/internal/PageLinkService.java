@@ -1,6 +1,7 @@
 package com.tpdb.domain.tpdbrestbackend.services.implementation.internal;
 
 import com.tpdb.domain.internal.scraper.PageLink;
+import com.tpdb.domain.internal.scraper.enums.LinkType;
 import com.tpdb.domain.tpdbrestbackend.persistence.repositories.internal.PagelinkRepository;
 import com.tpdb.domain.tpdbrestbackend.services.usercases.internal.PageLinkUseCase;
 import jakarta.persistence.EntityNotFoundException;
@@ -17,6 +18,7 @@ import java.util.UUID;
 public class PageLinkService implements PageLinkUseCase {
 
     private final PagelinkRepository pagelinkRepository;
+
     @Override
     public PageLink create(PageLink request) {
         request.setCreatedAt(LocalDateTime.now());
@@ -30,13 +32,18 @@ public class PageLinkService implements PageLinkUseCase {
     }
 
     @Override
+    public Optional<PageLink> findByLink(String link) {
+        return pagelinkRepository.findByLink(link);
+    }
+
+    @Override
     public List<PageLink> findAll() {
         return pagelinkRepository.findAll();
     }
 
     @Override
-    public PageLink update(UUID id, PageLink updatedPageLink) {
-        return pagelinkRepository.findyById(id)
+    public void update(UUID id, PageLink updatedPageLink) {
+        pagelinkRepository.findyById(id)
                 .map(existingPark -> {
                     existingPark.setUpdatedAt(LocalDateTime.now());
                     existingPark.setLastParse(updatedPageLink.getLastParse());
@@ -45,15 +52,21 @@ public class PageLinkService implements PageLinkUseCase {
                     existingPark.setType(updatedPageLink.getType());
                     existingPark.setSourceID(updatedPageLink.getSourceID());
                     return pagelinkRepository.save(existingPark);
-                }).orElseThrow(() ->new EntityNotFoundException("Pagelink not found"));
+                }).orElseThrow(() -> new EntityNotFoundException("Pagelink not found"));
     }
 
     @Override
     public void delete(UUID id) {
-        if(!pagelinkRepository.existsById(id)) {
+        if (!pagelinkRepository.existsById(id)) {
             throw new EntityNotFoundException(("Pagelink not found"));
         }
         pagelinkRepository.deleteById(id);
 
+    }
+
+    @Override
+    public List<PageLink> findNextBatchToParse(LinkType type, int batchSize) {
+        LocalDateTime cutoff = LocalDateTime.now().minusDays(1);
+        return pagelinkRepository.findTopNByTypeAndParseDue(type, cutoff, batchSize);
     }
 }

@@ -3,6 +3,7 @@ package com.tpdb.domain.data;
 import com.tpdb.domain.data.enums.ParkStatus;
 import com.tpdb.domain.data.enums.types.ParkType;
 import com.tpdb.domain.data.user.User;
+import com.tpdb.domain.internal.scraper.enums.ScrapeSource;
 import lombok.*;
 
 
@@ -31,5 +32,7 @@ public class Park {
     private ParkStatus status;
     private String address;
     private double areaSize;
+    private String sourceId;
+    private ScrapeSource source;
 
 }

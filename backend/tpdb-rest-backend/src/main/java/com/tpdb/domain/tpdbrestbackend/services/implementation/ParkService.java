@@ -1,6 +1,7 @@
 package com.tpdb.domain.tpdbrestbackend.services.implementation;
 
 import com.tpdb.domain.data.Park;
+import com.tpdb.domain.internal.scraper.enums.ScrapeSource;
 import com.tpdb.domain.tpdbrestbackend.persistence.repositories.data.ParkRepository;
 import com.tpdb.domain.tpdbrestbackend.services.usercases.ParkUseCase;
 import jakarta.persistence.EntityNotFoundException;
@@ -29,6 +30,11 @@ public class ParkService implements ParkUseCase {
     @Override
     public Optional<Park> findById(UUID id) {
         return parkRepository.findyById(id);
+    }
+
+    @Override
+    public Optional<Park> findBySourceAndSourceId(ScrapeSource source, String sourceId) {
+        return parkRepository.findBySourceAndSourceId(source, sourceId);
     }
 
     @Override
