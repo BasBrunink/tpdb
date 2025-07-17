@@ -20,10 +20,10 @@ public class PageLinkService implements PageLinkUseCase {
     private final PagelinkRepository pagelinkRepository;
 
     @Override
-    public PageLink create(PageLink request) {
+    public void create(PageLink request) {
         request.setCreatedAt(LocalDateTime.now());
         request.setCreatedAt(LocalDateTime.now());
-        return pagelinkRepository.save(request);
+        pagelinkRepository.save(request);
     }
 
     @Override
