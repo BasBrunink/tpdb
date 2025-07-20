@@ -1,13 +1,11 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {Park, ParkStatus, ParkType} from '../../../model/park.model';
-import {MockParkService} from '../../../services/mockServices/mock-park-service';
+import {Park, ParkStatus, ParkType} from '../../../model/park/park.model';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {TranslatePipe} from '@ngx-translate/core';
 import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
 import {ParkService} from '../../../services/park/park.service';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-parks',

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {Park} from '../../model/park.model';
+import {Park} from '../../model/park/park.model';
 import {DateTime} from 'luxon';
 
 @Injectable({

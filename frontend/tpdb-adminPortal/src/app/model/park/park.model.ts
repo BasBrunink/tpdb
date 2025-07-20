@@ -35,3 +35,17 @@ export class Park {
     );
   }}
 
+export class PaginatedPark {
+  constructor(
+    public totalPages: number,
+    public totalElements: number,
+    public size: number,
+    public content: Park[]
+    ) {
+  }
+  static fromJson(json: any): PaginatedPark {
+    return new PaginatedPark(json.totalPages, json.totalElements, json.size, json.content
+    )
+  }
+}
+
