@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/tpdb.iml" filepath="$PROJECT_DIR$/tpdb.iml" />
       <module fileurl="file://$PROJECT_DIR$/frontend/tpdb-adminPortal/tpdb-adminPortal.iml" filepath="$PROJECT_DIR$/frontend/tpdb-adminPortal/tpdb-adminPortal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/tpdb-rest-backend/tpdb-rest-backend.iml" filepath="$PROJECT_DIR$/backend/tpdb-rest-backend/tpdb-rest-backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/frontend/tpdb-website/tpdb-website.iml" filepath="$PROJECT_DIR$/frontend/tpdb-website/tpdb-website.iml" />
     </modules>
   </component>

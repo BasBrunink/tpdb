@@ -1,0 +1,24 @@
+name: tpdb-dev
+services:
+  postgres:
+    image: postgres:17
+    container_name: tpdb-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: tpdb
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: tpdb-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgres/data
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: tpdb
+      RABBITMQ_DEFAULT_PASS: secret
+volumes:
+  pgdata:

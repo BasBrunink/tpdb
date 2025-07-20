@@ -6,10 +6,11 @@
       <list>
         <option value="$PROJECT_DIR$/backend/tpdb-rest-backend/pom.xml" />
         <option value="$PROJECT_DIR$/backend/tpdb-domain/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/tpdb-scraper/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager">
+  <component name="ProjectRootManager" version="2" project-jdk-name="zulu-24" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

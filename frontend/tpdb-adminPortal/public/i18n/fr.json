@@ -1,0 +1,95 @@
+{
+	"enum": {
+		"parkstatus": {
+			"DEFUNCT": "Désuet",
+			"OPERATING": "En fonctionnement",
+			"OUT_OF_OPERATION": "Hors service",
+			"UNDER_CONSTRUCTION": "En construction"
+		},
+		"parktype": {
+			"AMUSEMENTPARK": "Parc d'attractions",
+			"ANIMALPARK": "Parc animalier",
+			"THEMEPARK": "Parc à thème",
+			"WATERPARK": "Parc aquatique"
+		}
+	},
+	"header": {
+		"menu": {
+			"attraction": "Attraction",
+			"attractionmenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			},
+			"dashboard": "Tableau de bord",
+			"hotel": "Hôtel",
+			"hotelmenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			},
+			"park": "Parc",
+			"parkmenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			},
+			"resort": "Station",
+			"resortmenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			},
+			"restaurant": "Restaurant",
+			"restaurantmenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			},
+			"ride": "Manège",
+			"ridemenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			},
+			"rollercoaster": "Montagne russe",
+			"rollercoastermenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			},
+			"show": "Afficher",
+			"showmenu": {
+				"add": "Ajouter",
+				"list": "Liste",
+				"main": "Page Principale"
+			}
+		},
+		"title": "Portail administrateur TPDB"
+	},
+	"parks": {
+		"addPage": {
+			"title": ""
+		},
+		"mainpage": {
+			"table": {
+				"details": {
+					"address": "Adresse",
+					"area": "Taille de la zone",
+					"closing": "Date de clôture",
+					"description": "Description",
+					"name": "Nom",
+					"opening": "Date d'ouverture",
+					"parkType": "Type de parc",
+					"status": "Statut"
+				},
+				"headers": {
+					"name": "Nom",
+					"parkStatus": "Statut",
+					"parkType": "Type de parc"
+				}
+			},
+			"title": "Parcs"
+		}
+	}
+}

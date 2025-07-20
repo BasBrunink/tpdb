@@ -1,0 +1,95 @@
+{
+	"enum": {
+		"parkstatus": {
+			"DEFUNCT": "Defunct",
+			"OPERATING": "Operating",
+			"OUT_OF_OPERATION": "Out of Operation",
+			"UNDER_CONSTRUCTION": "Under construction"
+		},
+		"parktype": {
+			"AMUSEMENTPARK": "Amusement park",
+			"ANIMALPARK": "Animal park",
+			"THEMEPARK": "Theme park",
+			"WATERPARK": "Water park"
+		}
+	},
+	"header": {
+		"menu": {
+			"attraction": "Attraction",
+			"attractionmenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			},
+			"dashboard": "Dashboard",
+			"hotel": "Hotel",
+			"hotelmenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			},
+			"park": "Park",
+			"parkmenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			},
+			"resort": "Resort",
+			"resortmenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			},
+			"restaurant": "Restaurant",
+			"restaurantmenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			},
+			"ride": "Ride",
+			"ridemenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			},
+			"rollercoaster": "Rollercoaster",
+			"rollercoastermenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			},
+			"show": "Show",
+			"showmenu": {
+				"add": "Add",
+				"list": "List",
+				"main": "Main page"
+			}
+		},
+		"title": "TPDB Admin portal"
+	},
+	"parks": {
+		"addPage": {
+			"title": "Add a Park"
+		},
+		"mainpage": {
+			"table": {
+				"details": {
+					"address": "Address",
+					"area": "Area size",
+					"closing": "Closing date",
+					"description": "Description",
+					"name": "Name",
+					"opening": "Opening date",
+					"parkType": "Park type",
+					"status": "Status"
+				},
+				"headers": {
+					"name": "Name",
+					"parkStatus": "Status",
+					"parkType": "Park Type"
+				}
+			},
+			"title": "Parks"
+		}
+	}
+}

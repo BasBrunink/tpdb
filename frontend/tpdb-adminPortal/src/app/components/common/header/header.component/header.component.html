@@ -1,0 +1,77 @@
+<mat-toolbar>
+  <button matIconButton [matMenuTriggerFor]="main" class="header-icon" aria-label="Application Icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span class="spacer"></span>
+  <span>{{'header.title' | translate}}</span>
+  <span class="spacer"></span>
+  <button matIconButton>
+    <mat-icon>person</mat-icon>
+  </button>
+  <app-language-menu></app-language-menu>
+  <button mat-raised-button> Login</button>
+</mat-toolbar>
+
+
+<mat-menu #main="matMenu">
+  <button mat-menu-item [routerLink]="'home'">{{'header.menu.dashboard' | translate}}</button>
+  <button mat-menu-item [matMenuTriggerFor]="resortMenu" > {{'header.menu.resort' | translate}}</button>
+  <button mat-menu-item [matMenuTriggerFor]="parkMenu">{{'header.menu.park' | translate}}</button>
+  <button mat-menu-item [matMenuTriggerFor]="attractionMenu" >{{'header.menu.attraction' | translate}}</button>
+  <button mat-menu-item [matMenuTriggerFor]="rideMenu">{{'header.menu.ride' | translate}}</button>
+  <button mat-menu-item [matMenuTriggerFor]="rollercoasterMenu">{{'header.menu.rollercoaster' | translate}}</button>
+  <button mat-menu-item [matMenuTriggerFor]="restaurantMenu">{{'header.menu.restaurant' | translate}}</button>
+  <button mat-menu-item [matMenuTriggerFor]="showMenu">{{'header.menu.show' | translate}}</button>
+  <button mat-menu-item [matMenuTriggerFor]="hotelMenu">{{'header.menu.hotel' | translate}}</button>
+</mat-menu>
+
+<mat-menu #resortMenu="matMenu" >
+  <button mat-menu-item>{{'header.menu.resortmenu.main' | translate}}</button>
+  <button mat-menu-item>{{'header.menu.resortmenu.list' | translate}}</button>
+  <button mat-menu-item>{{'header.menu.resortmenu.add' | translate}}</button>
+</mat-menu>
+
+<mat-menu #parkMenu="matMenu" >
+  <button [routerLink]="'park'" mat-menu-item>{{'header.menu.parkmenu.main' | translate}}</button>
+  <button [routerLink]="'park'" mat-menu-item>{{'header.menu.parkmenu.list' | translate}}</button>
+  <button [routerLink]="'park/add'" mat-menu-item>{{'header.menu.parkmenu.add' | translate}}</button>
+</mat-menu>
+
+<mat-menu #attractionMenu="matMenu" >
+  <button mat-menu-item>{{'header.menu.attractionmenu.main' | translate}}</button>
+  <button mat-menu-item>{{'header.menu.attractionmenu.list' | translate}}</button>
+  <button mat-menu-item>{{'header.menu.attractionmenu.add' | translate}}</button>
+</mat-menu>
+
+<mat-menu #rideMenu="matMenu" >
+  <button mat-menu-item>{{'header.menu.ridemenu.main' | translate}}</button>
+  <button mat-menu-item>{{'header.menu.ridemenu.list' | translate}}</button>
+  <button mat-menu-item>{{'header.menu.ridemenu.add' | translate}}</button>
+</mat-menu>
+
+<mat-menu #rollercoasterMenu="matMenu" >
+  <button mat-menu-item>{{'header.menu.rollercoastermenu.main' | translate}}</button>
+  <button mat-menu-item>{{'header.menu.rollercoastermenu.list' | translate}}</button>
+  <button mat-menu-item>{{'header.menu.rollercoastermenu.add' | translate}}</button>
+</mat-menu>
+
+<mat-menu #restaurantMenu="matMenu" >
+  <button mat-menu-item>{{'header.menu.restaurantmenu.main' | translate}}</button>
+  <button mat-menu-item>{{'header.menu.restaurantmenu.list' | translate}}</button>
+  <button mat-menu-item>{{'header.menu.restaurantmenu.add' | translate}}</button>
+</mat-menu>
+
+<mat-menu #showMenu="matMenu" >
+  <button mat-menu-item>{{'header.menu.showmenu.main' | translate}}</button>
+  <button mat-menu-item>{{'header.menu.showmenu.list' | translate}}</button>
+  <button mat-menu-item>{{'header.menu.showmenu.add' | translate}}</button>
+</mat-menu>
+<mat-menu #hotelMenu="matMenu" >
+  <button mat-menu-item>{{'header.menu.hotelmenu.main' | translate}}</button>
+  <button mat-menu-item>{{'header.menu.hotelmenu.list' | translate}}</button>
+  <button mat-menu-item>{{'header.menu.hotelmenu.add' | translate}}</button>
+</mat-menu>
+
+
+

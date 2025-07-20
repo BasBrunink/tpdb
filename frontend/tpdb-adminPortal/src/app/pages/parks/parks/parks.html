@@ -1,0 +1,80 @@
+<div class="title">
+  <h1>{{ 'parks.mainpage.title' | translate }}</h1>
+</div>
+
+<div class="container">
+
+
+  <table mat-table [dataSource]="parks" multiTemplateDataRows class="mat-elevation-z8">
+
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>{{'parks.mainpage.table.headers.name' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{ element.name }}</td>
+    </ng-container>
+
+    <!-- parkType Column -->
+    <ng-container matColumnDef="parkType">
+      <th mat-header-cell *matHeaderCellDef>{{'parks.mainpage.table.headers.parkType' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{ determineTranslationKeyForParkType(element.parkType) | translate }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>{{'parks.mainpage.table.headers.parkStatus' | translate}}</th>
+      <td mat-cell *matCellDef="let element"> {{ determineTranslationKeyForParkStatus(element.status) | translate }}</td>
+    </ng-container>
+
+    <!-- Data Row -->
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+        (click)="toggleRow(element)"
+        [class.expanded]="expandedElement === element">
+    </tr>
+
+    <!-- Expanded Detail Row -->
+    <tr mat-row *matRowDef="let element; columns: ['expandedDetail']" class="detail-row"></tr>
+
+    <!-- Expanded Detail Column -->
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+        @if (expandedElement === element) {
+
+          <!--TODO: opmaak voor details -->
+          <div class="element-detail">
+            <div class="detail-content">
+              <div class="detail-left">
+                <p><strong>{{'parks.mainpage.table.details.name' | translate}} : </strong>{{ element.name }}</p>
+                <p><strong>{{'parks.mainpage.table.details.parktype' | translate}} : </strong>{{ determineTranslationKeyForParkType(element.parkType) | translate }}</p>
+                <p><strong>{{'parks.mainpage.table.details.opening' | translate}} : </strong>{{ getOpeningDateDisplay(element) }}</p>
+                <p><strong>{{'parks.mainpage.table.details.closing' | translate}} : </strong>{{ getClosingDateDisplay(element) }}</p>
+                <p><strong>{{'parks.mainpage.table.details.status' | translate}} : </strong>{{ determineTranslationKeyForParkStatus(element.status) |translate  }}</p>
+                <p><strong>{{'parks.mainpage.table.details.address' | translate}} : </strong>{{ element.address}}</p>
+                <p><strong>{{'parks.mainpage.table.details.area' | translate}} : </strong>{{ element.areaSize}} m<sup>2</sup></p>
+              </div>
+              <div class="detail-right">
+                <img class="hero-image" [src]="'https://banner2.cleanpng.com/20180712/ei/kisspng-eurosat-amusement-park-roller-coaster-euro-mir-s1000rr-5b470796a08d30.5290096515313816546576.jpg'">
+
+                <p class="description">
+                  <strong>Description: </strong><br>
+                </p>
+                <p [innerHTML]="element.description">
+
+                </p>
+              </div>
+            </div>
+          </div>
+        }
+      </td>
+    </ng-container>
+  </table>
+
+  <mat-paginator
+    [length]="totalElements"
+    [pageSize]="pagesize"
+    [pageSizeOptions]="[5, 10, 20]"
+    (page)="onPageChange($event)"
+    aria-label="Select page">
+  </mat-paginator>
+</div>
