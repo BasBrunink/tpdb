@@ -68,6 +68,9 @@
 		"title": "TPDB Beheerportaal"
 	},
 	"parks": {
+		"addPage": {
+			"title": ""
+		},
 		"mainpage": {
 			"table": {
 				"details": {

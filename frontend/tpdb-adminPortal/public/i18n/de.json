@@ -68,6 +68,9 @@
 		"title": "TPDB Admin-Portal"
 	},
 	"parks": {
+		"addPage": {
+			"title": ""
+		},
 		"mainpage": {
 			"table": {
 				"details": {

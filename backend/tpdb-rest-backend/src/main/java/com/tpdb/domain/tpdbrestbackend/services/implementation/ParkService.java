@@ -7,6 +7,8 @@ import com.tpdb.domain.tpdbrestbackend.services.usercases.ParkUseCase;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -38,10 +40,10 @@ public class ParkService implements ParkUseCase {
     }
 
     @Override
-    public List<Park> findAll() {
-        return parkRepository.findAll();
-
+    public Page<Park> findAll(Pageable pageable) {
+        return parkRepository.findAll(pageable);
     }
+
 
     @Transactional
     @Override

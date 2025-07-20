@@ -6,6 +6,8 @@ import com.tpdb.domain.tpdbrestbackend.persistence.jpa.data.JpaParkRepository;
 import com.tpdb.domain.tpdbrestbackend.persistence.mapper.data.ParkEntityMapper;
 import com.tpdb.domain.tpdbrestbackend.persistence.repositories.data.ParkRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -37,9 +39,8 @@ public class JpaParkRepositoryAdapter implements ParkRepository {
     }
 
     @Override
-    public List<Park> findAll() {
-
-        return parkRepository.findAll().stream().map(parkEntityMapper::toDomain).toList();
+    public Page<Park> findAll(Pageable pageable) {
+        return parkRepository.findAll(pageable).map(parkEntityMapper::toDomain);
     }
 
     @Override

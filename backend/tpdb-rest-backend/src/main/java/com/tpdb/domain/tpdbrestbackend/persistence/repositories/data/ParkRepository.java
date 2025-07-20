@@ -2,6 +2,8 @@ package com.tpdb.domain.tpdbrestbackend.persistence.repositories.data;
 
 import com.tpdb.domain.data.Park;
 import com.tpdb.domain.internal.scraper.enums.ScrapeSource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +13,7 @@ public interface ParkRepository {
     Park save(Park park);
     Optional<Park> findyById(UUID id);
     Optional<Park> findBySourceAndSourceId(ScrapeSource source, String sourceId);
-    List<Park> findAll();
+    Page<Park> findAll(Pageable pageable);
     void deleteById(UUID id);
     boolean existsById(UUID id);
 

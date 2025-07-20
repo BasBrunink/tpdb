@@ -5,7 +5,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {TranslatePipe} from '@ngx-translate/core';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
+import {ParkService} from '../../../services/park/park.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-parks',
@@ -24,21 +26,30 @@ export class Parks implements OnInit{
 
 
   //TODO: inject API service when done with page
-  private parkService = inject(MockParkService);
+  private parkService = inject(ParkService);
 
 
   //Data
+  //TODO: need to find a way to make this responsive
   parks: Park[] = [];
 
 
+  totalElements = 0;
+  pagesize = 10;
+  pageindex = 0;
   ngOnInit() {
-    this.parkService.getAllParks()
-      .subscribe(d => {this.parks = d})
+    this.loadParks(this.pageindex, this.pagesize)
   }
 
   columnsToDisplay = ['name', 'parkType', 'status'];
 
   expandedElement: Park | null = null;
+
+  onPageChange(event: PageEvent) {
+    this.pageindex = event.pageIndex
+    this.pagesize = event.pageSize
+    this.loadParks(this.pageindex, this.pagesize);
+  }
 
   toggleRow(element: Park) {
     this.expandedElement = this.expandedElement === element ? null : element;
@@ -64,8 +75,11 @@ export class Parks implements OnInit{
     return 'enum.parkstatus.' + input
   }
 
-
-  /** Checks whether an element is expanded. */
-
+  loadParks(page: number, size: number) {
+    this.parkService.getAllParks(page, size).subscribe(res => {
+      this.parks = res.content;
+      this.totalElements = res.totalElements;
+    })
+  }
 
 }

@@ -11,6 +11,9 @@ import com.tpdb.domain.tpdbrestbackend.controllers.mapper.ParkMapper;
 import com.tpdb.domain.tpdbrestbackend.controllers.mapper.UpdateParkMapper;
 import com.tpdb.domain.tpdbrestbackend.services.usercases.ParkUseCase;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +24,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("parks")
 @RequiredArgsConstructor
+@Slf4j
 public class ParkController {
 
     private final ParkUseCase parkUseCase;
@@ -35,8 +39,9 @@ public class ParkController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<ParkResponse>> getAllParks() {
-        return ResponseEntity.ok(parkUseCase.findAll().stream().map(parkMapper::toResponse).toList());
+    public ResponseEntity<Page<ParkResponse>> getAllParks(Pageable pageable) {
+        log.info(pageable.toString());
+        return ResponseEntity.ok(parkUseCase.findAll(pageable).map(parkMapper::toResponse));
     }
 
     @GetMapping("{id}")

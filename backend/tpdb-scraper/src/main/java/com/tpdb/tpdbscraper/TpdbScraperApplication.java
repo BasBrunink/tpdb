@@ -27,7 +27,7 @@ public class TpdbScraperApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         rabbitAdmin.purgeQueue(RabbitConfig.PAGELINK_FETCH_QUEUE_NAME, false);
-//        pageLinkScraper.scrapeParkLinks();
+//       pageLinkScraper.scrapeParkLinks();
 //        pageLinkScraper.scrapeAttractionLinks();
         pageLinkPublisher.requestPageLinks(LinkType.PARK, 10);
 

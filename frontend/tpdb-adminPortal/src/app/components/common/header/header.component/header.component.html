@@ -35,7 +35,7 @@
 <mat-menu #parkMenu="matMenu" >
   <button [routerLink]="'park'" mat-menu-item>{{'header.menu.parkmenu.main' | translate}}</button>
   <button [routerLink]="'park'" mat-menu-item>{{'header.menu.parkmenu.list' | translate}}</button>
-  <button mat-menu-item>{{'header.menu.parkmenu.add' | translate}}</button>
+  <button [routerLink]="'park/add'" mat-menu-item>{{'header.menu.parkmenu.add' | translate}}</button>
 </mat-menu>
 
 <mat-menu #attractionMenu="matMenu" >
