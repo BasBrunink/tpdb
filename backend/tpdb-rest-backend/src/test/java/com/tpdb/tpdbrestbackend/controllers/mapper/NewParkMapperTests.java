@@ -22,12 +22,14 @@ public class NewParkMapperTests {
     @Test
     @DisplayName("toDomain maps all fields from CreateNewParkRequest to Park")
     void toDomainMapsAllFieldsCorrectly() {
+        LocalDate opening = LocalDate.of(2020, 1,1 );
+        LocalDate closing = LocalDate.of(2025, 1,1 );
         CreateNewParkRequest req = CreateNewParkRequest.builder()
                 .name("testPark")
                 .description("test ParkDescription")
                 .parkType(ParkType.AMUSEMENTPARK)
-                .openingsDate(LocalDate.of(2020, 1,1 ))
-                .closingDate(LocalDate.of(2025, 1,1 ))
+                .openingsDate(opening)
+                .closingDate(closing)
                 .status(ParkStatus.OPERATING)
                 .address("test address")
                 .areaSize(100L)
@@ -36,7 +38,13 @@ public class NewParkMapperTests {
         Park park = mapper.toDomain(req);
 
         assertEquals("testPark", park.getName());
-        //TODO: Add all attributes to test
+        assertEquals("test ParkDescription", park.getDescription());
+        assertEquals(ParkType.AMUSEMENTPARK, park.getParkType());
+        assertEquals(opening, park.getOpening());
+        assertEquals(closing, park.getClosing());
+        assertEquals(ParkStatus.OPERATING, park.getStatus());
+        assertEquals("test address", park.getAddress());
+        assertEquals(100L, park.getAreaSize());
     }
 
     @Test

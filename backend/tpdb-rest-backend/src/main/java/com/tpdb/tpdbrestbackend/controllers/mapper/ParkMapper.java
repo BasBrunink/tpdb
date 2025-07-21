@@ -9,7 +9,17 @@ import org.springframework.stereotype.Component;
 public class ParkMapper implements DtoMapper<Park, ParkRequest, ParkResponse> {
     @Override
     public Park toDomain(ParkRequest req) {
-        return null;
+        return Park.builder()
+                .id(req.id())
+                .name(req.name())
+                .description(req.description())
+                .parkType(req.parkType())
+                .opening(req.opening())
+                .closing(req.closing())
+                .status(req.status())
+                .address(req.address())
+                .areaSize(req.areaSize())
+                .build();
     }
 
     @Override
