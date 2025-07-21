@@ -6,7 +6,7 @@ import com.tpdb.domain.internal.comunication.dto.PageLinkRequestDto;
 import com.tpdb.domain.internal.scraper.PageLink;
 import com.tpdb.tpdbrestbackend.config.RabbitConfig;
 import com.tpdb.tpdbrestbackend.consumers.mappers.PageLinkDtoMapper;
-import com.tpdb.tpdbrestbackend.services.usercases.internal.PageLinkUseCase;
+import com.tpdb.tpdbrestbackend.services.usecases.internal.PageLinkUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
