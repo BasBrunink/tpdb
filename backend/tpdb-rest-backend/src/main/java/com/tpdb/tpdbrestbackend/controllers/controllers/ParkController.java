@@ -8,7 +8,7 @@ import com.tpdb.tpdbrestbackend.controllers.dto.park.updatePark.UpdateParkRespon
 import com.tpdb.tpdbrestbackend.controllers.mapper.NewParkMapper;
 import com.tpdb.tpdbrestbackend.controllers.mapper.ParkMapper;
 import com.tpdb.tpdbrestbackend.controllers.mapper.UpdateParkMapper;
-import com.tpdb.tpdbrestbackend.services.usercases.ParkUseCase;
+import com.tpdb.tpdbrestbackend.services.usecases.ParkUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;

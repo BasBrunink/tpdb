@@ -3,7 +3,7 @@ package com.tpdb.tpdbrestbackend.consumers;
 import com.tpdb.domain.data.Park;
 import com.tpdb.domain.internal.comunication.dto.ParkDto;
 import com.tpdb.tpdbrestbackend.config.RabbitConfig;
-import com.tpdb.tpdbrestbackend.services.usercases.ParkUseCase;
+import com.tpdb.tpdbrestbackend.services.usecases.ParkUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

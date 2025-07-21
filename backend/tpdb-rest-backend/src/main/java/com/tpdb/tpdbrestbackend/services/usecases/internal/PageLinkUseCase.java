@@ -1,4 +1,4 @@
-package com.tpdb.tpdbrestbackend.services.usercases.internal;
+package com.tpdb.tpdbrestbackend.services.usecases.internal;
 
 import com.tpdb.domain.internal.scraper.PageLink;
 import com.tpdb.domain.internal.scraper.enums.LinkType;

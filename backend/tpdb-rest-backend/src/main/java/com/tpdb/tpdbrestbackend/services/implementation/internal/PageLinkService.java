@@ -3,7 +3,7 @@ package com.tpdb.tpdbrestbackend.services.implementation.internal;
 import com.tpdb.domain.internal.scraper.PageLink;
 import com.tpdb.domain.internal.scraper.enums.LinkType;
 import com.tpdb.tpdbrestbackend.persistence.repositories.internal.PagelinkRepository;
-import com.tpdb.tpdbrestbackend.services.usercases.internal.PageLinkUseCase;
+import com.tpdb.tpdbrestbackend.services.usecases.internal.PageLinkUseCase;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
