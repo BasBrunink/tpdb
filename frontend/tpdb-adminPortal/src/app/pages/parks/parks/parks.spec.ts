@@ -57,7 +57,8 @@ const parkServiceMock = {
   getAllParks: jasmine.createSpy('getAllParks').and.returnValue(of({
     content: mockParks,
     totalElements: mockParks.length
-  }))
+  })),
+  deleteById: jasmine.createSpy('deleteById').and.returnValue(of(null))
 };
 
 describe('Parks', () => {
@@ -137,5 +138,10 @@ describe('Parks', () => {
     expect(result).toBe('enum.parkstatus.OPEN');
   });
 
+  it('should delete a park when delete button is clicked', () => {
+
+    component.deletePark("test")
+    expect(parkServiceMock.deleteById).toHaveBeenCalledWith("test")
+  })
 
 });

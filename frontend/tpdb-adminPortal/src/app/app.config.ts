@@ -11,6 +11,7 @@ import {HttpClient, provideHttpClient} from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {provideLuxonDateAdapter} from '@angular/material-luxon-adapter';
 
 
 export function httpLoaderFactory(http: HttpClient) {
@@ -20,6 +21,7 @@ export function httpLoaderFactory(http: HttpClient) {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
+    provideLuxonDateAdapter(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(),

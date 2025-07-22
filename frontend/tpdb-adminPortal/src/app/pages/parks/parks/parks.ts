@@ -6,6 +6,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {TranslatePipe} from '@ngx-translate/core';
 import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
 import {ParkService} from '../../../services/park/park.service';
+import {MatDialog} from '@angular/material/dialog';
+import {NewParkDialog} from '../../../dialogs/new-park-dialog/new-park-dialog';
 
 @Component({
   selector: 'app-parks',
@@ -21,11 +23,13 @@ import {ParkService} from '../../../services/park/park.service';
 })
 export class Parks implements OnInit{
 
+  columnsToDisplay = ['name', 'parkType', 'status', 'tools'];
+  expandedElement: Park | null = null;
 
 
   //TODO: inject API service when done with page
   private parkService = inject(ParkService);
-
+  readonly dialog = inject(MatDialog)
 
   //Data
   //TODO: need to find a way to make this responsive
@@ -39,9 +43,14 @@ export class Parks implements OnInit{
     this.loadParks(this.pageindex, this.pagesize)
   }
 
-  columnsToDisplay = ['name', 'parkType', 'status'];
 
-  expandedElement: Park | null = null;
+
+  loadParks(page: number, size: number) {
+    this.parkService.getAllParks(page, size).subscribe(res => {
+      this.parks = res.content;
+      this.totalElements = res.totalElements;
+    })
+  }
 
   onPageChange(event: PageEvent) {
     this.pageindex = event.pageIndex
@@ -54,7 +63,7 @@ export class Parks implements OnInit{
   }
 
   getOpeningDateDisplay(park: Park): string {
-    if (park.status === 'UNDER_CONSTRUCTION') {
+    if (park.status === ParkStatus.UNDER_CONSTRUCTION) {
       return park.opening ? park.opening.toFormat('dd-MM-yyyy') : 'no opening date yet'; //TODO: I18N
     }
     return park.opening ? park.opening.toFormat('dd-MM-yyyy') : 'no opening date yet';
@@ -73,10 +82,18 @@ export class Parks implements OnInit{
     return 'enum.parkstatus.' + input
   }
 
-  loadParks(page: number, size: number) {
-    this.parkService.getAllParks(page, size).subscribe(res => {
-      this.parks = res.content;
-      this.totalElements = res.totalElements;
+
+  deletePark(id: string) {
+    this.parkService.deleteById(id).subscribe(res => {
+      this.loadParks(this.pageindex, this.pagesize);
+    })
+  }
+
+  openDialogNewPark(): void {
+
+    const dialogRef = this.dialog.open(NewParkDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
     })
   }
 

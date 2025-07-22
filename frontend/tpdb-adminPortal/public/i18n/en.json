@@ -7,6 +7,7 @@
 			"UNDER_CONSTRUCTION": "Under construction"
 		},
 		"parktype": {
+			"ADVENTUREAREA": "Adventure Area",
 			"AMUSEMENTPARK": "Amusement park",
 			"ANIMALPARK": "Animal park",
 			"THEMEPARK": "Theme park",
@@ -71,6 +72,28 @@
 		"addPage": {
 			"title": "Add a Park"
 		},
+		"form": {
+			"add": {
+				"description": {
+					"label": "Description"
+				},
+				"name": {
+					"label": "Name"
+				},
+				"opening": {
+					"label": "Opening date"
+				},
+				"parkType": {
+					"label": "ParkType",
+					"options": {
+						"AMUSEMENTPARK": "Amusement Park",
+						"ANIMALPARK": "Animal park",
+						"THEMEPARK": "Themepark",
+						"WATERPARK": "Water park"
+					}
+				}
+			}
+		},
 		"mainpage": {
 			"table": {
 				"details": {
@@ -86,7 +109,8 @@
 				"headers": {
 					"name": "Name",
 					"parkStatus": "Status",
-					"parkType": "Park Type"
+					"parkType": "Park Type",
+					"tools": "tools"
 				}
 			},
 			"title": "Parks"

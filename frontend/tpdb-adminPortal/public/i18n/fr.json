@@ -7,6 +7,7 @@
 			"UNDER_CONSTRUCTION": "En construction"
 		},
 		"parktype": {
+			"ADVENTUREAREA": "",
 			"AMUSEMENTPARK": "Parc d'attractions",
 			"ANIMALPARK": "Parc animalier",
 			"THEMEPARK": "Parc à thème",
@@ -71,6 +72,28 @@
 		"addPage": {
 			"title": ""
 		},
+		"form": {
+			"add": {
+				"description": {
+					"label": ""
+				},
+				"name": {
+					"label": ""
+				},
+				"opening": {
+					"label": ""
+				},
+				"parkType": {
+					"label": "",
+					"options": {
+						"AMUSEMENTPARK": "",
+						"ANIMALPARK": "",
+						"THEMEPARK": "",
+						"WATERPARK": ""
+					}
+				}
+			}
+		},
 		"mainpage": {
 			"table": {
 				"details": {
@@ -86,7 +109,8 @@
 				"headers": {
 					"name": "Nom",
 					"parkStatus": "Statut",
-					"parkType": "Type de parc"
+					"parkType": "Type de parc",
+					"tools": ""
 				}
 			},
 			"title": "Parcs"
