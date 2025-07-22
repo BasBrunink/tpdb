@@ -74,6 +74,15 @@
 		},
 		"form": {
 			"add": {
+				"address": {
+					"label": "Address\n"
+				},
+				"areaSize": {
+					"label": "area size"
+				},
+				"closing": {
+					"label": "Closing date"
+				},
 				"description": {
 					"label": "Description"
 				},
@@ -82,6 +91,15 @@
 				},
 				"opening": {
 					"label": "Opening date"
+				},
+				"parkStatus": {
+					"label": "Park status",
+					"options": {
+						"DEFUNCT": "Defunct",
+						"OPERATING": "Operating",
+						"OUT_OF_OPERATION": "Out of operation",
+						"UNDER_CONSTRUCTION": "Under construction"
+					}
 				},
 				"parkType": {
 					"label": "ParkType",

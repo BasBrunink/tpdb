@@ -28,8 +28,14 @@ export class NewParkDialog {
     [ParkType.ANIMALPARK]: 'parks.form.add.parkType.options.ANIMALPARK'
   };
 
-
+  readonly parkStatusLabels: Record<ParkStatus, string> = {
+    [ParkStatus.DEFUNCT]: 'parks.form.add.parkStatus.options.DEFUNCT',
+    [ParkStatus.OUT_OF_OPERATION]: 'parks.form.add.parkStatus.options.OUT_OF_OPERATION',
+    [ParkStatus.UNDER_CONSTRUCTION]: 'parks.form.add.parkStatus.options.UNDER_CONSTRUCTION',
+    [ParkStatus.OPERATING]: 'parks.form.add.parkStatus.options.OPERATING'
+  }
   parkTypes = Object.values(ParkType)
+  parkStatuses = Object.values(ParkStatus)
 
   newParkForm = new FormGroup({
     name: new FormControl<string>('', {nonNullable: true}),
@@ -43,6 +49,8 @@ export class NewParkDialog {
   })
 
   storePark() {
-    console.log(this.newParkForm.value)
+    if(this.newParkForm.valid) {
+      this.dialogRef.close(this.newParkForm.getRawValue())
+    }
   }
 }

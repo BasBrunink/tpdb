@@ -74,6 +74,15 @@
 		},
 		"form": {
 			"add": {
+				"address": {
+					"label": ""
+				},
+				"areaSize": {
+					"label": ""
+				},
+				"closing": {
+					"label": ""
+				},
 				"description": {
 					"label": ""
 				},
@@ -82,6 +91,15 @@
 				},
 				"opening": {
 					"label": ""
+				},
+				"parkStatus": {
+					"label": "",
+					"options": {
+						"DEFUNCT": "",
+						"OPERATING": "",
+						"OUT_OF_OPERATION": "",
+						"UNDER_CONSTRUCTION": ""
+					}
 				},
 				"parkType": {
 					"label": "",

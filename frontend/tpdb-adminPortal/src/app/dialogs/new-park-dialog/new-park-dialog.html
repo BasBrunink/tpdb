@@ -1,5 +1,5 @@
 <h2>Add a park</h2>
-<form [formGroup]="newParkForm"(ngSubmit)="storePark()">
+<form [formGroup]="newParkForm" (ngSubmit)="storePark()">
   <mat-form-field>
     <mat-label>{{'parks.form.add.name.label' | translate}}</mat-label>
     <input matInput #name maxlength="25" placeholder="name" formControlName="name"/>
@@ -20,12 +20,41 @@
       }
     </mat-select>
   </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>{{'parks.form.add.parkStatus.label' | translate}}</mat-label>
+    <mat-select formControlName="parkStatus">
+      @for(status of parkStatuses; track $index) {
+        <mat-option [value]="status">{{parkStatusLabels[status] |translate }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
   <mat-form-field>
     <mat-label>{{'parks.form.add.opening.label' | translate}}</mat-label>
-    <input matInput [matDatepicker]="picker">
+    <input matInput [matDatepicker]="openingPicker" formControlName="openingDate">
     <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
+    <mat-datepicker-toggle matIconSuffix [for]="openingPicker"></mat-datepicker-toggle>
+    <mat-datepicker #openingPicker></mat-datepicker>
   </mat-form-field>
+  <mat-form-field>
+    <mat-label>{{'parks.form.add.closing.label' | translate}}</mat-label>
+    <input matInput [matDatepicker]="closingPicker" formControlName="closingDate">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="closingPicker"></mat-datepicker-toggle>
+    <mat-datepicker #closingPicker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>{{'parks.form.add.address.label' | translate}}</mat-label>
+    <textarea
+      matInput
+      placeholder="text"
+      formControlName="address"
+      rows="4"></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>{{'parks.form.add.areaSize.label' | translate}}</mat-label>
+    <input matInput #areaSize maxlength="25" placeholder="name" formControlName="areaSize"/>
+  </mat-form-field>
+
   <button type="submit" [disabled]="!newParkForm.valid">Submit</button>
 </form>
