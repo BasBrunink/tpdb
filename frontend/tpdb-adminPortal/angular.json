@@ -79,6 +79,10 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
+            "codeCoverage": true,
+            "codeCoverageExclude": [
+              "**/mock-*.ts"
+            ],
             "polyfills": [
               "zone.js",
               "zone.js/testing"

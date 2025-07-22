@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {PaginatedPark, Park} from '../../model/park/park.model';
@@ -11,7 +11,8 @@ export class ParkService {
 
   private baseUrl = '/api/v1/parks';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
 
   getAllParks(page: number, size: number): Observable<PaginatedPark> {
@@ -22,6 +23,6 @@ export class ParkService {
   }
 
   addPark(park: Park) {
-   this.http.post<Park>(this.baseUrl, park);
-}
+    this.http.post<Park>(this.baseUrl, park);
+  }
 }
