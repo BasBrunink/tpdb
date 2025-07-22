@@ -51,4 +51,17 @@ describe('ParkService', () => {
       req.flush(mockResponse);
     });
   });
+  describe('DeleteParkById', () => {
+    it('should perform DELETE request and return 204', () =>{
+      const parkId = '123e4567-e89b-12d3-a456-426614174000';
+      service.deleteById(parkId).subscribe( res => {
+        expect(res).toBeNull()
+      })
+
+      const req = httpMock.expectOne(`/api/v1/parks/${parkId}`)
+      expect(req.request.method).toBe('DELETE');
+      req.flush(null);
+
+    })
+  })
 });

@@ -1,7 +1,17 @@
 import { DateTime } from 'luxon';
 
-export type ParkType = 'AMUSEMENTPARK' | 'THEMEPARK' |'ANIMALPARK' | 'WATERPARK';
-export type ParkStatus = 'DEFUNCT' | 'OPERATING' | 'OUT_OF_OPERATION' | 'UNDER_CONSTRUCTION';
+export enum ParkType {
+  AMUSEMENTPARK = 'AMUSEMENTPARK',
+  WATERPARK = 'WATERPARK',
+  THEMEPARK = 'THEMEPARK',
+  ANIMALPARK = 'ANIMALPARK'
+}
+export enum ParkStatus {
+  DEFUNCT = 'DEFUNCT',
+  OPERATING = 'OPERATING',
+  OUT_OF_OPERATION = 'OUT_OF_OPERATION',
+  UNDER_CONSTRUCTION = 'UNDER_CONSTRUCTION'
+}
 
 export class Park {
   constructor(

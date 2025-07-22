@@ -7,6 +7,7 @@
 			"UNDER_CONSTRUCTION": "In aanbouw"
 		},
 		"parktype": {
+			"ADVENTUREAREA": "",
 			"AMUSEMENTPARK": "Amusement park",
 			"ANIMALPARK": "Animal park",
 			"THEMEPARK": "Theme park",
@@ -71,6 +72,46 @@
 		"addPage": {
 			"title": ""
 		},
+		"form": {
+			"add": {
+				"address": {
+					"label": ""
+				},
+				"areaSize": {
+					"label": ""
+				},
+				"closing": {
+					"label": ""
+				},
+				"description": {
+					"label": ""
+				},
+				"name": {
+					"label": ""
+				},
+				"opening": {
+					"label": ""
+				},
+				"parkStatus": {
+					"label": "",
+					"options": {
+						"DEFUNCT": "",
+						"OPERATING": "",
+						"OUT_OF_OPERATION": "",
+						"UNDER_CONSTRUCTION": ""
+					}
+				},
+				"parkType": {
+					"label": "",
+					"options": {
+						"AMUSEMENTPARK": "",
+						"ANIMALPARK": "",
+						"THEMEPARK": "",
+						"WATERPARK": ""
+					}
+				}
+			}
+		},
 		"mainpage": {
 			"table": {
 				"details": {
@@ -86,7 +127,8 @@
 				"headers": {
 					"name": "Naam",
 					"parkStatus": "Status",
-					"parkType": "Park Type"
+					"parkType": "Park Type",
+					"tools": ""
 				}
 			},
 			"title": "Parks"

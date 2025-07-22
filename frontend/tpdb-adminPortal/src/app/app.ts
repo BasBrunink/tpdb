@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {HeaderComponent} from './components/common/header/header.component/header.component';
 import {TranslateService} from '@ngx-translate/core';
+import {MatLuxonDateModule} from '@angular/material-luxon-adapter';
 
 @Component({
   selector: 'app-root',

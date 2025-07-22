@@ -25,4 +25,9 @@ export class ParkService {
   addPark(park: Park) {
     this.http.post<Park>(this.baseUrl, park);
   }
+
+  deleteById(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/${id}`)
+
+  }
 }
