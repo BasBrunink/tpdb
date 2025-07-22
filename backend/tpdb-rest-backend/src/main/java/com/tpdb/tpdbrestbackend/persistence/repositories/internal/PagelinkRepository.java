@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public interface PagelinkRepository {
     PageLink save(PageLink pagelink);
-    Optional<PageLink> findyById(UUID id);
+    Optional<PageLink> findById(UUID id);
     List<PageLink> findAll();
     void deleteById(UUID id);
     boolean existsById(UUID id);

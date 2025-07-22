@@ -28,7 +28,7 @@ public class PageLinkService implements PageLinkUseCase {
 
     @Override
     public Optional<PageLink> findById(UUID id) {
-        return pagelinkRepository.findyById(id);
+        return pagelinkRepository.findById(id);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class PageLinkService implements PageLinkUseCase {
 
     @Override
     public void update(UUID id, PageLink updatedPageLink) {
-        pagelinkRepository.findyById(id)
+        pagelinkRepository.findById(id)
                 .map(existingPark -> {
                     existingPark.setUpdatedAt(LocalDateTime.now());
                     existingPark.setLastParse(updatedPageLink.getLastParse());

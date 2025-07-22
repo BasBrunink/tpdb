@@ -29,9 +29,10 @@ public class JpaPagelinkRepositoryAdapter implements PagelinkRepository {
     }
 
     @Override
-    public Optional<PageLink> findyById(UUID id) {
+    public Optional<PageLink> findById(UUID id) {
         return pageLinkRepository.findById(id).map(pageLinkEntityMapper::toDomain);
     }
+
     @Override
     public Optional<PageLink> findByLink(String link) {
         return pageLinkRepository.findByLink(link).map(pageLinkEntityMapper::toDomain);
@@ -55,9 +56,8 @@ public class JpaPagelinkRepositoryAdapter implements PagelinkRepository {
 
     @Override
     public List<PageLink> findTopNByTypeAndParseDue(LinkType type, LocalDateTime cutoff, int batchSize) {
-        return pageLinkRepository.findNextBatch(type, cutoff, PageRequest.of(0,batchSize)).stream().map(pageLinkEntityMapper::toDomain).toList();
+        return pageLinkRepository.findNextBatch(type, cutoff, PageRequest.of(0, batchSize)).stream().map(pageLinkEntityMapper::toDomain).toList();
 
     }
-
 
 }
