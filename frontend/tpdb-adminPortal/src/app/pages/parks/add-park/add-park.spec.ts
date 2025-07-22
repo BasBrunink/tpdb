@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddPark } from './add-park';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('AddPark', () => {
   let component: AddPark;
@@ -8,7 +9,7 @@ describe('AddPark', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddPark]
+      imports: [AddPark, TranslateModule.forRoot()]
     })
     .compileComponents();
 
@@ -20,4 +21,4 @@ describe('AddPark', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+  });

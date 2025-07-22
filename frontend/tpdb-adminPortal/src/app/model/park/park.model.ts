@@ -11,10 +11,11 @@ export class Park {
     public name: string,
     public description: string,
     public parkType: ParkType,
-    public opening: DateTime,
+
     public status: ParkStatus,
     public address: string,
     public areaSize: number,
+    public opening: DateTime |null,
     public closing?: DateTime | null,
   ) {}
 
@@ -27,10 +28,10 @@ export class Park {
       json.name,
       json.description,
       json.parkType,
-      DateTime.fromISO(json.opening),
       json.status,
       json.address,
       json.areaSize,
+      DateTime.fromISO(json.opening),
       DateTime.fromISO(json.closing),
     );
   }}
