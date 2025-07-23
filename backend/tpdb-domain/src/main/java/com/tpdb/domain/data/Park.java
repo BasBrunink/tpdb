@@ -1,5 +1,6 @@
 package com.tpdb.domain.data;
 
+import com.tpdb.domain.data.common.Location;
 import com.tpdb.domain.data.enums.ParkStatus;
 import com.tpdb.domain.data.enums.types.ParkType;
 import com.tpdb.domain.data.user.User;
@@ -34,5 +35,8 @@ public class Park {
     private double areaSize;
     private String sourceId;
     private ScrapeSource source;
+
+    //Relations
+    private Location location;
 
 }
