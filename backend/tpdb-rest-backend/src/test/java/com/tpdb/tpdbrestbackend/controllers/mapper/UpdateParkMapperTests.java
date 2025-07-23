@@ -3,6 +3,7 @@ package com.tpdb.tpdbrestbackend.controllers.mapper;
 
 import com.tpdb.domain.data.enums.ParkStatus;
 import com.tpdb.domain.data.enums.types.ParkType;
+import com.tpdb.tpdbrestbackend.controllers.mapper.park.UpdateParkMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import com.tpdb.domain.data.Park;

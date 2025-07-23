@@ -1,4 +1,4 @@
-package com.tpdb.tpdbrestbackend.services.usecases;
+package com.tpdb.tpdbrestbackend.services.usecases.data;
 
 import com.tpdb.domain.data.Park;
 import com.tpdb.domain.internal.scraper.enums.ScrapeSource;

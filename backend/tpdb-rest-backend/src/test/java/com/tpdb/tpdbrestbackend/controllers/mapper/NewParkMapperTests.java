@@ -5,6 +5,7 @@ import com.tpdb.domain.data.enums.ParkStatus;
 import com.tpdb.domain.data.enums.types.ParkType;
 import com.tpdb.tpdbrestbackend.controllers.dto.park.newPark.CreateNewParkRequest;
 import com.tpdb.tpdbrestbackend.controllers.dto.park.newPark.CreateParkResponse;
+import com.tpdb.tpdbrestbackend.controllers.mapper.park.NewParkMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

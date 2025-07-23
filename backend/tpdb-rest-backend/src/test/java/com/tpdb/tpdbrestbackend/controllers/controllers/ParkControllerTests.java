@@ -18,10 +18,10 @@ import com.tpdb.tpdbrestbackend.controllers.dto.park.newPark.CreateParkResponse;
 import com.tpdb.tpdbrestbackend.controllers.dto.park.updatePark.UpdateParkRequest;
 import com.tpdb.tpdbrestbackend.controllers.dto.park.updatePark.UpdateParkResponse;
 import com.tpdb.domain.data.Park;
-import com.tpdb.tpdbrestbackend.services.usecases.ParkUseCase;
-import com.tpdb.tpdbrestbackend.controllers.mapper.NewParkMapper;
-import com.tpdb.tpdbrestbackend.controllers.mapper.UpdateParkMapper;
-import com.tpdb.tpdbrestbackend.controllers.mapper.ParkMapper;
+import com.tpdb.tpdbrestbackend.services.usecases.data.ParkUseCase;
+import com.tpdb.tpdbrestbackend.controllers.mapper.park.NewParkMapper;
+import com.tpdb.tpdbrestbackend.controllers.mapper.park.UpdateParkMapper;
+import com.tpdb.tpdbrestbackend.controllers.mapper.park.ParkMapper;
 
 class ParkControllerTests {
 

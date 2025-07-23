@@ -3,6 +3,7 @@ package com.tpdb.tpdbrestbackend.services.implementation;
 import com.tpdb.domain.data.Park;
 import com.tpdb.domain.internal.scraper.enums.ScrapeSource;
 import com.tpdb.tpdbrestbackend.persistence.repositories.data.ParkRepository;
+import com.tpdb.tpdbrestbackend.services.implementation.data.ParkService;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

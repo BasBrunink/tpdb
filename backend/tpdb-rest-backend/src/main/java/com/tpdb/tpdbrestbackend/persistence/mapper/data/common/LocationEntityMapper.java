@@ -3,7 +3,9 @@ package com.tpdb.tpdbrestbackend.persistence.mapper.data.common;
 import com.tpdb.domain.data.common.Location;
 import com.tpdb.tpdbrestbackend.persistence.entities.data.common.LocationEntity;
 import com.tpdb.tpdbrestbackend.persistence.mapper.EntityMapper;
+import org.springframework.stereotype.Component;
 
+@Component
 public class LocationEntityMapper implements EntityMapper<Location, LocationEntity> {
     @Override
     public LocationEntity toEntity(Location domain) {

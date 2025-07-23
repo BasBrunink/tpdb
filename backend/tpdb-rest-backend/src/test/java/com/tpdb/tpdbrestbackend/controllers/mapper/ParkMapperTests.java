@@ -5,6 +5,7 @@ import com.tpdb.domain.data.enums.ParkStatus;
 import com.tpdb.domain.data.enums.types.ParkType;
 import com.tpdb.tpdbrestbackend.controllers.dto.park.ParkRequest;
 import com.tpdb.tpdbrestbackend.controllers.dto.park.ParkResponse;
+import com.tpdb.tpdbrestbackend.controllers.mapper.park.ParkMapper;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

@@ -5,7 +5,7 @@ import com.tpdb.domain.data.enums.ParkStatus;
 import com.tpdb.domain.data.enums.types.ParkType;
 import com.tpdb.domain.internal.comunication.dto.ParkDto;
 import com.tpdb.domain.internal.scraper.enums.ScrapeSource;
-import com.tpdb.tpdbrestbackend.services.usecases.ParkUseCase;
+import com.tpdb.tpdbrestbackend.services.usecases.data.ParkUseCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;

@@ -1,9 +1,9 @@
-package com.tpdb.tpdbrestbackend.services.implementation;
+package com.tpdb.tpdbrestbackend.services.implementation.data;
 
 import com.tpdb.domain.data.Park;
 import com.tpdb.domain.internal.scraper.enums.ScrapeSource;
 import com.tpdb.tpdbrestbackend.persistence.repositories.data.ParkRepository;
-import com.tpdb.tpdbrestbackend.services.usecases.ParkUseCase;
+import com.tpdb.tpdbrestbackend.services.usecases.data.ParkUseCase;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

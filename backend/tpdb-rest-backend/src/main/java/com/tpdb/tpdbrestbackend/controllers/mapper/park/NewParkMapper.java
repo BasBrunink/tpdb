@@ -1,8 +1,9 @@
-package com.tpdb.tpdbrestbackend.controllers.mapper;
+package com.tpdb.tpdbrestbackend.controllers.mapper.park;
 
 import com.tpdb.domain.data.Park;
 import com.tpdb.tpdbrestbackend.controllers.dto.park.newPark.CreateNewParkRequest;
 import com.tpdb.tpdbrestbackend.controllers.dto.park.newPark.CreateParkResponse;
+import com.tpdb.tpdbrestbackend.controllers.mapper.DtoMapper;
 import org.springframework.stereotype.Component;
 
 @Component
