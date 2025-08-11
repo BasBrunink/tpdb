@@ -187,7 +187,8 @@
   <button (click)="login()">login</button>
   <button (click)="logout()">logout</button>
 
-  <p>{{isLoggedin$}}</p>
+  <p>{{isLoggedin$ |async |json}}</p>
+  <p>{{isAdmin}}</p>
   <div class="content">
     <div class="left-side">
       <svg
