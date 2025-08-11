@@ -183,6 +183,11 @@
 </style>
 
 <main class="main">
+
+  <button (click)="login()">login</button>
+  <button (click)="logout()">logout</button>
+
+  <p>{{isLoggedin$}}</p>
   <div class="content">
     <div class="left-side">
       <svg
