@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/tpdb.iml" filepath="$PROJECT_DIR$/tpdb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frontend/tpdb-admin-portal/tpdb-admin-portal.iml" filepath="$PROJECT_DIR$/frontend/tpdb-admin-portal/tpdb-admin-portal.iml" />
     </modules>
   </component>
 </project>
