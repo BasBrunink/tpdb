@@ -1,7 +1,8 @@
-import {Component, inject, signal} from '@angular/core';
+import {Component, inject, OnInit, signal} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import Keycloak from 'keycloak-js';
 import {AsyncPipe, JsonPipe} from '@angular/common';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,17 @@ import {AsyncPipe, JsonPipe} from '@angular/common';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
+export class App implements OnInit{
   protected readonly title = signal('tpdb-admin-portal');
   private readonly keycloak = inject(Keycloak)
+  private http = inject(HttpClient);
+  ngOnInit() {
+    this.http.get('http://localhost:8081/public/hello', {responseType: 'text'}).subscribe(
+      data => this.message = data
+    )
+  }
 
+  message?: string;
   isLoggedin$ = this.keycloak.loadUserInfo();
   isAdmin = this.keycloak.hasRealmRole("ADMIN")
   login() {
