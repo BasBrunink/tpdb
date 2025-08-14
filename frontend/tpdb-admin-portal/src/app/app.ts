@@ -3,17 +3,16 @@ import { RouterOutlet } from '@angular/router';
 import Keycloak from 'keycloak-js';
 import {HttpClient} from '@angular/common/http';
 import {Header} from './common/components/header/header';
-import {AuthenticationService} from './auth/authentication-service';
+import {JsonPipe} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header],
+  imports: [RouterOutlet, Header, JsonPipe],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App implements OnInit{
   protected readonly title = signal('tpdb-admin-portal');
-  private readonly authenticationService = inject(AuthenticationService);
   private readonly keycloak = inject(Keycloak);
   private readonly http = inject(HttpClient);
   ngOnInit() {
@@ -23,12 +22,12 @@ export class App implements OnInit{
   }
 
   message?: string;
-  userInfo$ = this.authenticationService.userInfo$;
+  userInfo$ = this.keycloak.loadUserInfo();
   login() {
-    this.authenticationService.login();
+    this.keycloak.login();
   }
 
   logout() {
-    this.authenticationService.logout();
+    this.keycloak.logout();
   }
 }

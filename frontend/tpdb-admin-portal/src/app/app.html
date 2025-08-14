@@ -2,6 +2,6 @@
   <button (click)="login()">login</button>
   <button (click)="logout()">logout</button>
 
-  <p>{{userInfo$()}}</p>
+  <p>{{userInfo$ | json}}</p>
   <p>{{message}}</p>
 <router-outlet />
