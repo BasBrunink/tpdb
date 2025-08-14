@@ -3,14 +3,14 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors} from '@angular/common/http';
-import {includeBearerTokenInterceptor} from 'keycloak-angular';
 import {provideKeycloakAngular} from './config/keycloak.config';
+import {tokenInterceptor} from './auth/interceptors/token.interceptor';
 
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideKeycloakAngular(),
-    provideHttpClient(withInterceptors([includeBearerTokenInterceptor])),
+    provideHttpClient(withInterceptors([tokenInterceptor])),
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes)
