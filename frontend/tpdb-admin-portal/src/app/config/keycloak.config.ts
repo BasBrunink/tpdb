@@ -10,7 +10,7 @@ import {
 const localhostCondition = createInterceptorCondition<IncludeBearerTokenCondition>({
   urlPattern: /^(http:\/\/localhost:8180)(\/.*)?$/i
 })
-export const provideKeycloakAngular = () =>
+export const provideKeycloakExt = () =>
   provideKeycloak({
     config: {
       realm: 'TPDB',
