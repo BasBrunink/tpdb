@@ -2,7 +2,6 @@
   <button (click)="login()">login</button>
   <button (click)="logout()">logout</button>
 
-  <p>{{isLoggedin$ |async |json}}</p>
-  <p>{{isAdmin}}</p>
+  <p>{{userInfo$()}}</p>
   <p>{{message}}</p>
 <router-outlet />
