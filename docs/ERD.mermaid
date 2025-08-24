@@ -16,8 +16,11 @@ erDiagram
 
     RIDE ||--|| ATTRACTION: ISA
     DARKRIDE ||--|| RIDE: ISA
+
+    %% relations
     RESORT ||--o{ PARK : has
-    PARK ||--o{ATTRACTION : has
+    PARK ||--o{ ATTRACTION : has
+    PARK |o--o{ FACILITIES: has
     
 
 
