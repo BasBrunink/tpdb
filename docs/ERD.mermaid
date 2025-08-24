@@ -1,0 +1,83 @@
+erDiagram
+    ATTRACTION {
+        string Id PK
+        string name 
+        string description
+    }
+    RIDE {
+        string type
+        
+    }
+
+    DARKRIDE {
+        String theme
+    }
+    %% Inheritance relations 
+
+    RIDE ||--|| ATTRACTION: ISA
+    DARKRIDE ||--|| RIDE: ISA
+    RESORT ||--o{ PARK : has
+    PARK ||--o{ATTRACTION : has
+    
+
+
+    %% Base/Parent Entity
+    Person {
+        int PersonID PK
+        string FirstName
+        string LastName
+        string Email
+        date DateOfBirth
+        string Phone
+        string PersonType "Employee, Customer, etc."
+    }
+
+    %% Child Entity 1 - Employee
+    Employee {
+        int PersonID PK,FK
+        string EmployeeNumber
+        decimal Salary
+        date HireDate
+        string Department
+        int ManagerID FK
+    }
+
+    %% Child Entity 2 - Customer  
+    Customer {
+        int PersonID PK,FK
+        string CustomerNumber
+        decimal CreditLimit
+        date FirstPurchaseDate
+        string PreferredContactMethod
+        bool IsVIP
+    }
+
+    %% Manager self-reference
+    Employee ||--o{ Employee : "manages"
+
+    %% Inheritance relationships (ISA)
+    Person ||--|| Employee : "ISA"
+    Person ||--|| Customer : "ISA"
+
+    %% Supporting entities to show relationships
+    Order {
+        int OrderID PK
+        int CustomerID FK
+        date OrderDate
+        decimal TotalAmount
+        string Status
+    }
+
+    Department {
+        int DepartmentID PK
+        string DepartmentName
+        string Location
+        int ManagerID FK
+    }
+
+    %% Business relationships
+    Customer ||--o{ Order : "places"
+    Employee ||--o{ Department : "belongs_to"
+
+
+
